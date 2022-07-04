@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <CharactersData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Characters>
 	<Character>
 		<ID>101</ID>
 		<Name>姚佑傑</Name>
-		<Birth>07_19</Birth>
+		<Birth>07月19日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>9000</PocketMoney>
 		<Salary>0</Salary>
@@ -15,7 +16,7 @@
 	<Character>
 		<ID>102</ID>
 		<Name>曾宏泰</Name>
-		<Birth>02_24</Birth>
+		<Birth>02月24日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>6000</PocketMoney>
 		<Salary>0</Salary>
@@ -27,7 +28,7 @@
 	<Character>
 		<ID>103</ID>
 		<Name>謝啟達</Name>
-		<Birth>03_08</Birth>
+		<Birth>03月08日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>0</PocketMoney>
 		<Salary>0</Salary>
@@ -39,7 +40,7 @@
 	<Character>
 		<ID>104</ID>
 		<Name>張中毅</Name>
-		<Birth>09_21</Birth>
+		<Birth>09月21日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>6000</PocketMoney>
 		<Salary>0</Salary>
@@ -51,7 +52,7 @@
 	<Character>
 		<ID>105</ID>
 		<Name>陳孟儒</Name>
-		<Birth>04_15</Birth>
+		<Birth>04月15日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>5000</PocketMoney>
 		<Salary>0</Salary>
@@ -63,7 +64,7 @@
 	<Character>
 		<ID>106</ID>
 		<Name>吳　攸</Name>
-		<Birth>12_03</Birth>
+		<Birth>12月03日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>15000</PocketMoney>
 		<Salary>0</Salary>
@@ -75,7 +76,7 @@
 	<Character>
 		<ID>107</ID>
 		<Name>蔡奕聰</Name>
-		<Birth>01_04</Birth>
+		<Birth>01月04日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>4000</PocketMoney>
 		<Salary>0</Salary>
@@ -87,7 +88,7 @@
 	<Character>
 		<ID>108</ID>
 		<Name>王冠捷</Name>
-		<Birth>05_18</Birth>
+		<Birth>05月18日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>5000</PocketMoney>
 		<Salary>0</Salary>
@@ -99,7 +100,7 @@
 	<Character>
 		<ID>109</ID>
 		<Name>錢鑫新</Name>
-		<Birth>10_17</Birth>
+		<Birth>10月17日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>2000</PocketMoney>
 		<Salary>0</Salary>
@@ -111,7 +112,7 @@
 	<Character>
 		<ID>110</ID>
 		<Name>趙大宇</Name>
-		<Birth>06_20</Birth>
+		<Birth>06月20日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>5000</PocketMoney>
 		<Salary>0</Salary>
@@ -123,7 +124,7 @@
 	<Character>
 		<ID>201</ID>
 		<Name>姚淑芬</Name>
-		<Birth>07_31</Birth>
+		<Birth>07月31日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>9000</PocketMoney>
 		<Salary>0</Salary>
@@ -135,7 +136,7 @@
 	<Character>
 		<ID>202</ID>
 		<Name>曾美麗</Name>
-		<Birth>02_24</Birth>
+		<Birth>02月24日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>6000</PocketMoney>
 		<Salary>0</Salary>
@@ -147,7 +148,7 @@
 	<Character>
 		<ID>203</ID>
 		<Name>謝雯蓉</Name>
-		<Birth>03_02</Birth>
+		<Birth>03月02日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>0</PocketMoney>
 		<Salary>0</Salary>
@@ -159,7 +160,7 @@
 	<Character>
 		<ID>204</ID>
 		<Name>張惠茹</Name>
-		<Birth>09_21</Birth>
+		<Birth>09月21日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>6000</PocketMoney>
 		<Salary>0</Salary>
@@ -171,7 +172,7 @@
 	<Character>
 		<ID>205</ID>
 		<Name>陳瑋婷</Name>
-		<Birth>04_15</Birth>
+		<Birth>04月15日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>5000</PocketMoney>
 		<Salary>0</Salary>
@@ -183,7 +184,7 @@
 	<Character>
 		<ID>206</ID>
 		<Name>吳　悠</Name>
-		<Birth>12_03</Birth>
+		<Birth>12月03日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>15000</PocketMoney>
 		<Salary>0</Salary>
@@ -195,7 +196,7 @@
 	<Character>
 		<ID>207</ID>
 		<Name>蔡宜螢</Name>
-		<Birth>01_04</Birth>
+		<Birth>01月04日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>4000</PocketMoney>
 		<Salary>0</Salary>
@@ -207,7 +208,7 @@
 	<Character>
 		<ID>208</ID>
 		<Name>王曉敏</Name>
-		<Birth>05_18</Birth>
+		<Birth>05月18日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>5000</PocketMoney>
 		<Salary>0</Salary>
@@ -219,7 +220,7 @@
 	<Character>
 		<ID>209</ID>
 		<Name>錢晶晶</Name>
-		<Birth>10_17</Birth>
+		<Birth>10月17日</Birth>
 		<Relationship>1</Relationship>
 		<PocketMoney>2000</PocketMoney>
 		<Salary>0</Salary>
@@ -231,7 +232,7 @@
 	<Character>
 		<ID>210</ID>
 		<Name>趙家燕</Name>
-		<Birth>06_20</Birth>
+		<Birth>06月20日</Birth>
 		<Relationship>0</Relationship>
 		<PocketMoney>5000</PocketMoney>
 		<Salary>0</Salary>
@@ -240,4 +241,5 @@
 		<AllocateCash>0</AllocateCash>
 		<AllocateTime>0</AllocateTime>
 	</Character>
+    </Characters>
 </CharactersData>
