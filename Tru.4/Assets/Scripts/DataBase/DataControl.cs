@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Xml;
 
 public class DataControl : MonoBehaviour
 {
     public static DataControl Instance;
-
+    public string PlayerName;
     public int ID;
 
     [Header("DataBase¸ô®|")]
     public const string CharactersDataBasepath = "DataBase/CharacterDataBase";
+    public const string JobDataBasepath = "DataBase/JobDataBase";
+    public const string DarkCardspath = "DataBase/DarkCardsDataBase";
 
     [Header("DataBase")]
     public CharactersDataBase Characters_DataBase;
+    public JobsExperience Jobs_DataBase;
+    public DarkCardsDataBase DarkCards_DataBase;
 
     #region Singleton
     private void Awake()
@@ -26,21 +32,24 @@ public class DataControl : MonoBehaviour
 
     private void Start()
     {
+        DarkCards_DataBase = DarkCardsDataBase.LoadDataBase(DarkCardspath);
         Characters_DataBase = CharactersDataBase.LoadDataBase(CharactersDataBasepath);
+        Jobs_DataBase = JobsExperience.LoadDataBase(JobDataBasepath);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (var character in Characters_DataBase.Obj)
+            while(DarkCards_DataBase.Obj.Count != 0)
+                DarkCards_DataBase = DarkCardsDataBase.LoadDataBase(DarkCardspath);
+            foreach (var job in DarkCards_DataBase.Obj)
             {
-                if (character.ID != ID)
+                if (job.ID != ID)
                     continue;
                 else
-                    Debug.LogError(character.ID + " " + character.Name);
-                    
+                    Debug.Log(job.PunishCash);
             }
-        }
+       }
     }
 }
