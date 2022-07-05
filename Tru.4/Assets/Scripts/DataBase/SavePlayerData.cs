@@ -6,9 +6,8 @@ using System.Xml;
 
 public class SavePlayerData : MonoBehaviour
 {
-    public DataControl dataControl = DataControl.Instance;
+    /*public DataControl dataControl = DataControl.Instance;
     public string PlayerName;
-    public int ID = 201;
 
     #region 角色初始化數據
 
@@ -22,7 +21,7 @@ public class SavePlayerData : MonoBehaviour
             return 0;
     }
 
-    private void CreateXML(Characters character,Jobs job)
+    private void CreateXML(Characters character)
     {
         string localPath = UnityEngine.Application.persistentDataPath + "/Player.xml";
         XmlDocument xml = new XmlDocument();
@@ -62,18 +61,18 @@ public class SavePlayerData : MonoBehaviour
         return null;
     }
 
-    public Jobs Getjob(int id)
-    {
-        foreach (var job in dataControl.Jobs_DataBase.Obj)
-        {
-            if (job.ID != id)
-                continue;
-            else
-                return job;
-        }
+    //public Jobs Getjob(int id)
+    //{
+    //    foreach (var job in dataControl.Jobs_DataBase.Obj)
+    //    {
+    //        if (job.ID != id)
+    //            continue;
+    //        else
+    //            return job;
+    //    }
 
-        return null;
-    }
+    //    return null;
+    //}
 
     #endregion
 
@@ -101,5 +100,5 @@ public class SavePlayerData : MonoBehaviour
     //    info.SetAttribute("PlayerName", PlayerName);
     //    xml.Save(localPath);//保存xml到路徑位置
     //    Debug.Log("創建XML成功！");
-    //}
+    //}*/
 }
