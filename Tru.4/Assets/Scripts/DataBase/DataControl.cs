@@ -8,17 +8,24 @@ public class DataControl : MonoBehaviour
 {
     public static DataControl Instance;
     public string PlayerName;
+    public int CID;
     public int ID;
 
     [Header("DataBase¸ô®|")]
     public const string CharactersDataBasepath = "DataBase/CharacterDataBase";
-    public const string JobDataBasepath = "DataBase/JobDataBase";
     public const string DarkCardspath = "DataBase/DarkCardsDataBase";
+    public const string LargeGreatpath = "DataBase/LargeGreatDataBase";
+    public const string LittleGreatpath = "DataBase/LittleGreatDataBase";
+    public const string LittleLuckpath = "DataBase/LittleLuckDataBase";
+    public const string Workpath = "DataBase/WorkDataBase";
 
     [Header("DataBase")]
-    public CharactersDataBase Characters_DataBase;
-    public JobsExperience Jobs_DataBase;
-    public DarkCardsDataBase DarkCards_DataBase;
+    public Dictionary<int, Characters> Characters_DataBase = new Dictionary<int, Characters>();
+    public Dictionary<int, DarkCards> DarkCards_DataBase = new Dictionary<int, DarkCards>();
+    public Dictionary<int, LargeGreatCard> LargeGreats_DataBase = new Dictionary<int, LargeGreatCard>();
+    public Dictionary<int, LittleGreatCard> LittleGreats_DataBase = new Dictionary<int, LittleGreatCard>();
+    public Dictionary<int, LittleLuckCard> LittleLuck_DataBase = new Dictionary<int, LittleLuckCard>();
+    public Dictionary<int, Works> Work_DataBase = new Dictionary<int, Works>();
 
     #region Singleton
     private void Awake()
@@ -30,26 +37,17 @@ public class DataControl : MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    void Start()
     {
-        DarkCards_DataBase = DarkCardsDataBase.LoadDataBase(DarkCardspath);
-        Characters_DataBase = CharactersDataBase.LoadDataBase(CharactersDataBasepath);
-        Jobs_DataBase = JobsExperience.LoadDataBase(JobDataBasepath);
+        DarkCards_DataBase = DarkCardsDataBase.IntoDictionary(DarkCardspath);
+        Characters_DataBase = CharactersDataBase.IntoDictionary(CharactersDataBasepath);
+        LargeGreats_DataBase = LargeGreatData.IntoDictionary(LargeGreatpath);
+        LittleGreats_DataBase = LittleGreatData.IntoDictionary(LittleGreatpath);
+        LittleLuck_DataBase = LittleLuckData.IntoDictionary(LittleLuckpath);
+        Work_DataBase = WorkDataBase.IntoDictionary(Workpath);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            while(DarkCards_DataBase.Obj.Count != 0)
-                DarkCards_DataBase = DarkCardsDataBase.LoadDataBase(DarkCardspath);
-            foreach (var job in DarkCards_DataBase.Obj)
-            {
-                if (job.ID != ID)
-                    continue;
-                else
-                    Debug.Log(job.PunishCash);
-            }
-       }
     }
 }

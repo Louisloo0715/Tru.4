@@ -22,6 +22,16 @@ public class CharactersDataBase
         reader.Close();
         return Obj;
     }
+
+    public static Dictionary<int, Characters> IntoDictionary(string path)
+    {
+        Dictionary<int, Characters> temp = new Dictionary<int, Characters>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj);
+        }
+        return temp;
+    }
 }
 
 public class Characters
@@ -62,80 +72,7 @@ public class Characters
 }
 #endregion
 
-#region 工作資料
-[XmlRoot("JobsExperience")]
-public class JobsExperience
-{
-    [XmlArray("Jobs")]
-    [XmlArrayItem("Job")]
-    public List<Jobs> Obj = new List<Jobs>();
-
-    public static JobsExperience LoadDataBase(string path)
-    {
-        TextAsset _xml = Resources.Load<TextAsset>(path);
-        XmlSerializer serializer = new XmlSerializer(typeof(JobsExperience));
-        StringReader reader = new StringReader(_xml.text);
-        JobsExperience Obj = new JobsExperience();
-        Obj = serializer.Deserialize(reader) as JobsExperience;
-        reader.Close();
-        return Obj;
-    }
-}
-
-public class Jobs
-{
-    [XmlAttribute("Job")]
-    public string InteractiveObj;
-
-    [XmlElement("ID")]
-    public int ID;
-
-    [XmlElement("Name")]
-    public string Name;
-
-    [XmlElement("Post")]
-    public string Post;
-
-    [XmlElement("PersonRequire")]
-    public int PersonRequire;
-
-    [XmlElement("StartMonth")]
-    public int StartMonth;
-
-    [XmlElement("EndMonth")]
-    public int EndMonth;
-
-    //private int hourlySalary = 168;
-
-    [XmlElement("HourlySalary")]
-    public int HourlySalary;
-    //{ 
-    //    get { return hourlySalary * HourlySalary; }
-    //    set { hourlySalary = value; }
-    //}
-
-
-    [XmlElement("MonthlySalary")]
-    public int MonthlySalary;
-
-    [XmlElement("AnnualSalary")]
-    public int AnnualSalary;
-
-    [XmlElement("WeeklyTime")]
-    public int WeeklyTime;
-
-    [XmlElement("MonthlyTime")]
-    public int MonthlyTime;
-
-    [XmlElement("MonthlyRequire")]
-    public int MonthlyRequire;
-
-    [XmlElement("OtherRequire")]
-    public int OtherRequire;
-}
-#endregion
-
-
+#region 黑暗卡資料
 [XmlRoot("DarkCards")]
 public class DarkCardsDataBase
 {
@@ -149,9 +86,19 @@ public class DarkCardsDataBase
         XmlSerializer serializer = new XmlSerializer(typeof(DarkCardsDataBase));
         StringReader reader = new StringReader(_xml.text);
         DarkCardsDataBase Obj = new DarkCardsDataBase();
-         Obj =  serializer.Deserialize(reader) as DarkCardsDataBase;
+        Obj = serializer.Deserialize(reader) as DarkCardsDataBase;
         reader.Close();
         return Obj;
+    }
+
+    public static Dictionary<int, DarkCards> IntoDictionary(string path)
+    {
+        Dictionary<int, DarkCards> temp = new Dictionary<int, DarkCards>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj);
+        }
+        return temp;
     }
 }
 
@@ -175,3 +122,243 @@ public class DarkCards
     [XmlElement("OtherRequire")]
     public int OtherRequire;
 }
+#endregion
+
+# region 大爽卡資料
+[XmlRoot("LargeGreatData")]
+public class LargeGreatData
+{
+    [XmlArray("LargeGreats")]
+    [XmlArrayItem("LargeGreat")]
+    public List<LargeGreatCard> Obj = new List<LargeGreatCard>();
+
+    public static LargeGreatData LoadDataBase(string path)
+    {
+        TextAsset _xml = Resources.Load<TextAsset>(path);
+        XmlSerializer serializer = new XmlSerializer(typeof(LargeGreatData));
+        StringReader reader = new StringReader(_xml.text);
+        LargeGreatData Obj = serializer.Deserialize(reader) as LargeGreatData;
+        reader.Close();
+        return Obj;
+    }
+
+    public static Dictionary<int, LargeGreatCard> IntoDictionary(string path)
+    {
+        Dictionary<int, LargeGreatCard> temp = new Dictionary<int, LargeGreatCard>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj);
+        }
+        return temp;
+    }
+}
+
+public class LargeGreatCard
+{
+    [XmlAttribute("LargeGreat")]
+    public string LargeGreat;
+
+    [XmlElement("ID")]
+    public int ID;
+
+    [XmlElement("TotalCash")]
+    public int TotalCash;
+
+    [XmlElement("Installment")]
+    public int Installment;
+
+    [XmlElement("MonthToPay")]
+    public int MonthToPay;
+
+    [XmlElement("CashPerMonth")]
+    public int CashPerMonth;
+
+    [XmlElement("Other")]
+    public int Other;
+}
+#endregion
+
+# region 小爽卡資料
+[XmlRoot("LittleGreatData")]
+public class LittleGreatData
+{
+    [XmlArray("LittleGreats")]
+    [XmlArrayItem("LittleGreat")]
+    public List<LittleGreatCard> Obj = new List<LittleGreatCard>();
+
+    public static LittleGreatData LoadDataBase(string path)
+    {
+        TextAsset _xml = Resources.Load<TextAsset>(path);
+        XmlSerializer serializer = new XmlSerializer(typeof(LittleGreatData));
+        StringReader reader = new StringReader(_xml.text);
+        LittleGreatData Obj = serializer.Deserialize(reader) as LittleGreatData;
+        reader.Close();
+        return Obj;
+    }
+
+    public static Dictionary<int, LittleGreatCard> IntoDictionary(string path)
+    {
+        Dictionary<int, LittleGreatCard> temp = new Dictionary<int, LittleGreatCard>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj);
+        }
+        return temp;
+    }
+
+}
+
+public class LittleGreatCard
+{
+    [XmlAttribute("LittleGreat")]
+    public string LittleGreat;
+
+    [XmlElement("ID")]
+    public int ID;
+
+    [XmlElement("TotalCash")]
+    public int TotalCash;
+
+    [XmlElement("ConnectionPoint")]
+    public int ConnectionPoint;
+
+    [XmlElement("TotalTime")]
+    public int TotalTime;
+
+    [XmlElement("Other")]
+    public int Other;
+
+}
+#endregion
+
+#region 好運卡資料
+[XmlRoot("LittleLuckData")]
+public class LittleLuckData
+{
+    [XmlArray("LittleLucks")]
+    [XmlArrayItem("LittleLuck")]
+    public List<LittleLuckCard> Obj = new List<LittleLuckCard>();
+
+    public static LittleLuckData LoadDataBase(string path)
+    {
+        TextAsset _xml = Resources.Load<TextAsset>(path);
+        XmlSerializer serializer = new XmlSerializer(typeof(LittleLuckData));
+        StringReader reader = new StringReader(_xml.text);
+        LittleLuckData Obj = serializer.Deserialize(reader) as LittleLuckData;
+        reader.Close();
+        return Obj;
+    }
+
+    public static Dictionary<int, LittleLuckCard> IntoDictionary(string path)
+    {
+        Dictionary<int, LittleLuckCard> temp = new Dictionary<int, LittleLuckCard>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj);
+        }
+        return temp;
+    }
+}
+
+public class LittleLuckCard
+{
+    [XmlAttribute("LittleLuck")]
+    public string LittleLuck;
+
+    [XmlElement("ID")]
+    public int ID;
+
+    [XmlElement("TotalCash")]
+    public int TotalCash;
+
+    [XmlElement("BookNeeds")]
+    public int BookNeeds;
+
+    [XmlElement("RelationshipPointNeeds")]
+    public int RelationshipPointNeeds;
+
+    [XmlElement("OtherRequire")]
+    public int OtherRequire;
+
+}
+#endregion
+
+#region 工作資料
+[XmlRoot("WorkDataBase")]
+public class WorkDataBase
+{
+    [XmlArray("Works")]
+    [XmlArrayItem("Work")]
+    public List<Works> Obj = new List<Works>();
+
+    public static WorkDataBase LoadDataBase(string path)
+    {
+        TextAsset _xml = Resources.Load<TextAsset>(path);
+        XmlSerializer serializer = new XmlSerializer(typeof(WorkDataBase));
+        StringReader reader = new StringReader(_xml.text);
+        WorkDataBase Obj = serializer.Deserialize(reader) as WorkDataBase;
+        reader.Close();
+        return Obj;
+    }
+
+    public static Dictionary<int, Works> IntoDictionary(string path)
+    {
+        Dictionary<int, Works> temp = new Dictionary<int, Works>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj); 
+        }
+        return temp;
+    }
+}
+
+public class Works
+{
+    [XmlAttribute("Work")]
+    public string Work;
+
+    [XmlElement("ID")]
+    public int ID;
+
+    [XmlElement("Name")]
+    public string Name;
+
+    [XmlElement("Post")]
+    public string Post;
+
+    [XmlElement("PersonRequire")]
+    public int PersonRequire;
+
+    [XmlElement("StartMonth")]
+    public int StartMonth;
+
+    [XmlElement("EndMonth")]
+    public int EndMonth;
+
+    private double hourlySalary = 168;
+    [XmlElement("HourlySalary")]
+    public double HourlySalary
+    {
+        get { return hourlySalary; }
+        set { hourlySalary *= value; }
+    }
+
+    [XmlElement("MonthlySalary")]
+    public int MonthlySalary;
+
+    [XmlElement("MonthlyTime")]
+    public int MonthlyTime;
+
+    [XmlElement("AnnualSalary")]
+    public int AnnualSalary;
+
+    [XmlElement("WeeklyTime")]
+    public int WeeklyTime;
+
+    [XmlElement("MonthlyRequire")]
+    public int MonthlyRequire;
+
+    [XmlElement("OtherRequire")]
+    public int OtherRequire;
+}
+#endregion
