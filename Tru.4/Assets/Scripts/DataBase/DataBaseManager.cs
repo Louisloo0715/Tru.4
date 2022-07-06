@@ -72,7 +72,18 @@ public class Characters
     public int PocketMoney;
 
     [XmlElement("Salary")]
-    public int Salary;
+    private int salary;
+    public int Salary
+    {
+        get { return salary; }
+        set
+        {
+            if (StartJob != 0)
+                salary = DataControl.Instance.Work_DataBase[StartJob].MonthlySalary;
+            else
+                salary = 0;
+        }
+    }
 
     [XmlElement("LivingExpend")]
     public int LivingExpend;
@@ -84,15 +95,26 @@ public class Characters
     private int allocateCash;
     public int AllocateCash
     {
-        get {return allocateCash; }
-        set 
-        { 
-        allocateCash = (PocketMoney + Salary) - LivingExpend;
+        get { return allocateCash; }
+        set
+        {
+            allocateCash = (PocketMoney + Salary) - LivingExpend;
         }
     }
 
     [XmlElement("AllocateTime")]
-    public int AllocateTime;
+    private int allcateTime;
+    public int AllocateTime
+    {
+        get { return allcateTime; }
+        set
+        {
+            if (StartJob != 0)
+                allcateTime = value - DataControl.Instance.Work_DataBase[StartJob].MonthlyTime;
+            else
+                allcateTime = value;
+        }
+    }
 
 }
 #endregion
@@ -360,7 +382,7 @@ public class Works
     [XmlElement("EndMonth")]
     public int EndMonth;
 
-    private double hourlySalary = 168;
+    private double hourlySalary = 160;
     [XmlElement("HourlySalary")]
     public double HourlySalary
     {
@@ -393,7 +415,7 @@ public class Works
     public int AnnualSalary
     {
         get { return annualSalary; }
-        set 
+        set
         {
             annualSalary = MonthlySalary * 12;
         }

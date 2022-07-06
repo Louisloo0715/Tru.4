@@ -100,7 +100,7 @@ public class DataControl : MonoBehaviour
             showText += "每個月可支配金額：" + Characters_DataBase[id].AllocateCash + "\n";
         else
         {
-            int sum = Characters_DataBase[id].AllocateCash + Work_DataBase[Characters_DataBase[id].StartJob].MonthlySalary;
+            int sum = Characters_DataBase[id].AllocateCash;
             showText += "每個月可支配金額：" + sum +"\n";
         }
 

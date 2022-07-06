@@ -8,9 +8,9 @@
       <StarSign>巨蟹座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>9000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>8500</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -21,11 +21,11 @@
       <StarSign>雙魚座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>6000</PocketMoney>
+      <StartJob>26</StartJob>
       <Salary>0</Salary>
       <LivingExpend>7500</LivingExpend>
-      <StartJob>26</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>168</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>103</ID>
@@ -34,11 +34,11 @@
       <StarSign>雙魚座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>0</PocketMoney>
+      <StartJob>27</StartJob>
       <Salary>0</Salary>
       <LivingExpend>6000</LivingExpend>
-      <StartJob>27</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>120</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>104</ID>
@@ -47,9 +47,9 @@
       <StarSign>處女座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>6000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>6000</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -60,11 +60,11 @@
       <StarSign>牡羊座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>5000</PocketMoney>
+      <StartJob>28</StartJob>
       <Salary>0</Salary>
       <LivingExpend>8000</LivingExpend>
-      <StartJob>28</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>152</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>106</ID>
@@ -73,9 +73,9 @@
       <StarSign>射手座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>15000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>15000</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -86,11 +86,11 @@
       <StarSign>摩羯座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>4000</PocketMoney>
+      <StartJob>29</StartJob>
       <Salary>0</Salary>
       <LivingExpend>5000</LivingExpend>
-      <StartJob>29</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>180</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>108</ID>
@@ -99,11 +99,11 @@
       <StarSign>金牛座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>5000</PocketMoney>
+      <StartJob>30</StartJob>
       <Salary>0</Salary>
       <LivingExpend>7500</LivingExpend>
-      <StartJob>30</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>160</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>109</ID>
@@ -112,11 +112,11 @@
       <StarSign>天枰座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>2000</PocketMoney>
+      <StartJob>31</StartJob>
       <Salary>0</Salary>
       <LivingExpend>7000</LivingExpend>
-      <StartJob>31</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>120</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>110</ID>
@@ -125,9 +125,9 @@
       <StarSign>雙子座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>5000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>4000</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -138,9 +138,9 @@
       <StarSign>獅子座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>9000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>8500</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -151,11 +151,11 @@
       <StarSign>雙魚座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>6000</PocketMoney>
+      <StartJob>26</StartJob>
       <Salary>0</Salary>
       <LivingExpend>7500</LivingExpend>
-      <StartJob>26</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>168</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>203</ID>
@@ -164,11 +164,11 @@
       <StarSign>雙魚座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>0</PocketMoney>
+      <StartJob>27</StartJob>
       <Salary>0</Salary>
       <LivingExpend>6000</LivingExpend>
-      <StartJob>27</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>120</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>204</ID>
@@ -177,9 +177,9 @@
       <StarSign>處女座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>6000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>6000</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -190,11 +190,11 @@
       <StarSign>牡羊座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>5000</PocketMoney>
+      <StartJob>28</StartJob>
       <Salary>0</Salary>
       <LivingExpend>8000</LivingExpend>
-      <StartJob>28</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>152</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>206</ID>
@@ -203,9 +203,9 @@
       <StarSign>射手座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>15000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>15000</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
@@ -216,11 +216,11 @@
       <StarSign>摩羯座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>4000</PocketMoney>
+      <StartJob>29</StartJob>
       <Salary>0</Salary>
       <LivingExpend>5000</LivingExpend>
-      <StartJob>29</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>180</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>208</ID>
@@ -229,11 +229,11 @@
       <StarSign>金牛座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>5000</PocketMoney>
+      <StartJob>30</StartJob>
       <Salary>0</Salary>
       <LivingExpend>7500</LivingExpend>
-      <StartJob>30</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>160</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>209</ID>
@@ -242,11 +242,11 @@
       <StarSign>天枰座</StarSign>
       <Relationship>1</Relationship>
       <PocketMoney>2000</PocketMoney>
+      <StartJob>31</StartJob>
       <Salary>0</Salary>
       <LivingExpend>7000</LivingExpend>
-      <StartJob>31</StartJob>
       <AllocateCash>0</AllocateCash>
-      <AllocateTime>120</AllocateTime>
+      <AllocateTime>200</AllocateTime>
     </Character>
     <Character>
       <ID>210</ID>
@@ -255,9 +255,9 @@
       <StarSign>雙子座</StarSign>
       <Relationship>0</Relationship>
       <PocketMoney>5000</PocketMoney>
+      <StartJob>0</StartJob>
       <Salary>0</Salary>
       <LivingExpend>4000</LivingExpend>
-      <StartJob>0</StartJob>
       <AllocateCash>0</AllocateCash>
       <AllocateTime>200</AllocateTime>
     </Character>
