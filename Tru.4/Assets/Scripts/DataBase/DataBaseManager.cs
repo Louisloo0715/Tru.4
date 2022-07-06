@@ -1,10 +1,10 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml.Serialization;
 using System.IO;
 
-#region ®§¶‚∏ÍÆ∆
+#region ËßíËâ≤Ë≥áÊñô
 [XmlRoot("CharactersData")]
 public class CharactersDataBase
 {
@@ -48,8 +48,25 @@ public class Characters
     [XmlElement("Birth")]
     public string Birth;
 
+    [XmlElement("StarSign")]
+    public string StarSign;
+
     [XmlElement("Relationship")]
-    public int Relationship;
+    private string relationship = string.Empty;
+    public string Relationship
+    {
+
+        get { return relationship; }
+        set
+        {
+            if (value == "0")
+                relationship = "ÁÑ°";
+            else if (value == "1")
+                relationship = "Êúâ";
+            else
+                relationship = value;
+        }
+    }
 
     [XmlElement("PocketMoney")]
     public int PocketMoney;
@@ -64,15 +81,23 @@ public class Characters
     public int StartJob;
 
     [XmlElement("AllocateCash")]
-    public string AllocateCash;
+    private int allocateCash;
+    public int AllocateCash
+    {
+        get {return allocateCash; }
+        set 
+        { 
+        allocateCash = (PocketMoney + Salary) - LivingExpend;
+        }
+    }
 
     [XmlElement("AllocateTime")]
-    public string AllocateTime;
+    public int AllocateTime;
 
 }
 #endregion
 
-#region ∂¬∑t•d∏ÍÆ∆
+#region ÈªëÊöóÂç°Ë≥áÊñô
 [XmlRoot("DarkCards")]
 public class DarkCardsDataBase
 {
@@ -124,7 +149,7 @@ public class DarkCards
 }
 #endregion
 
-# region §j≤n•d∏ÍÆ∆
+# region Â§ßÁàΩÂç°Ë≥áÊñô
 [XmlRoot("LargeGreatData")]
 public class LargeGreatData
 {
@@ -178,7 +203,7 @@ public class LargeGreatCard
 }
 #endregion
 
-# region §p≤n•d∏ÍÆ∆
+# region Â∞èÁàΩÂç°Ë≥áÊñô
 [XmlRoot("LittleGreatData")]
 public class LittleGreatData
 {
@@ -231,7 +256,7 @@ public class LittleGreatCard
 }
 #endregion
 
-#region ¶nπB•d∏ÍÆ∆
+#region Â•ΩÈÅãÂç°Ë≥áÊñô
 [XmlRoot("LittleLuckData")]
 public class LittleLuckData
 {
@@ -283,7 +308,7 @@ public class LittleLuckCard
 }
 #endregion
 
-#region §uß@∏ÍÆ∆
+#region Â∑•‰ΩúË≥áÊñô
 [XmlRoot("WorkDataBase")]
 public class WorkDataBase
 {
@@ -306,7 +331,7 @@ public class WorkDataBase
         Dictionary<int, Works> temp = new Dictionary<int, Works>();
         foreach (var obj in LoadDataBase(path).Obj)
         {
-            temp.Add(obj.ID, obj); 
+            temp.Add(obj.ID, obj);
         }
         return temp;
     }
@@ -343,17 +368,36 @@ public class Works
         set { hourlySalary *= value; }
     }
 
+    [XmlElement("WeeklyTime")]
+    public int WeeklyTime;
+
     [XmlElement("MonthlySalary")]
-    public int MonthlySalary;
+    private int monthlySalary;
+    public int MonthlySalary
+    {
+        get { return monthlySalary; }
+        set
+        {
+            if (monthlySalary == 0)
+                monthlySalary = (int)HourlySalary * MonthlyTime;
+            else
+                monthlySalary = value;
+        }
+    }
 
     [XmlElement("MonthlyTime")]
     public int MonthlyTime;
 
     [XmlElement("AnnualSalary")]
-    public int AnnualSalary;
-
-    [XmlElement("WeeklyTime")]
-    public int WeeklyTime;
+    private int annualSalary;
+    public int AnnualSalary
+    {
+        get { return annualSalary; }
+        set 
+        {
+            annualSalary = MonthlySalary * 12;
+        }
+    }
 
     [XmlElement("MonthlyRequire")]
     public int MonthlyRequire;
