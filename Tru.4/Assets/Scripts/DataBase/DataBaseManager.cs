@@ -166,11 +166,16 @@ public class DarkCards
     [XmlElement("Suspended")]
     public int Suspended;
 
+    [XmlElement("Description")]
+    public string Description;
+
     [XmlElement("OtherRequire")]
-    public int OtherRequire;
+    public bool OtherRequire;
+
 }
 #endregion
 
+//可支配所得>6000強制大爽 剩餘皆小爽
 # region 大爽卡資料
 [XmlRoot("LargeGreatData")]
 public class LargeGreatData
@@ -212,7 +217,7 @@ public class LargeGreatCard
     public int TotalCash;
 
     [XmlElement("Installment")]
-    public int Installment;
+    public bool Installment;
 
     [XmlElement("MonthToPay")]
     public int MonthToPay;
@@ -221,7 +226,7 @@ public class LargeGreatCard
     public int CashPerMonth;
 
     [XmlElement("Other")]
-    public int Other;
+    public bool Other;
 }
 #endregion
 
@@ -273,7 +278,7 @@ public class LittleGreatCard
     public int TotalTime;
 
     [XmlElement("Other")]
-    public int Other;
+    public bool Other;
 
 }
 #endregion
@@ -325,7 +330,7 @@ public class LittleLuckCard
     public int RelationshipPointNeeds;
 
     [XmlElement("OtherRequire")]
-    public int OtherRequire;
+    public bool OtherRequire;
 
 }
 #endregion
@@ -425,6 +430,51 @@ public class Works
     public int MonthlyRequire;
 
     [XmlElement("OtherRequire")]
-    public int OtherRequire;
+    public bool OtherRequire;
 }
+#endregion
+
+#region 玩家資訊
+
+[System.Serializable]
+public class PlayerDataBase
+{
+    /// <summary>
+    /// 玩家姓名
+    /// </summary>
+    public string PlayerName;
+    /// <summary>
+    /// 角色參數
+    /// </summary>
+    public string Name;
+    public bool Gender;
+    public string Relationship;
+    public string Birth;
+    public int PocketMoney;
+    public int LivingExpend;
+    public int ConnectionPoint = 30;
+    //public List<WorkList> workList = new List<WorkList>();
+
+    private int allocateCash;
+    
+
+}
+
+
+[System.Serializable]
+public class WorkList
+{
+    public string Name;
+    public string Post;
+    public bool OnWork = true;
+    public int Time;
+    public int Salary;
+    public int MonthlyRequire;
+}
+
+public class ActivityList
+{
+
+}
+
 #endregion
