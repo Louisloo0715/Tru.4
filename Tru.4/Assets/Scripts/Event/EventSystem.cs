@@ -8,10 +8,7 @@ public class EventSystem : MonoBehaviour
 {
     
     public EventType eventType = new EventType();
-
-    private void Start()
-    {
-    }
+    public GameObject ShowEventRandomSelection;
 
     private void Restart()
     {
