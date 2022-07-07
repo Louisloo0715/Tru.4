@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -6,14 +6,14 @@ using System.Xml;
 
 public class SavePlayerData : MonoBehaviour
 {
-    /*public DataControl dataControl = DataControl.Instance;
+    public DataControl dataControl = DataControl.Instance;
     public string PlayerName;
 
-    #region ¨¤¦âªì©l¤Æ¼Æ¾Ú
+    #region è§’è‰²åˆå§‹åŒ–æ•¸æ“š
 
     private int CheckStartJob(int _ID)
     {
-        Characters temp = GetCharacter(_ID);
+        Characters temp = dataControl.Characters_DataBase[_ID];
 
         if (temp.ID != 0)
             return temp.StartJob;
@@ -25,41 +25,27 @@ public class SavePlayerData : MonoBehaviour
     {
         string localPath = UnityEngine.Application.persistentDataPath + "/Player.xml";
         XmlDocument xml = new XmlDocument();
-        XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "UTF-8", "");//³]¸mxml¤å¥ó½s½X®æ¦¡?UTF-8
-        XmlElement root = xml.CreateElement("PlayerData");//³Ğ«Ø®Ú¸`ÂI
-        XmlElement info = xml.CreateElement("Info");//³Ğ«Ø¤l¸`ÂI
-        info.SetAttribute("PlayerName", PlayerName);//³Ğ«Ø¤l¸`ÂIÄİ©Ê¦W©MÄİ©Ê­È
+        XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "UTF-8", "");//è¨­ç½®xmlæ–‡ä»¶ç·¨ç¢¼æ ¼å¼?UTF-8
+        XmlElement root = xml.CreateElement("PlayerData");//å‰µå»ºæ ¹ç¯€é»
+        XmlElement info = xml.CreateElement("Info");//å‰µå»ºå­ç¯€é»
+        info.SetAttribute("PlayerName", PlayerName);//å‰µå»ºå­ç¯€é»å±¬æ€§åå’Œå±¬æ€§å€¼
         info.SetAttribute("Name", character.Name);
-        if (character.Relationship == 0)
-            info.SetAttribute("Relationship", "µL");
-        else
-            info.SetAttribute("Relationship", "¦³");
+        info.SetAttribute("Relationship", character.Relationship);
         info.SetAttribute("Birth", character.Birth);
-        
-        root.AppendChild(info);//±N¤l¸`ÂI«ö·Ó³Ğ«Ø¶¶§Ç¡A²K¥[¨ìxml
 
-        XmlElement Income = xml.CreateElement("Jobs");//³Ğ«Ø¤l¸`ÂI
+        root.AppendChild(info);//å°‡å­ç¯€é»æŒ‰ç…§å‰µå»ºé †åºï¼Œæ·»åŠ åˆ°xml
+
+        XmlElement Income = xml.CreateElement("Jobs");//å‰µå»ºå­ç¯€é»
 
 
         xml.AppendChild(root);
-        xml.Save(localPath);//«O¦sxml¨ì¸ô®|¦ì¸m
-        Debug.Log("³Ğ«ØXML¦¨¥\¡I");
+        xml.Save(localPath);//ä¿å­˜xmlåˆ°è·¯å¾‘ä½ç½®
+        Debug.Log("å‰µå»ºXMLæˆåŠŸï¼");
     }
     #endregion
 
-    #region ¸ê®ÆÂ^¨ú
-    public Characters GetCharacter(int id)
-    {
-        foreach (var character in dataControl.Characters_DataBase.Obj)
-        {
-            if (character.ID != id)
-                continue;
-            else
-                return character;
-        }
+    #region è³‡æ–™æ“·å–
 
-        return null;
-    }
 
     //public Jobs Getjob(int id)
     //{
@@ -81,24 +67,24 @@ public class SavePlayerData : MonoBehaviour
     //    string localPath = UnityEngine.Application.persistentDataPath + "/Player.xml";
 
     //    XmlDocument xml = new XmlDocument();
-    //    XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "UTF-8", "");//³]¸mxml¤å¥ó½s½X®æ¦¡?UTF-8
-    //    XmlElement root = xml.CreateElement("PlayerData");//³Ğ«Ø®Ú¸`ÂI
-    //    XmlElement info = xml.CreateElement("Info");//³Ğ«Ø¤l¸`ÂI
-    //    info.SetAttribute("PlayerName", PlayerName);//³Ğ«Ø¤l¸`ÂIÄİ©Ê¦W©MÄİ©Ê­È
+    //    XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "UTF-8", "");//è¨­ç½®xmlæ–‡ä»¶ç·¨ç¢¼æ ¼å¼?UTF-8
+    //    XmlElement root = xml.CreateElement("PlayerData");//å‰µå»ºæ ¹ç¯€é»
+    //    XmlElement info = xml.CreateElement("Info");//å‰µå»ºå­ç¯€é»
+    //    info.SetAttribute("PlayerName", PlayerName);//å‰µå»ºå­ç¯€é»å±¬æ€§åå’Œå±¬æ€§å€¼
     //    info.SetAttribute("Name", character.Name);
 
     //    if (character.Relationship == 0)
-    //        info.SetAttribute("Relationship", "µL");
+    //        info.SetAttribute("Relationship", "ç„¡");
     //    else
-    //        info.SetAttribute("Relationship", "¦³");
+    //        info.SetAttribute("Relationship", "æœ‰");
 
     //    info.SetAttribute("Birth", character.Birth);
-    //    root.AppendChild(info);//±N¤l¸`ÂI«ö·Ó³Ğ«Ø¶¶§Ç¡A²K¥[¨ìxml
+    //    root.AppendChild(info);//å°‡å­ç¯€é»æŒ‰ç…§å‰µå»ºé †åºï¼Œæ·»åŠ åˆ°xml
     //    xml.AppendChild(root);
 
-    //    XmlElement Income = xml.CreateElement("Income");//³Ğ«Ø¤l¸`ÂI
+    //    XmlElement Income = xml.CreateElement("Income");//å‰µå»ºå­ç¯€é»
     //    info.SetAttribute("PlayerName", PlayerName);
-    //    xml.Save(localPath);//«O¦sxml¨ì¸ô®|¦ì¸m
-    //    Debug.Log("³Ğ«ØXML¦¨¥\¡I");
-    //}*/
+    //    xml.Save(localPath);//ä¿å­˜xmlåˆ°è·¯å¾‘ä½ç½®
+    //    Debug.Log("å‰µå»ºXMLæˆåŠŸï¼");
+    //}
 }
