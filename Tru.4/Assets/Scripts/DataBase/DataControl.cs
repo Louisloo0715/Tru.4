@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DataControl : MonoBehaviour
 {
     public static DataControl Instance;
-    public Text ShowDataText;
+    public TextMesh ShowDataText;
     private string input;
 
     public int ID;
@@ -48,13 +48,17 @@ public class DataControl : MonoBehaviour
         LargeGreats_DataBase = LargeGreatData.IntoDictionary(LargeGreatpath);
         LittleGreats_DataBase = LittleGreatData.IntoDictionary(LittleGreatpath);
         LittleLuck_DataBase = LittleLuckData.IntoDictionary(LittleLuckpath);
+        randomID();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShowDataText.text = DarkCards_DataBase[ID].Description;
-        }
+    }
+
+    void randomID()
+    {
+        int ran = Random.Range(1, 16);
+        ShowDataText.text = DarkCards_DataBase[ran].Description;
+        ShowDataText.text = ShowDataText.text.Replace("\\n", "\n");;
     }
 }

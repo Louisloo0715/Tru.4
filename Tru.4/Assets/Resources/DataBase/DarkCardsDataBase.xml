@@ -6,7 +6,7 @@
 			<PunishTime>56</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>每天只要沒課沒出門都掛在社交軟體上，一天平均上網瀏覽無學習性網頁內容及無意義網路聊天&lt;color=red&gt;2小時&lt;/color&gt;。（翻到此牌，現實生活中過去三天內曾經登入者全部適用，&lt;color=red&gt;直到遊戲結束&lt;/color&gt;）                   </Description>
+			<Description>每天只要沒課沒出門都掛在社交軟體上，\n 一天平均上網瀏覽\n無學習性網頁內容及無意義\n網路聊天&lt;color=red&gt;2小時&lt;/color&gt;。\n（翻到此牌，現實生活中過去三天內\n曾經登入者全部適用，&lt;color=red&gt;直到遊戲結束&lt;/color&gt;）                   </Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -14,7 +14,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>1</Suspended>
-			<Description>必修課缺課遲到次數過多，達扣考標準。&lt;color=red&gt;停賽一次&lt;/color&gt;。（停賽期間依然可以參與活動）</Description>
+			<Description>必修課缺課遲到次數過多，\n達扣考標準。&lt;color=red&gt;停賽一次&lt;/color&gt;。\n（停賽期間依然可以參與活動）</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -22,7 +22,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>1</Suspended>
-			<Description>因為外務過多，這學期學校課業超過三分之一不及格。&lt;color=red&gt;停賽一次&lt;/color&gt;。（停賽期間依然可以參與活動）</Description>
+			<Description>因為外務過多，\n這學期學校課業超過三分之一不及格。\n&lt;color=red&gt;停賽一次&lt;/color&gt;。\n（停賽期間依然可以參與活動）</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -30,7 +30,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>打工遇到陷阱，老闆曾延遲給薪，且未幫你辦理勞健保，還經常找藉口扣工資，只好離職。&lt;color=red&gt;請離開目前其中一份工作&lt;/color&gt;。</Description>
+			<Description>打工遇到陷阱，老闆曾延遲給薪，\n且未幫你辦理勞健保，\n還經常找藉口扣工資，\n只好離職。&lt;color=red&gt;請離開目前其中一份工作&lt;/color&gt;。</Description>
 			<OtherRequire>1</OtherRequire>
 		</Card>
 		<Card>
@@ -38,7 +38,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>10000</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>玩家中，只要每月打工總時數超過100小時者，因體力不支住院，&lt;color=red&gt;停賽一次，繳納住院費用10,000元&lt;/color&gt;。</Description>
+			<Description>玩家中，\n只要每月打工總時數超過100小時者，\n因體力不支住院，&lt;color=red&gt;停賽一次，\n繳納住院費用10,000元&lt;/color&gt;。</Description>
 			<OtherRequire>1</OtherRequire>
 		</Card>
 		<Card>
@@ -46,7 +46,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>2</Suspended>
-			<Description>打工時與客人發生爭吵，不小心致對方受傷，被帶到警局進行筆錄，並通知校方。損害學校名譽，&lt;color=red&gt;停賽兩次&lt;/color&gt;。（停賽期間依然可以參與活動）</Description>
+			<Description>打工時與客人發生爭吵，\n不小心致對方受傷，\n被帶到警局進行筆錄，\n並通知校方。\n損害學校名譽，&lt;color=red&gt;停賽兩次&lt;/color&gt;。\n（停賽期間依然可以參與活動）</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -54,7 +54,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>打工時，因為態度不佳，多次遲到且曾對主管出言不遜，只好辭職。&lt;color=red&gt;請離開目前其中一份工作&lt;/color&gt;。</Description>
+			<Description>打工時，因為態度不佳，\n多次遲到且曾對主管出言不遜，\n只好辭職。\n&lt;color=red&gt;請離開目前其中一份工作&lt;/color&gt;。</Description>
 			<OtherRequire>1</OtherRequire>
 		</Card>
 		<Card>
@@ -62,7 +62,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>2</Suspended>
-			<Description>這學期學校課業竟達二一水準，好在學校是雙二一制，下學期必須加油了。&lt;color=red&gt;停賽兩次&lt;/color&gt;。（停賽期間依然可以參與活動）</Description>
+			<Description>這學期學校課業竟達二一水準，\n好在學校是雙二一制，\n下學期必須加油了。\n&lt;color=red&gt;停賽兩次&lt;/color&gt;。\n（停賽期間依然可以參與活動）</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -70,7 +70,7 @@
 			<PunishTime>28</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>每天閒著沒事就會開啟手遊，一天平均浪費一小時。翻到此牌，現實生活中三天內有玩過手遊者全部適用，直到遊戲結束。以一週七天一個月四週計算，&lt;color=red&gt;共扣28小時&lt;/color&gt;。</Description>
+			<Description>每天閒著沒事就會開啟手遊，\n一天平均浪費一小時。\n翻到此牌，\n現實生活中三天內有玩過手遊者全部適用，\n直到遊戲結束。\n以一週七天一個月四週計算，\n&lt;color=red&gt;共扣28小時&lt;/color&gt;。</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -78,7 +78,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>10000</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>不想花錢，到影印店盜印整本教科書被檢舉。&lt;color=red&gt;繳交罰金一萬元&lt;/color&gt;。</Description>
+			<Description>不想花錢，\n到影印店盜印整本教科書被檢舉。\n&lt;color=red&gt;繳交罰金一萬元&lt;/color&gt;。</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -86,7 +86,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>10000</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>實習階段，不小心在公開平台透露公司重要資訊。&lt;color=red&gt;繳交賠償金一萬元&lt;/color&gt;。</Description>
+			<Description>實習階段，\n不小心在公開平台透露公司重要資訊。\n&lt;color=red&gt;繳交賠償金一萬元&lt;/color&gt;。</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -94,7 +94,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>因個性不合與另一半大吵一架後分手，心情受到影響而&lt;color=red&gt;失去目前時薪最高的工作&lt;/color&gt;。</Description>
+			<Description>因個性不合\n與另一半大吵一架後分手，\n心情受到影響而\n&lt;color=red&gt;失去目前時薪最高的工作&lt;/color&gt;。</Description>
 			<OtherRequire>1</OtherRequire>
 		</Card>
 		<Card>
@@ -102,7 +102,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>0</Suspended>
-			<Description>在打工地方遭遇主管言語上的霸凌，決定離職。&lt;color=red&gt;請離開目前其中一份工作&lt;/color&gt;。</Description>
+			<Description>在打工地方遭遇主管言語上的霸凌，\n決定離職。\n&lt;color=red&gt;請離開目前其中一份工作&lt;/color&gt;。</Description>
 			<OtherRequire>1</OtherRequire>
 		</Card>
 		<Card>
@@ -110,7 +110,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>0</PunishCash>
 			<Suspended>1</Suspended>
-			<Description>重度沉迷追劇，過去一周頻繁熬夜導致健康狀況大亂，&lt;color=red&gt;停賽一次&lt;/color&gt;。（停賽期間依然可以參與活動）</Description>
+			<Description>重度沉迷追劇，\n過去一周頻繁熬夜導致健康狀況大亂，\n&lt;color=red&gt;停賽一次&lt;/color&gt;。\n（停賽期間依然可以參與活動）</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 		<Card>
@@ -118,7 +118,7 @@
 			<PunishTime>0</PunishTime>
 			<PunishCash>10000</PunishCash>
 			<Suspended>1</Suspended>
-			<Description>前往打工路上遇到車禍，但因為雇主未辦理勞健保，療傷時間除了無工資收入，還得&lt;color=red&gt;自負醫療費用一萬元。停賽一次&lt;/color&gt;。（停賽期間依然可以參與活動）</Description>
+			<Description>前往打工路上遇到車禍，\n但因為雇主未辦理勞健保，\n療傷時間除了無工資收入，\n還得&lt;color=red&gt;自負醫療費用一萬元。\n停賽一次&lt;/color&gt;。\n（停賽期間依然可以參與活動）</Description>
 			<OtherRequire>0</OtherRequire>
 		</Card>
 	</Cards>
