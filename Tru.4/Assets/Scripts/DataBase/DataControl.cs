@@ -36,19 +36,21 @@ public class DataControl : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
-            Destroy(this);
-    }
-    #endregion
-
-    void Start()
-    {
+            Destroy(this); 
+        
         Work_DataBase = WorkDataBase.IntoDictionary(Workpath);
         DarkCards_DataBase = DarkCardsDataBase.IntoDictionary(DarkCardspath);
         Characters_DataBase = CharactersDataBase.IntoDictionary(CharactersDataBasepath);
         LargeGreats_DataBase = LargeGreatData.IntoDictionary(LargeGreatpath);
         LittleGreats_DataBase = LittleGreatData.IntoDictionary(LittleGreatpath);
         LittleLuck_DataBase = LittleLuckData.IntoDictionary(LittleLuckpath);
-        randomID();
+    }
+    #endregion
+
+    void Start()
+    {
+       
+        //randomID();
     }
 
     private void Update()
