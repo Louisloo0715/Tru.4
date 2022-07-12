@@ -12,7 +12,7 @@ public class DataControl : MonoBehaviour
     [Header("玩家參數")]
     [SerializeField]
     private PlayerDataBase PlayerData = new PlayerDataBase();
-    public PlayerDataBase _playerData 
+    public PlayerDataBase _playerData
     {
         get { return PlayerData; }
         set { PlayerData = value; }
@@ -52,30 +52,22 @@ public class DataControl : MonoBehaviour
             Instance = this;
         else
             Destroy(this);
-    }
-    #endregion
 
-    void Start()
-    {
-        Work_DataBase = WorkDataBase.IntoDictionary(Workpath);
         DarkCards_DataBase = DarkCardsDataBase.IntoDictionary(DarkCardspath);
+        Work_DataBase = WorkDataBase.IntoDictionary(Workpath);
         Characters_DataBase = CharactersDataBase.IntoDictionary(CharactersDataBasepath);
         LargeGreats_DataBase = LargeGreatData.IntoDictionary(LargeGreatpath);
         LittleGreats_DataBase = LittleGreatData.IntoDictionary(LittleGreatpath);
         LittleLuck_DataBase = LittleLuckData.IntoDictionary(LittleLuckpath);
-        randomID();
     }
-
-    private void Update()
-    {
-    }
+    #endregion
 
     void randomID()
     {
         int ran = Random.Range(1, 16);
         ShowDataText.text = DarkCards_DataBase[ran].Description;
-        ShowDataText.text = ShowDataText.text.Replace("\\n", "\n");;
-    } 
-    
+        ShowDataText.text = ShowDataText.text.Replace("\\n", "\n"); ;
+    }
+
 }
 
