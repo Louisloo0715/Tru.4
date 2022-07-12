@@ -52,21 +52,7 @@ public class Characters
     public string StarSign;
 
     [XmlElement("Relationship")]
-    private string relationship = string.Empty;
-    public string Relationship
-    {
-
-        get { return relationship; }
-        set
-        {
-            if (value == "0")
-                relationship = "無";
-            else if (value == "1")
-                relationship = "有";
-            else
-                relationship = value;
-        }
-    }
+    public bool Relationship;
 
     [XmlElement("PocketMoney")]
     public int PocketMoney;
@@ -448,15 +434,24 @@ public class PlayerDataBase
     /// </summary>
     public string Name;
     public bool Gender;
-    public string Relationship;
+    public bool Relationship;
     public string Birth;
     public int PocketMoney;
     public int LivingExpend;
     public int ConnectionPoint = 30;
-    //public List<WorkList> workList = new List<WorkList>();
+    public List<WorkList> workList = new List<WorkList>();
 
-    private int allocateCash;
-    
+    public int BookNum = 0;
+    public int Salary;
+
+    private int SetallocateCash()
+    {
+        return (PocketMoney + Salary) - LivingExpend;
+    }
+    public int AllocateCash
+    {
+        get { return SetallocateCash(); }
+    }
 
 }
 
@@ -472,6 +467,7 @@ public class WorkList
     public int MonthlyRequire;
 }
 
+[System.Serializable]
 public class ActivityList
 {
 

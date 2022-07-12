@@ -39,7 +39,7 @@ public class SavePlayerData : MonoBehaviour
         info.SetAttribute("PlayerName", PlayerName);//創建子節點屬性名和屬性值
         foreach (var player in DataControl.Instance.Characters_DataBase)
             info.SetAttribute("Name", character.Name);
-        info.SetAttribute("Relationship", character.Relationship);
+        //info.SetAttribute("Relationship", character.Relationship);
         info.SetAttribute("Birth", character.Birth);
 
         root.AppendChild(info);//將子節點按照創建順序，添加到xml
