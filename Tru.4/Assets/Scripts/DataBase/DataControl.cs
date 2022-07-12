@@ -63,17 +63,12 @@ public class DataControl : MonoBehaviour
         LargeGreats_DataBase = LargeGreatData.IntoDictionary(LargeGreatpath);
         LittleGreats_DataBase = LittleGreatData.IntoDictionary(LittleGreatpath);
         LittleLuck_DataBase = LittleLuckData.IntoDictionary(LittleLuckpath);
-<<<<<<< Updated upstream
         randomID();
     }
 
     private void Update()
     {
     }
-=======
-    }
-    #endregion
->>>>>>> Stashed changes
 
     void randomID()
     {
