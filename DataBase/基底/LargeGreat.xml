@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LargeGreatData>
+<LargeGreats>
+<LargeGreat>
+<ID></ID>
+<TotalCash></TotalCash>
+<Installment></Installment>
+<MonthToPay></MonthToPay>
+<CashPerMonth></CashPerMonth>
+<Description></Description>
+<ConnectionPoint></ConnectionPoint>
+<OtherRequire></OtherRequire>
+</LargeGreat>
+<LargeGreat>
+<ID></ID>
+<TotalCash></TotalCash>
+<Installment></Installment>
+<MonthToPay></MonthToPay>
+<CashPerMonth></CashPerMonth>
+<Description></Description>
+<ConnectionPoint></ConnectionPoint>
+<OtherRequire></OtherRequire>
+</LargeGreat>
+</LargeGreats>
+</LargeGreatData>
