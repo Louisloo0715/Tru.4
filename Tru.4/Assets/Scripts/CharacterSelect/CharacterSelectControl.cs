@@ -57,7 +57,6 @@ public class CharacterSelectControl : MonoBehaviour
     {
         string FullImagepath = "CharacterSelect/" + ID + "/FullImage";
         FullImage.sprite = Resources.Load<Sprite>(FullImagepath);
-
         
         Name_text.text = DataControl.Instance.Characters_DataBase[ID].Name;
         Characters character = DataControl.Instance.Characters_DataBase[ID];

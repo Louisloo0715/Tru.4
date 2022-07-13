@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartController : MonoBehaviour
 {
     public GameObject CharacterImage;
+    public InputField inputName;
 
     private void Start()
     {
@@ -28,15 +30,32 @@ public class StartController : MonoBehaviour
             yield return null;
         }
     }
-
-    public void showPanel(GameObject gameObject)
+    public void Exit()
     {
-        LeanTween.scale(gameObject, Vector3.one, .5f).setEase(LeanTweenType.easeInExpo);
-
+        Application.Quit();
     }
-    public void closePanel(GameObject gameObject)
+
+    public void PopUP(GameObject gameObject)
+    {
+        gameObject.SetActive(true);
+        LeanTween.scale(gameObject, Vector3.one, .5f).setEase(LeanTweenType.easeInExpo);
+    }
+
+    public void CloseIt(GameObject gameObject)
     {
         LeanTween.scale(gameObject, Vector3.zero, .5f).setEase(LeanTweenType.easeInExpo);
+        gameObject.SetActive(false);
     }
 
+    public void CheckInput(GameObject gameObject)
+    {
+        if (inputName.text.Length > 4)
+            PopUP(gameObject);
+        else
+        { 
+            ConnectToServer.Instance.Name = inputName.text;
+            ConnectToServer.Instance.Connect();
+        }
+
+    }
 }

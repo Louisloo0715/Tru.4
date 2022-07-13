@@ -20,6 +20,17 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public Transform PanelGrid;
     public FriendItem PrefabItem;
 
+    public string Name;
+    public int ID = 101;
+
+    public static ConnectToServer Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
+    }
 
     public void Connect()
     {
@@ -29,6 +40,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        PhotonNetwork.NickName = Name;
         PhotonNetwork.JoinLobby();
     }
 
@@ -94,9 +106,16 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         foreach (KeyValuePair<int, Photon.Realtime.Player> player in PhotonNetwork.CurrentRoom.Players)
         {
             FriendItem newFriendItem = Instantiate(PrefabItem, PanelGrid);
+            newFriendItem.SetPlayerInfo(player.Value);
+
+            if (player.Value == PhotonNetwork.LocalPlayer)
+            { 
+            
+            }
             playerItemsList.Add(newFriendItem);
         }
     }
+
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {

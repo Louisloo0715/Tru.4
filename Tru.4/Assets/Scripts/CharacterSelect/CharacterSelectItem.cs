@@ -24,5 +24,6 @@ public class CharacterSelectItem : MonoBehaviour
     public void GetHit()
     {
         selectControl.setupInfo(ID);
+        ConnectToServer.Instance.ID = ID;
     }
 }
