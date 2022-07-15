@@ -2,19 +2,22 @@
 
 public class FollowThePath : MonoBehaviour {
 
-    public Transform[] waypoints;
+    public GameObject[] waypoints;
 
     [SerializeField]
     private float moveSpeed = 1f;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int waypointIndex = 0;
 
     public bool moveAllowed = false;
 
+    private EventSystem NowEvent;
+
 	// Use this for initialization
 	private void Start () {
         transform.position = waypoints[waypointIndex].transform.position;
+        moveAllowed = false;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +38,11 @@ public class FollowThePath : MonoBehaviour {
             {
                 waypointIndex += 1;
             }
+
+            
         }
+        else
+            waypoints[waypointIndex].GetComponent<EventSystem>().Restart();
+
     }
 }
