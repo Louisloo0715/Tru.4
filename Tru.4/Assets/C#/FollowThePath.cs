@@ -38,8 +38,6 @@ public class FollowThePath : MonoBehaviour {
             {
                 waypointIndex += 1;
             }
-
-            
         }
         else
             waypoints[waypointIndex].GetComponent<EventSystem>().Restart();

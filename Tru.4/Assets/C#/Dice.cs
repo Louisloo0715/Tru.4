@@ -35,10 +35,10 @@ public class Dice : MonoBehaviour {
         GameControl.diceSideThrown = randomDiceSide + 1;
         if (whosTurn == 1)
         {
-            GameControl.MovePlayer(1);
+            GameControl.Instance.MovePlayer(1);
         } else if (whosTurn == -1)
         {
-            GameControl.MovePlayer(2);
+            GameControl.Instance.MovePlayer(2);
         }
         whosTurn *= -1;
         coroutineAllowed = true;
