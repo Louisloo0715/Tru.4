@@ -105,7 +105,6 @@ public class CharacterSelectControl : MonoBehaviour
         dataBase.Relationship = character.Relationship;
         dataBase.Birth = character.Birth;
 
-
         WorkList workList = new WorkList();
         if (character.StartJob != 0)
         {
@@ -119,6 +118,7 @@ public class CharacterSelectControl : MonoBehaviour
             dataBase.Salary = work.MonthlySalary;
             workList.MonthlyRequire = work.MonthlyRequire;
             dataBase.workList.Add(workList);
+            dataBase.AllocateTime -= work.MonthlyTime;
         }
         Debug.Log(dataBase.AllocateCash);
 

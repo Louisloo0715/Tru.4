@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class FollowThePath : MonoBehaviour {
+public class FollowThePath : MonoBehaviour
+{
 
     public GameObject[] waypoints;
 
@@ -14,17 +15,19 @@ public class FollowThePath : MonoBehaviour {
 
     private EventSystem NowEvent;
 
-	// Use this for initialization
-	private void Start () {
+    // Use this for initialization
+    private void Start()
+    {
         transform.position = waypoints[waypointIndex].transform.position;
         moveAllowed = false;
-	}
-	
-	// Update is called once per frame
-	private void Update () {
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
         if (moveAllowed)
             Move();
-	}
+    }
 
     private void Move()
     {

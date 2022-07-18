@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		deckSizeText.text = deck.Count.ToString();
-		discardPileSizeText.text = discardPile.Count.ToString();
+		//deckSizeText.text = deck.Count.ToString();
+		//discardPileSizeText.text = discardPile.Count.ToString();
 	}
 
 }

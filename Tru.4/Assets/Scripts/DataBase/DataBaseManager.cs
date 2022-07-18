@@ -144,10 +144,10 @@ public class DarkCards
     public int ID;
 
     [XmlElement("PunishTime")]
-    public string PunishTime;
+    public int PunishTime;
 
     [XmlElement("PunishCash")]
-    public string PunishCash;
+    public int PunishCash;
 
     [XmlElement("Suspended")]
     public int Suspended;
@@ -439,6 +439,7 @@ public class PlayerDataBase
     public int PocketMoney;
     public int LivingExpend;
     public int ConnectionPoint = 30;
+    public int Suspended = 0;
     public List<WorkList> workList = new List<WorkList>();
 
     public int BookNum = 0;
@@ -451,7 +452,10 @@ public class PlayerDataBase
     public int AllocateCash
     {
         get { return SetallocateCash(); }
+        set { }
     }
+
+    public int AllocateTime = 200;
 
 }
 

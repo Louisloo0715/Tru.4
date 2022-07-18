@@ -51,44 +51,27 @@ public class EventSystem : MonoBehaviour
         switch (eventType)
         {
             case EventType.DarkCard:
-                if (DataControl.Instance.DarkCards_DataBase.Count == eventManager.DarkCardNum)
-                    return;
-                eventManager.DarkCardNum++;
-                Debug.Log("DarkCardNum：" + eventManager.DarkCardNum);
+                eventManager.DoDarkCardEvent();
                 break;
+
             case EventType.InvestCard:
-                eventManager.InvestCard++;
-                Debug.Log("InvestCard：" + eventManager.InvestCard);
+                eventManager.DoInvestEvent();
                 break;
+
             case EventType.GreatCard:
-
-                if (IsLittle)
-                {
-                    int ran = Random.Range(1, DataControl.Instance.LittleGreats_DataBase.Count);
-                    Debug.Log("LittleGreat：" + ran);
-                }
-                else
-                {
-                    int ran = Random.Range(1, DataControl.Instance.LargeGreats_DataBase.Count);
-                    Debug.Log("LargeGreat：" + ran);
-                }
-
+                eventManager.DoGreatCardEvent();
                 break;
+
             case EventType.LearningCard:
-                eventManager.LearningCard++;
-                Debug.Log("LearningCard：" + eventManager.LearningCard);
+                eventManager.DoLearningCardEvent();
                 break;
+
             case EventType.LittleLuck:
-                if (DataControl.Instance.LittleLuck_DataBase.Count == eventManager.LittleLuck)
-                    return;
-                eventManager.LittleLuck++;
-                Debug.Log("LittleLuck：" + eventManager.LittleLuck);
+                eventManager.DoLittleLuckEvent();
                 break;
+
             case EventType.WorkCard:
-                if (DataControl.Instance.Work_DataBase.Count == eventManager.WorkCardNum)
-                    return;
-                eventManager.WorkCardNum++;
-                Debug.Log("Work_DataBase：" + eventManager.WorkCardNum);
+                eventManager.DoWorkCardEvent();
                 break;
         }
     }

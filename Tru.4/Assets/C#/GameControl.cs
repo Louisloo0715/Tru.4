@@ -48,14 +48,14 @@ public class GameControl : MonoBehaviour
         {
             //目前玩家停止行動
             Players[playerTurnNum].GetComponent<FollowThePath>().moveAllowed = false;
+            playerStartWaypoint[playerTurnNum - 1] = Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex - 1;
+            Players[playerTurnNum].GetComponent<FollowThePath>().waypoints[playerStartWaypoint[playerTurnNum - 1]].GetComponent<EventSystem>().DoEvent();
             #region 更改當前玩家(換人)
             if (playerTurnNum != Players.Count)
                 playerTurnNum++;
             else
                 playerTurnNum = 1;
             #endregion
-
-            playerStartWaypoint[playerTurnNum - 1] = Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
         if (Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex == Players[playerTurnNum].GetComponent<FollowThePath>().waypoints.Length)
