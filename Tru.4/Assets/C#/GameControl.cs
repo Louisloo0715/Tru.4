@@ -30,33 +30,32 @@ public class GameControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-        whoWinsTextShadow = GameObject.Find("WhoWinsText");
-        player1MoveText = GameObject.Find("Player1MoveText");
-        player2MoveText = GameObject.Find("Player2MoveText");
-
-
+        #region 收集當前場景上的玩家並初始化每位玩家的路徑點
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < players.Length; i++)
         {
             Players.Add(i + 1, players[i]);
             playerStartWaypoint.Add(0);
         }
-
-
-
-        whoWinsTextShadow.gameObject.SetActive(false);
-        player1MoveText.gameObject.SetActive(true);
-        player2MoveText.gameObject.SetActive(false);
+        #endregion
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex > playerStartWaypoint[playerTurnNum-1] + diceSideThrown)
+        //當(玩家已經過的路徑點)大於(擲到的點數+移動前已經過的路徑點)時，換下一位玩家
+        if (Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex > playerStartWaypoint[playerTurnNum - 1] + diceSideThrown)
         {
+            //目前玩家停止行動
             Players[playerTurnNum].GetComponent<FollowThePath>().moveAllowed = false;
-            playerStartWaypoint[playerTurnNum-1] = Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex - 1;
+            #region 更改當前玩家(換人)
+            if (playerTurnNum != Players.Count)
+                playerTurnNum++;
+            else
+                playerTurnNum = 1;
+            #endregion
+
+            playerStartWaypoint[playerTurnNum - 1] = Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
         if (Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex == Players[playerTurnNum].GetComponent<FollowThePath>().waypoints.Length)
@@ -65,9 +64,10 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    public void MovePlayer(int playerToMove)
+    public void MovePlayer()//將當前玩家變為可行動的
     {
-        Players[playerToMove].GetComponent<FollowThePath>().moveAllowed = true;
-        playerTurnNum = playerToMove;
+        Players[playerTurnNum].GetComponent<FollowThePath>().moveAllowed = true;
     }
+
+
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//刮刮樂做法拿取卡片
 public class ScratchCardEffect : MonoBehaviour
 {
     public GameObject maskPrefab;

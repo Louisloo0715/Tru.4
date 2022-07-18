@@ -19,6 +19,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public List<FriendItem> playerItemsList = new List<FriendItem>();
     public Transform PanelGrid;
     public FriendItem PrefabItem;
+    PhotonView view;
 
     public string Name;
     public int ID = 101;
@@ -105,14 +106,21 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
         foreach (KeyValuePair<int, Photon.Realtime.Player> player in PhotonNetwork.CurrentRoom.Players)
         {
-            FriendItem newFriendItem = Instantiate(PrefabItem, PanelGrid);
-            newFriendItem.SetPlayerInfo(player.Value);
-
+            GameObject newFriendItem;
             if (player.Value == PhotonNetwork.LocalPlayer)
-            { 
-            
+                newFriendItem = PhotonNetwork.Instantiate(PrefabItem.name, PanelGrid.transform.position, Quaternion.identity);
+            else
+                newFriendItem = Instantiate(PrefabItem.gameObject, PanelGrid.transform.position, Quaternion.identity);
+
+            newFriendItem.transform.SetParent(PanelGrid);
+            newFriendItem.transform.position = Vector3.one;
+            newFriendItem.GetComponent<FriendItem>().SetPlayerInfo(player.Value);
+            if (player.Value == PhotonNetwork.LocalPlayer)
+            {
+                newFriendItem.GetComponent<FriendItem>().ApplyLocalChange();
             }
-            playerItemsList.Add(newFriendItem);
+            playerItemsList.Add(newFriendItem.GetComponent<FriendItem>());
+
         }
     }
 

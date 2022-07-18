@@ -18,8 +18,6 @@ public class DataControl : MonoBehaviour
         set { PlayerData = value; }
     }
 
-
-
     public TextMesh ShowDataText;
     private string input;
 

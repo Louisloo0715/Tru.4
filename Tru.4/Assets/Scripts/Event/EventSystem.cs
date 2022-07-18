@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
 public class EventSystem : MonoBehaviour
 {
+    //卡牌類型：黑暗卡，投資卡，工作卡，學習卡，大/小爽卡，好運卡
     enum EventType { DarkCard, InvestCard, WorkCard, LearningCard, GreatCard, LittleLuck }
 
     [SerializeField]
+    [Header("卡牌種類")]
     private EventType eventType = new EventType();
-    public GameObject ShowEventRandomSelection;
 
+    [HideInInspector]
     public EventManager eventManager;
+    [HideInInspector]
     public bool IsLittle = true;
     public SpriteRenderer EventImage;
     private  Sprite eventImage;
 
     private void Start()
     {
+        #region 初始刷新場景圖示
         switch (eventType)
         {
             case EventType.DarkCard:
@@ -41,11 +42,11 @@ public class EventSystem : MonoBehaviour
                 eventImage = Resources.Load<Sprite>("EventImage/工作");
                 break;
         }
-
         EventImage.sprite = eventImage;
+        #endregion
     }
 
-    public void Restart()
+    public void DoEvent()
     {
         switch (eventType)
         {

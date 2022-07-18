@@ -53,8 +53,6 @@ public class SavePlayerData : MonoBehaviour
     }
     #endregion
 
-
-
     #region 資料擷取
 
 
@@ -73,47 +71,9 @@ public class SavePlayerData : MonoBehaviour
 
     #endregion
 
-    //void CreateXML(Characters character)
-    //{
-    //    string localPath = UnityEngine.Application.persistentDataPath + "/Player.xml";
-
-    //    XmlDocument xml = new XmlDocument();
-    //    XmlDeclaration xmldecl = xml.CreateXmlDeclaration("1.0", "UTF-8", "");//設置xml文件編碼格式?UTF-8
-    //    XmlElement root = xml.CreateElement("PlayerData");//創建根節點
-    //    XmlElement info = xml.CreateElement("Info");//創建子節點
-    //    info.SetAttribute("PlayerName", PlayerName);//創建子節點屬性名和屬性值
-    //    info.SetAttribute("Name", character.Name);
-
-    //    if (character.Relationship == 0)
-    //        info.SetAttribute("Relationship", "無");
-    //    else
-    //        info.SetAttribute("Relationship", "有");
-
-    //    info.SetAttribute("Birth", character.Birth);
-    //    root.AppendChild(info);//將子節點按照創建順序，添加到xml
-    //    xml.AppendChild(root);
-
-    //    XmlElement Income = xml.CreateElement("Income");//創建子節點
-    //    info.SetAttribute("PlayerName", PlayerName);
-    //    xml.Save(localPath);//保存xml到路徑位置
-    //    Debug.Log("創建XML成功！");
-    //}
-
     public void SavingOri()
     {
         Save(CreatOriDataBase());
-    }
-
-    public void Saving(PlayerDataBase playerData)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string Path = UnityEngine.Application.persistentDataPath + "/Player.txt";
-
-        FileStream stream = new FileStream(Path, FileMode.Create);
-        PlayerDataBase dataBase = new PlayerDataBase();
-
-        formatter.Serialize(stream, dataBase);
-        stream.Close();
     }
 
     private PlayerDataBase CreatOriDataBase()
@@ -137,14 +97,4 @@ public class SavePlayerData : MonoBehaviour
         file.Write(saveString);
         file.Close();
     }
-
-    /*public static AllData LoadAllData(string filename)
-    {
-        var filePath = Application.persistentDataPath;
-        StreamReader fileReader = new StreamReader(System.IO.Path.Combine(filePath, filename));
-        string stringJson = fileReader.ReadToEnd();
-        fileReader.Close();
-        AllData num = JsonUtility.FromJson<AllData>(stringJson);
-        return num;
-    }*/
 }

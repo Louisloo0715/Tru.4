@@ -40,7 +40,7 @@ public class FollowThePath : MonoBehaviour {
             }
         }
         else
-            waypoints[waypointIndex].GetComponent<EventSystem>().Restart();
+            waypoints[waypointIndex].GetComponent<EventSystem>().DoEvent();
 
     }
 }
