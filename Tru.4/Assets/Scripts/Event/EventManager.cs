@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EventManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EventManager : MonoBehaviour
 
     public List<EventSystem> events = new List<EventSystem>();
     private DataControl dataControl;
+
     public void Start()
     {
         foreach (var _event in events)
@@ -26,7 +28,6 @@ public class EventManager : MonoBehaviour
         if (DarkCardNum == DataControl.Instance.DarkCards_DataBase.Count)
             return;
         DarkCardNum++;
-
         dataControl._playerData.AllocateCash -= dataControl.DarkCards_DataBase[DarkCardNum].PunishCash;
         dataControl._playerData.AllocateTime -= dataControl.DarkCards_DataBase[DarkCardNum].PunishTime;
         dataControl._playerData.Suspended = dataControl.DarkCards_DataBase[DarkCardNum].Suspended;
