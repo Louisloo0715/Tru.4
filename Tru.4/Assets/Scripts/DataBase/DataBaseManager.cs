@@ -199,6 +199,9 @@ public class LargeGreatCard
     [XmlElement("ID")]
     public int ID;
 
+    [XmlElement("Name")]
+    public string Name;
+
     [XmlElement("TotalCash")]
     public int TotalCash;
 
@@ -211,8 +214,14 @@ public class LargeGreatCard
     [XmlElement("CashPerMonth")]
     public int CashPerMonth;
 
-    [XmlElement("Other")]
-    public bool Other;
+    [XmlElement("Description")]
+    public string Description;
+
+    [XmlElement("ConnectionPoint")]
+    public int ConnectionPoint;
+
+    [XmlElement("OtherRequire")]
+    public bool OtherRequire;
 }
 #endregion
 
@@ -263,8 +272,14 @@ public class LittleGreatCard
     [XmlElement("TotalTime")]
     public int TotalTime;
 
-    [XmlElement("Other")]
-    public bool Other;
+    [XmlElement("Description")]
+    public string Description;
+
+    [XmlElement("ContinuedTime")]
+    public int ContinuedTime;
+
+    [XmlElement("OtherRequire")]
+    public bool OtherRequire;
 
 }
 #endregion
@@ -428,26 +443,27 @@ public class PlayerDataBase
     /// <summary>
     /// 玩家姓名
     /// </summary>
-    public string PlayerName;
+    public string PlayerName = string.Empty;
     /// <summary>
     /// 角色參數
     /// </summary>
-    public string Name;
+    public string Name = string.Empty;
     public bool Gender;
     public bool Relationship;
-    public string Birth;
+    public string Birth = string.Empty;
     public int PocketMoney;
     public int LivingExpend;
+    public int Expending = 0;
     public int ConnectionPoint = 30;
     public int Suspended = 0;
     public List<WorkList> workList = new List<WorkList>();
-
+    public List<Staging> stagings = new List<Staging>();
     public int BookNum = 0;
     public int Salary;
 
     private int SetallocateCash()
     {
-        return (PocketMoney + Salary) - LivingExpend;
+        return (PocketMoney + Salary) - LivingExpend - Expending;
     }
     public int AllocateCash
     {
@@ -463,8 +479,8 @@ public class PlayerDataBase
 [System.Serializable]
 public class WorkList
 {
-    public string Name;
-    public string Post;
+    public string Name = string.Empty;
+    public string Post = string.Empty;
     public bool OnWork = true;
     public int Time;
     public int Salary;
@@ -475,6 +491,15 @@ public class WorkList
 public class ActivityList
 {
 
+}
+
+[System.Serializable]
+public class Staging
+{
+    public bool TotheEndOfGame = false;
+    public string Name = string.Empty;
+    public int CashPerMonth = 0;
+    public int LeftMonth = 0;
 }
 
 #endregion

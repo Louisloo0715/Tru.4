@@ -10,13 +10,7 @@ public class DataControl : MonoBehaviour
     public static DataControl Instance;
 
     [Header("玩家參數")]
-    [SerializeField]
-    private PlayerDataBase PlayerData = new PlayerDataBase();
-    public PlayerDataBase _playerData
-    {
-        get { return PlayerData; }
-        set { PlayerData = value; }
-    }
+    public PlayerDataBase temp_playerData = new PlayerDataBase();
 
     public TextMesh ShowDataText;
     private string input;

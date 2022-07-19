@@ -3,6 +3,7 @@
 <LargeGreats>
 <LargeGreat>
 <ID></ID>
+<Name></Name>
 <TotalCash></TotalCash>
 <Installment></Installment>
 <MonthToPay></MonthToPay>
@@ -13,6 +14,7 @@
 </LargeGreat>
 <LargeGreat>
 <ID></ID>
+<Name></Name>
 <TotalCash></TotalCash>
 <Installment></Installment>
 <MonthToPay></MonthToPay>

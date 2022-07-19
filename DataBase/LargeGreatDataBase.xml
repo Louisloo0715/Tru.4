@@ -3,6 +3,7 @@
 	<LargeGreats>
 		<LargeGreat>
 			<ID>1</ID>
+			<Name>演唱會門票</Name>
 			<TotalCash>4800</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -13,6 +14,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>2</ID>
+			<Name>全新機車</Name>
 			<TotalCash>30000</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>12</MonthToPay>
@@ -23,6 +25,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>3</ID>
+			<Name>全新手機</Name>
 			<TotalCash>22000</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>9</MonthToPay>
@@ -33,6 +36,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>4</ID>
+			<Name>名牌包</Name>
 			<TotalCash>26000</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>12</MonthToPay>
@@ -43,6 +47,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>5</ID>
+			<Name>百貨週年慶</Name>
 			<TotalCash>7800</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -53,16 +58,18 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>6</ID>
+			<Name>單眼相機</Name>
 			<TotalCash>14900</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>6</MonthToPay>
 			<CashPerMonth>2800</CashPerMonth>
-			<Description>買了一台單位相機14,900，可一次付清，或分期付款半年，一個月2,800元。（請先付出第一期費用後，剩餘5期從可支配所得扣除）</Description>
+			<Description>買了一台單眼相機14,900，可一次付清，或分期付款半年，一個月2,800元。（請先付出第一期費用後，剩餘5期從可支配所得扣除）</Description>
 			<ConnectionPoint>0</ConnectionPoint>
 			<OtherRequire>0</OtherRequire>
 		</LargeGreat>
 		<LargeGreat>
 			<ID>7</ID>
+			<Name>髮型</Name>
 			<TotalCash>4500</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -73,6 +80,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>8</ID>
+			<Name>打牌</Name>
 			<TotalCash>4200</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -83,6 +91,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>9</ID>
+			<Name>醫美療程</Name>
 			<TotalCash>19800</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>8</MonthToPay>
@@ -93,6 +102,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>10</ID>
+			<Name>SPA療程</Name>
 			<TotalCash>3800</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -103,6 +113,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>11</ID>
+			<Name>伴侶禮物</Name>
 			<TotalCash>0</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -113,6 +124,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>12</ID>
+			<Name>電動主機</Name>
 			<TotalCash>15000</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>5</MonthToPay>
@@ -123,6 +135,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>13</ID>
+			<Name>筆記型電腦</Name>
 			<TotalCash>35000</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>12</MonthToPay>
@@ -133,6 +146,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>14</ID>
+			<Name>雙十一大採購</Name>
 			<TotalCash>8500</TotalCash>
 			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
@@ -143,6 +157,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>15</ID>
+			<Name>全新平板</Name>
 			<TotalCash>15500</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>5</MonthToPay>
@@ -153,8 +168,9 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>16</ID>
+			<Name>健身房會員</Name>
 			<TotalCash>0</TotalCash>
-			<Installment>1</Installment>
+			<Installment>0</Installment>
 			<MonthToPay>0</MonthToPay>
 			<CashPerMonth>1680</CashPerMonth>
 			<Description>知名健身房入會，每個月繳交月費1,680元。（請先付出當月費用後，剩餘從可支配所得扣除）</Description>
@@ -163,6 +179,7 @@
 		</LargeGreat>
 		<LargeGreat>
 			<ID>17</ID>
+			<Name>電競主機</Name>
 			<TotalCash>30000</TotalCash>
 			<Installment>1</Installment>
 			<MonthToPay>12</MonthToPay>

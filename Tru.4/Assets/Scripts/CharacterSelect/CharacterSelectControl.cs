@@ -120,10 +120,9 @@ public class CharacterSelectControl : MonoBehaviour
             dataBase.workList.Add(workList);
             dataBase.AllocateTime -= work.MonthlyTime;
         }
-        Debug.Log(dataBase.AllocateCash);
 
-        DataControl.Instance._playerData = dataBase;
+        DataControl.Instance.temp_playerData = dataBase;
 
-        SavePlayerData.Save(DataControl.Instance._playerData);
+        SavePlayerData.Save(dataBase);
     }
 }

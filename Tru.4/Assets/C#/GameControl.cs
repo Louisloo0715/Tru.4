@@ -50,13 +50,9 @@ public class GameControl : MonoBehaviour
             Players[playerTurnNum].GetComponent<FollowThePath>().moveAllowed = false;
             playerStartWaypoint[playerTurnNum - 1] = Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex - 1;
             //執行當前位置事件
-            Players[playerTurnNum].GetComponent<FollowThePath>().waypoints[playerStartWaypoint[playerTurnNum - 1]].GetComponent<EventSystem>().DoEvent();
-            #region 更改當前玩家(換人)
-            if (playerTurnNum != Players.Count)
-                playerTurnNum++;
-            else
-                playerTurnNum = 1;
-            #endregion
+            Players[playerTurnNum].GetComponent<FollowThePath>().waypoints[playerStartWaypoint[playerTurnNum - 1]].GetComponent<EventSystem>().DoEvent(Players[playerTurnNum].GetComponent<PlayerData>());
+
+            StartCoroutine(PlayerSuspended());
         }
 
         if (Players[playerTurnNum].GetComponent<FollowThePath>().waypointIndex == Players[playerTurnNum].GetComponent<FollowThePath>().waypoints.Length)
@@ -70,5 +66,26 @@ public class GameControl : MonoBehaviour
         Players[playerTurnNum].GetComponent<FollowThePath>().moveAllowed = true;
     }
 
+    IEnumerator PlayerSuspended()
+    {
+        ChangPlayer();
 
+        if (Players[playerTurnNum].GetComponent<PlayerData>()._playerData.Suspended != 0)
+        {
+            Players[playerTurnNum].GetComponent<PlayerData>()._playerData.Suspended--;
+            yield return new WaitForSeconds(1f);
+            ChangPlayer();
+        }
+        else
+            yield return new WaitForSeconds(1f);
+
+    }
+
+    private void ChangPlayer()
+    {
+        if (playerTurnNum != Players.Count)
+            playerTurnNum++;
+        else
+            playerTurnNum = 1;
+    }
 }

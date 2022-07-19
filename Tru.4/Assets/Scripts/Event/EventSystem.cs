@@ -46,12 +46,12 @@ public class EventSystem : MonoBehaviour
         #endregion
     }
 
-    public void DoEvent()
+    public void DoEvent(PlayerData playerData)
     {
         switch (eventType)
         {
             case EventType.DarkCard:
-                eventManager.DoDarkCardEvent();
+                eventManager.DoDarkCardEvent(playerData);
                 break;
 
             case EventType.InvestCard:
@@ -59,7 +59,7 @@ public class EventSystem : MonoBehaviour
                 break;
 
             case EventType.GreatCard:
-                eventManager.DoGreatCardEvent();
+                StartCoroutine(eventManager.DoGreatCardEvent(playerData));
                 break;
 
             case EventType.LearningCard:
