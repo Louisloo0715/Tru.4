@@ -71,7 +71,7 @@ public class EventSystem : MonoBehaviour
                 break;
 
             case EventType.WorkCard:
-                eventManager.DoWorkCardEvent();
+                eventManager.DoWorkCardEvent(playerData);
                 break;
         }
     }

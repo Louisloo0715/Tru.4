@@ -37,7 +37,7 @@
 			<ID>5</ID>
 			<PunishTime>0</PunishTime>
 			<PunishCash>10000</PunishCash>
-			<Suspended>0</Suspended>
+			<Suspended>1</Suspended>
 			<Description>玩家中，\n只要每月打工總時數超過100小時者，\n因體力不支住院，&lt;color=red&gt;停賽一次，\n繳納住院費用10,000元&lt;/color&gt;。</Description>
 			<OtherRequire>1</OtherRequire>
 		</Card>

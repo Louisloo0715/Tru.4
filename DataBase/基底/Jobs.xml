@@ -15,6 +15,7 @@
 <MonthlySalary></MonthlySalary>
 <AnnualSalary></AnnualSalary>
 <OtherRequire></OtherRequire>
+<Description></Description>
 </Work>
 <Work>
 <ID></ID>
@@ -30,6 +31,7 @@
 <MonthlySalary></MonthlySalary>
 <AnnualSalary></AnnualSalary>
 <OtherRequire></OtherRequire>
+<Description></Description>
 </Work>
 </Works>
 </WorkDataBase>

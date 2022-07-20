@@ -432,6 +432,9 @@ public class Works
 
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
+
+    [XmlElement("Description")]
+    public string Description;
 }
 #endregion
 
@@ -479,6 +482,7 @@ public class PlayerDataBase
 [System.Serializable]
 public class WorkList
 {
+    public int ID;
     public string Name = string.Empty;
     public string Post = string.Empty;
     public bool OnWork = true;

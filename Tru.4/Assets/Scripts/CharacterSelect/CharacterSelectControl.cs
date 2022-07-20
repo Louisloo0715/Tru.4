@@ -42,15 +42,6 @@ public class CharacterSelectControl : MonoBehaviour
             Item.GetComponent<CharacterSelectItem>().ID = DataControl.Instance.Characters_DataBase[Itemkey].ID;
             Item.GetComponent<CharacterSelectItem>().selectControl = this;
         }
-        RectTransform rt = PanelGrid.GetComponent(typeof(RectTransform)) as RectTransform;
-        GridLayoutGroup GridLayoit = PanelGrid.GetComponent(typeof(GridLayoutGroup)) as GridLayoutGroup;
-        int _isleftcount = DataControl.Instance.Characters_DataBase.Count % 2;
-
-        if (_isleftcount == 0)
-            rt.sizeDelta = new Vector2(rt.rect.width, (DataControl.Instance.Characters_DataBase.Count / 2) * (GridLayoit.cellSize.y + GridLayoit.spacing.y) + GridLayoit.padding.top);
-        else
-            rt.sizeDelta = new Vector2(rt.rect.width, (DataControl.Instance.Characters_DataBase.Count / 2 +1) * (GridLayoit.cellSize.y + GridLayoit.spacing.y) + GridLayoit.padding.top);
-
     }
 
     public void setupInfo(int ID)
@@ -110,7 +101,7 @@ public class CharacterSelectControl : MonoBehaviour
         {
             int JobNum = character.StartJob;
             Works work = DataControl.Instance.Work_DataBase[JobNum];
-
+            workList.ID = work.ID;
             workList.Name = work.Name;
             workList.Post = work.Post;
             workList.Time = work.MonthlyTime;
