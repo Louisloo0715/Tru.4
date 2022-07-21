@@ -12,11 +12,6 @@ public class DataControl : MonoBehaviour
     [Header("玩家參數")]
     public PlayerDataBase temp_playerData = new PlayerDataBase();
 
-    public TextMesh ShowDataText;
-    private string input;
-
-    public int ID;
-
     #region 所有路徑
     [Header("DataBase路徑")]
     public const string CharactersDataBasepath = "DataBase/CharacterDataBase";
@@ -25,6 +20,7 @@ public class DataControl : MonoBehaviour
     public const string LittleGreatpath = "DataBase/LittleGreatDataBase";
     public const string LittleLuckpath = "DataBase/LittleLuckDataBase";
     public const string Workpath = "DataBase/WorkDataBase";
+    public const string Learningpath = "DataBase/LearningDataBase";
     #endregion
 
     #region 所有DataBase
@@ -35,6 +31,7 @@ public class DataControl : MonoBehaviour
     public Dictionary<int, LittleGreatCard> LittleGreats_DataBase = new Dictionary<int, LittleGreatCard>();
     public Dictionary<int, LittleLuckCard> LittleLuck_DataBase = new Dictionary<int, LittleLuckCard>();
     public Dictionary<int, Works> Work_DataBase = new Dictionary<int, Works>();
+    public Dictionary<int, LearningCards> LearningCards_DataBase = new Dictionary<int, LearningCards>();
     #endregion
 
     #region Singleton
@@ -51,15 +48,9 @@ public class DataControl : MonoBehaviour
         LargeGreats_DataBase = LargeGreatData.IntoDictionary(LargeGreatpath);
         LittleGreats_DataBase = LittleGreatData.IntoDictionary(LittleGreatpath);
         LittleLuck_DataBase = LittleLuckData.IntoDictionary(LittleLuckpath);
+        LearningCards_DataBase = LearningCardDataBase.IntoDictionary(Learningpath);
     }
     #endregion
-
-    void randomID()
-    {
-        int ran = Random.Range(1, 16);
-        ShowDataText.text = DarkCards_DataBase[ran].Description;
-        ShowDataText.text = ShowDataText.text.Replace("\\n", "\n"); ;
-    }
 
 }
 
