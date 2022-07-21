@@ -11,7 +11,11 @@ public class CharactersDataBase
     [XmlArray("Characters")]
     [XmlArrayItem("Character")]
     public List<Characters> Obj = new List<Characters>();
-
+    /// <summary>
+    /// 載入角色資料的Xml檔
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
     public static CharactersDataBase LoadDataBase(string path)
     {
         TextAsset _xml = Resources.Load<TextAsset>(path);
@@ -36,27 +40,49 @@ public class CharactersDataBase
 
 public class Characters
 {
+
     [XmlAttribute("Character")]
     public string InteractiveObj;
 
+    /// <summary>
+    /// 角色ID(男性1開頭，女性2開頭)
+    /// </summary>
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 角色名稱
+    /// </summary>
     [XmlElement("Name")]
     public string Name;
 
+    /// <summary>
+    /// 遊戲角色生日
+    /// </summary>
     [XmlElement("Birth")]
     public string Birth;
 
+    /// <summary>
+    /// 遊戲角色星座
+    /// </summary>
     [XmlElement("StarSign")]
     public string StarSign;
 
+    /// <summary>
+    /// 有無男女朋友
+    /// </summary>
     [XmlElement("Relationship")]
     public bool Relationship;
 
+    /// <summary>
+    /// 零用錢
+    /// </summary>
     [XmlElement("PocketMoney")]
     public int PocketMoney;
 
+    /// <summary>
+    /// 初始工作薪資
+    /// </summary>
     [XmlElement("Salary")]
     private int salary;
     public int Salary
@@ -71,14 +97,23 @@ public class Characters
         }
     }
 
+    /// <summary>
+    /// 每月固定支出
+    /// </summary>
     [XmlElement("LivingExpend")]
     public int LivingExpend;
 
+    /// <summary>
+    /// 初始工作ID
+    /// </summary>
     [XmlElement("StartJob")]
     public int StartJob;
 
     [XmlElement("AllocateCash")]
     private int allocateCash;
+    /// <summary>
+    /// 可支配金額
+    /// </summary>
     public int AllocateCash
     {
         get { return allocateCash; }
@@ -90,6 +125,9 @@ public class Characters
 
     [XmlElement("AllocateTime")]
     private int allcateTime;
+    /// <summary>
+    /// 可支配時間
+    /// </summary>
     public int AllocateTime
     {
         get { return allcateTime; }
@@ -113,6 +151,11 @@ public class DarkCardsDataBase
     [XmlArrayItem("Card")]
     public List<DarkCards> Obj = new List<DarkCards>();
 
+    /// <summary>
+    /// 載入黑暗卡的Xml檔
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
     public static DarkCardsDataBase LoadDataBase(string path)
     {
         TextAsset _xml = Resources.Load<TextAsset>(path);
@@ -143,18 +186,33 @@ public class DarkCards
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 懲罰時間
+    /// </summary>
     [XmlElement("PunishTime")]
     public int PunishTime;
 
+    /// <summary>
+    /// 懲罰金額
+    /// </summary>
     [XmlElement("PunishCash")]
     public int PunishCash;
 
+    /// <summary>
+    /// 停賽次數
+    /// </summary>
     [XmlElement("Suspended")]
     public int Suspended;
 
+    /// <summary>
+    /// 黑暗卡內容描述
+    /// </summary>
     [XmlElement("Description")]
     public string Description;
 
+    /// <summary>
+    /// 是否有無其餘條件
+    /// </summary>
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
 
@@ -199,27 +257,51 @@ public class LargeGreatCard
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 大爽卡物件名稱
+    /// </summary>
     [XmlElement("Name")]
     public string Name;
 
+    /// <summary>
+    /// 總金額(用於一次給付)
+    /// </summary>
     [XmlElement("TotalCash")]
     public int TotalCash;
 
+    /// <summary>
+    /// 是否可分期
+    /// </summary>
     [XmlElement("Installment")]
     public bool Installment;
 
+    /// <summary>
+    /// 共分期幾月
+    /// </summary>
     [XmlElement("MonthToPay")]
     public int MonthToPay;
 
+    /// <summary>
+    /// 分期後每月需支付金額
+    /// </summary>
     [XmlElement("CashPerMonth")]
     public int CashPerMonth;
 
+    /// <summary>
+    /// 大爽卡內容描述
+    /// </summary>
     [XmlElement("Description")]
     public string Description;
 
+    /// <summary>
+    /// 人脈點數增加
+    /// </summary>
     [XmlElement("ConnectionPoint")]
     public int ConnectionPoint;
-
+    
+    /// <summary>
+    /// 是否有無其條件
+    /// </summary>
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
 }
@@ -263,21 +345,39 @@ public class LittleGreatCard
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 需支付總金額
+    /// </summary>
     [XmlElement("TotalCash")]
     public int TotalCash;
 
+    /// <summary>
+    /// 可獲得之人脈點數
+    /// </summary>
     [XmlElement("ConnectionPoint")]
     public int ConnectionPoint;
 
+    /// <summary>
+    /// 需花費的總時間
+    /// </summary>
     [XmlElement("TotalTime")]
     public int TotalTime;
 
+    /// <summary>
+    /// 小爽卡內容描述
+    /// </summary>
     [XmlElement("Description")]
     public string Description;
-
+    
+    /// <summary>
+    /// 持續時間
+    /// </summary>
     [XmlElement("ContinuedTime")]
     public int ContinuedTime;
 
+    /// <summary>
+    /// 是否有無其餘條件
+    /// </summary>
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
 
@@ -321,15 +421,27 @@ public class LittleLuckCard
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 可獲得之總金額
+    /// </summary>
     [XmlElement("TotalCash")]
     public int TotalCash;
 
+    /// <summary>
+    /// 所需的書本數
+    /// </summary>
     [XmlElement("BookNeeds")]
     public int BookNeeds;
 
+    /// <summary>
+    /// 所需的人脈點數數
+    /// </summary>
     [XmlElement("RelationshipPointNeeds")]
     public int RelationshipPointNeeds;
 
+    /// <summary>
+    /// 是否有無其餘條件
+    /// </summary>
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
 
@@ -373,22 +485,40 @@ public class Works
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 機構名稱
+    /// </summary>
     [XmlElement("Name")]
     public string Name;
 
+    /// <summary>
+    /// 職位名稱
+    /// </summary>
     [XmlElement("Post")]
     public string Post;
 
+    /// <summary>
+    /// 所需人數
+    /// </summary>
     [XmlElement("PersonRequire")]
     public int PersonRequire;
 
+    /// <summary>
+    /// 初始工作月
+    /// </summary>
     [XmlElement("StartMonth")]
     public int StartMonth;
 
+    /// <summary>
+    /// 離職月份
+    /// </summary>
     [XmlElement("EndMonth")]
     public int EndMonth;
 
-    private double hourlySalary = 160;
+    /// <summary>
+    /// 當前時薪價格(可更改)
+    /// </summary>
+    private double hourlySalary = 168;
     [XmlElement("HourlySalary")]
     public double HourlySalary
     {
@@ -396,11 +526,17 @@ public class Works
         set { hourlySalary *= value; }
     }
 
+    /// <summary>
+    /// 周時
+    /// </summary>
     [XmlElement("WeeklyTime")]
     public int WeeklyTime;
 
     [XmlElement("MonthlySalary")]
     private int monthlySalary;
+    /// <summary>
+    /// 月薪(時薪 * 月時)
+    /// </summary>
     public int MonthlySalary
     {
         get { return monthlySalary; }
@@ -413,9 +549,15 @@ public class Works
         }
     }
 
+    /// <summary>
+    /// 月時
+    /// </summary>
     [XmlElement("MonthlyTime")]
     public int MonthlyTime;
 
+    /// <summary>
+    /// 年薪
+    /// </summary>
     [XmlElement("AnnualSalary")]
     private int annualSalary;
     public int AnnualSalary
@@ -427,12 +569,21 @@ public class Works
         }
     }
 
+    /// <summary>
+    /// 基本月數要求
+    /// </summary>
     [XmlElement("MonthlyRequire")]
     public int MonthlyRequire;
 
+    /// <summary>
+    /// 是否有無其餘要求
+    /// </summary>
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
 
+    /// <summary>
+    /// 工作卡內容描述
+    /// </summary>
     [XmlElement("Description")]
     public string Description;
 }
@@ -476,42 +627,81 @@ public class LearningCards
     [XmlElement("ID")]
     public int ID;
 
+    /// <summary>
+    /// 學習種類(Excel上有備註)
+    /// </summary>
     [XmlElement("Type")]
     public int Type;
 
+    /// <summary>
+    /// 學習名稱
+    /// </summary>
     [XmlElement("Name")]
     public string Name;
 
+    /// <summary>
+    /// 獲得書本數
+    /// </summary>
     [XmlElement("BookNums")]
     public int BookNums;
 
+    /// <summary>
+    /// 需花費總金額
+    /// </summary>
     [XmlElement("TotalCash")]
     public string TotalCash;
 
+    /// <summary>
+    /// 是否可以全員參與
+    /// </summary>
     [XmlElement("PersonRequire")]
     public bool PersonRequire;
 
+    /// <summary>
+    /// 可使用次數(0不限次數)
+    /// </summary>
     [XmlElement("UseTime")]
-    public bool UseTime;
+    public int UseTime;
 
+    /// <summary>
+    /// 每周花費時間
+    /// </summary>
     [XmlElement("WeeklyTime")]
     public int WeeklyTime;
 
+    /// <summary>
+    /// 每月花費時間
+    /// </summary>
     [XmlElement("MonthlyTime")]
     public int MonthlyTime;
 
+    /// <summary>
+    /// 獲得人脈點數
+    /// </summary>
     [XmlElement("ConnectionPoint")]
     public int ConnectionPoint;
 
+    /// <summary>
+    /// 懲罰人脈點數
+    /// </summary>
     [XmlElement("Punish_ConnectionPoint")]
     public int Punish_ConnectionPoint;
 
+    /// <summary>
+    /// 所需時間(-1持續至遊戲結束)
+    /// </summary>
     [XmlElement("MonthNeeds")]
     public int MonthNeeds;
 
+    /// <summary>
+    /// 學習卡內容描述
+    /// </summary>
     [XmlElement("Description")]
     public string Description;
 
+    /// <summary>
+    /// 是否有無其餘條件
+    /// </summary>
     [XmlElement("OtherRequire")]
     public bool OtherRequire;
 
@@ -532,42 +722,89 @@ public class PlayerDataBase
     /// </summary>
     public string Name = string.Empty;
     public bool Gender;
+    /// <summary>
+    /// 有無男女朋友 
+    /// </summary>
     public bool Relationship;
     public string Birth = string.Empty;
+    /// <summary>
+    /// 零用錢
+    /// </summary>
     public int PocketMoney;
+    /// <summary>
+    /// 每月固定生活支出
+    /// </summary>
     public int LivingExpend;
+    /// <summary>
+    /// 當月額外支出(月初歸零)
+    /// </summary>
     public int Expending = 0;
+    /// <summary>
+    /// 人脈點(預設30點)
+    /// </summary>
     public int ConnectionPoint = 30;
+    /// <summary>
+    /// 暫停遊戲資格次數
+    /// </summary>
     public int Suspended = 0;
     public List<WorkList> workList = new List<WorkList>();
     public List<Staging> stagings = new List<Staging>();
+    /// <summary>
+    /// 當前擁有的書籍數(累積制)
+    /// </summary>
     public int BookNum = 0;
+    /// <summary>
+    /// 用於儲存所有工資所得
+    /// </summary>
     public int Salary;
 
+    /// <summary>
+    /// 計算當月可支配金額((零用錢 + 總薪資) - 每月固定支出 - 當月額外支出)
+    /// </summary>
+    /// <returns></returns>
     private int SetallocateCash()
     {
         return (PocketMoney + Salary) - LivingExpend - Expending;
     }
+
+    /// <summary>
+    /// 當月可支配金額
+    /// </summary>
     public int AllocateCash
     {
         get { return SetallocateCash(); }
         set { }
     }
 
+    /// <summary>
+    /// 當月可支配時間(預設200)
+    /// </summary>
     public int AllocateTime = 200;
 
 }
 
 
+/// <summary>
+/// 工作列表
+/// </summary>
 [System.Serializable]
 public class WorkList
 {
     public int ID;
     public string Name = string.Empty;
+    /// <summary>
+    /// 職位名稱
+    /// </summary>
     public string Post = string.Empty;
+    /// <summary>
+    /// 是否正在工作中，預設值為True
+    /// </summary>
     public bool OnWork = true;
     public int Time;
     public int Salary;
+    /// <summary>
+    /// 工作月數需求(-1：角色自帶不可辭職)
+    /// </summary>
     public int MonthlyRequire;
 }
 
@@ -577,12 +814,24 @@ public class ActivityList
 
 }
 
+/// <summary>
+/// 分期付款(大爽卡使用)
+/// </summary>
 [System.Serializable]
 public class Staging
 {
+    /// <summary>
+    /// 直到遊戲結束(預設為False)
+    /// </summary>
     public bool TotheEndOfGame = false;
     public string Name = string.Empty;
+    /// <summary>
+    /// 每月所需支付
+    /// </summary>
     public int CashPerMonth = 0;
+    /// <summary>
+    /// 剩餘月份
+    /// </summary>
     public int LeftMonth = 0;
 }
 

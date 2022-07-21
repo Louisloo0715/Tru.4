@@ -6,11 +6,11 @@ using TMPro;
 
 public class EventManager : MonoBehaviour
 {
-    public int DarkCardNum = 0;
-    public int WorkCardNum = 0;
-    public int LearningCard = 0;
-    public int LittleLuck = 0;
-    public int InvestCard = 0;
+    public int DarkCardNum = 0;//黑暗卡當前卡號
+    public int WorkCardNum = 0;//工作卡當前卡號
+    public int LearningCard = 0;//學習卡當前卡號
+    public int LittleLuck = 0;//好運卡當前卡號
+    public int InvestCard = 0;//投資卡當前卡號
 
     public List<EventSystem> events = new List<EventSystem>();
     private DataControl dataControl;
@@ -33,10 +33,12 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance;
     private void Awake()
     {
+        #region Singleton
         if (Instance == null)
             Instance = this;
         else
             Destroy(this);
+        #endregion
     }
 
     public void Start()
@@ -49,11 +51,11 @@ public class EventManager : MonoBehaviour
     }
 
     #region 顯示內容敘述
-    public void CloseIt(GameObject gameObject)
+    public void CloseIt(GameObject gameObject)//關閉Panel
     {
         LeanTween.scale(gameObject, Vector3.zero, .5f).setEase(LeanTweenType.easeInExpo);
     }
-    public IEnumerator Decripction(string Text)
+    public IEnumerator Decripction(string Text)//開啟Panel
     {
         LeanTween.scale(DescriptPanel, Vector3.one, .5f).setEase(LeanTweenType.easeInExpo);
         DescriptText.text = Text;
@@ -115,13 +117,13 @@ public class EventManager : MonoBehaviour
         Dice.Instance.coroutineAllowed = true;
     }
 
-    private void DoNormalDark(PlayerData player, DarkCards card)
+    private void DoNormalDark(PlayerData player, DarkCards card)//一般數值加減
     {
         player._playerData.Expending += card.PunishCash;
         player._playerData.AllocateTime -= card.PunishTime;
         player._playerData.Suspended = card.Suspended;
-    }//一般數值加減
-    private IEnumerator LeftOneJob(PlayerData player)
+    }
+    private IEnumerator LeftOneJob(PlayerData player)//玩家選擇離開當前其中一份工作
     {
         if (player._playerData.workList.Count == 0)//玩家若無工作則跳過
             StopCoroutine(LeftOneJob(player));
@@ -129,16 +131,16 @@ public class EventManager : MonoBehaviour
         if (player._playerData.workList.Count == 1 && player._playerData.workList[0].MonthlyRequire == -1)//玩家自帶工作不可辭職
             StopCoroutine(LeftOneJob(player));
 
-        if (LeftWorkGrid.transform.childCount != 0)
+        if (LeftWorkGrid.transform.childCount != 0)//清空玩家工作列表UI
         {
             for (int i = 0; i < LeftWorkGrid.transform.childCount; i++)
             {
                 Destroy(LeftWorkGrid.transform.GetChild(i).gameObject);
             }
-        }//清空玩家工作列表UI
+        }
 
         LeanTween.scale(LeftWorkPanel, Vector3.one, .5f).setEase(LeanTweenType.easeInExpo);
-        foreach (var work in player._playerData.workList)
+        foreach (var work in player._playerData.workList)//生成玩家工作列表UI
         {
             if (work.MonthlyRequire == -1)//列表不可出現玩家自帶工作
                 continue;
@@ -152,29 +154,29 @@ public class EventManager : MonoBehaviour
 
             _work.transform.SetParent(LeftWorkGrid.transform);
             _work.transform.localScale = Vector3.one;
-        }//生成玩家工作列表UI
+        }
 
         yield return new WaitUntil(lwSubmit);//暫停此方法直到玩家按下按鈕確認
         LWSubmit = false;
-        foreach (var toggle in LeftWorkToggleManager.Instance.leftToggleItems)
+        foreach (var toggle in LeftWorkToggleManager.Instance.leftToggleItems)//找出玩家選擇的工作
         {
             if (!toggle.GetComponent<Toggle>().isOn)
                 continue;
             LeftWorkToggleManager.Instance.SelectToggle = toggle;
-        }//找出玩家選擇的工作
+        }
 
-        foreach (var work in player._playerData.workList)
+        foreach (var work in player._playerData.workList)//移除玩家工作工作中變為False
         {
             if (LeftWorkToggleManager.Instance.SelectToggle.work.ID != work.ID)
                 continue;
             else
                 work.OnWork = false;
-        }//移除玩家工作工作中變為False
+        }
 
         LeftWorkToggleManager.Instance.ClearItem();
 
-    }//玩家選擇離開當前其中一份工作
-    private void LeftHightestWork(PlayerData player)
+    }
+    private void LeftHightestWork(PlayerData player)//離開薪水最高的工作
     {
         WorkList _work = new WorkList();
         if (player._playerData.workList.Count == 0)
@@ -194,12 +196,12 @@ public class EventManager : MonoBehaviour
         }
         player._playerData.workList.Find(x => x.ID == _work.ID).OnWork = false;
 
-    }//離開薪水最高的工作
+    }
 
     private bool LWSubmit = false;
     bool lwSubmit()
     { return LWSubmit; }
-    public void LeftWorkSubmit()
+    public void LeftWorkSubmit()//此方法掛在LeftWorkPanel下的Button中
     {
         if (LeftWorkGrid.GetComponent<ToggleGroup>().AnyTogglesOn())
             LWSubmit = true;
@@ -349,6 +351,9 @@ public class EventManager : MonoBehaviour
     #region 執行學習卡事件
     public void DoLearningCardEvent()
     {
+        if (LearningCard == DataControl.Instance.LearningCards_DataBase.Count)
+            return;
+        LearningCard++;
     }
     #endregion
 
@@ -362,97 +367,12 @@ public class EventManager : MonoBehaviour
     #endregion
 
     #region 執行工作卡事件
-    public IEnumerator DoWorkCardEvent(PlayerData playerData)
+    public void DoWorkCardEvent(PlayerData playerData)
     {
         if (WorkCardNum == DataControl.Instance.Work_DataBase.Count)
-            StopCoroutine(DoWorkCardEvent(playerData));
+            return;
         WorkCardNum++;
-        Works card = DataControl.Instance.Work_DataBase[WorkCardNum];
-
-        if (!card.OtherRequire)//詢問是否要應徵此工作
-        {
-            yield return new WaitUntil(isPress);
-            ispress = false;
-            if (isWant)
-            { playerData._playerData.workList.Add(AddNormalWork(card)); }
-            else 
-            { yield return null; }
-               
-        }
-        else
-        {
-            switch (WorkCardNum)
-            {
-                case 7:
-                    break;
-
-                case 8:
-                    break;
-
-                case 10:
-                    break;
-
-                case 11:
-                    break;
-
-                case 12:
-                    break;
-
-                case 13:
-                    break;
-
-                case 15:
-                    break;
-
-                case 17:
-                    break;
-
-                case 18:
-                    break;
-
-                case 19:
-                    break;
-
-                case 20:
-                    break;
-
-                case 21:
-                    break;
-
-                case 22:
-                    break;
-
-                case 23:
-                    break;
-
-                case 24:
-                    break;
-
-                case 25:
-                    break;
-            }
-        }
-
-        yield return null;
     }
-
-    private bool isWant = false;
-    public void IsWantThisWork(bool iswant)
-    { isWant = iswant; }
-
-    private WorkList AddNormalWork(Works card)
-    {
-        WorkList work = new WorkList();
-        work.ID = card.ID;
-        work.Name = card.Name;
-        work.Post = card.Post;
-        work.Time = card.MonthlyTime;
-        work.Salary = card.MonthlySalary;
-        work.MonthlyRequire = card.MonthlyRequire;
-
-        return work;
-    }//返回當前工作資訊
-
     #endregion
 
 

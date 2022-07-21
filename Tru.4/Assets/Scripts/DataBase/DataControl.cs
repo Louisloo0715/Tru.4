@@ -12,6 +12,8 @@ public class DataControl : MonoBehaviour
     [Header("玩家參數")]
     public PlayerDataBase temp_playerData = new PlayerDataBase();
 
+    public int ID;
+
     #region 所有路徑
     [Header("DataBase路徑")]
     public const string CharactersDataBasepath = "DataBase/CharacterDataBase";

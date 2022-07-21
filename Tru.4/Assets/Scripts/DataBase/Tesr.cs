@@ -137,12 +137,4 @@ public class Tesr : MonoBehaviour
 
         ShowDataText.text = showText;
     }
-
-    public void commitPlayer()
-    {
-        if (isBoy)
-            DataControl.Instance.ID = boyNum;
-        else
-            DataControl.Instance.ID = girlNum;
-    }
 }
