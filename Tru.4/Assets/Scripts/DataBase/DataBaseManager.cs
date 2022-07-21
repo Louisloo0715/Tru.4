@@ -438,6 +438,86 @@ public class Works
 }
 #endregion
 
+#region 學習卡資料
+[XmlRoot("LearningCardData")]
+public class LearningCardDataBase
+{
+    [XmlArray("LearningCards")]
+    [XmlArrayItem("LearningCard")]
+    public List<LearningCards> Obj = new List<LearningCards>();
+
+    public static LearningCardDataBase LoadDataBase(string path)
+    {
+        TextAsset _xml = Resources.Load<TextAsset>(path);
+        XmlSerializer serializer = new XmlSerializer(typeof(LearningCardDataBase));
+        StringReader reader = new StringReader(_xml.text);
+        LearningCardDataBase Obj = new LearningCardDataBase();
+        Obj = serializer.Deserialize(reader) as LearningCardDataBase;
+        reader.Close();
+        return Obj;
+    }
+
+    public static Dictionary<int, LearningCards> IntoDictionary(string path)
+    {
+        Dictionary<int, LearningCards> temp = new Dictionary<int, LearningCards>();
+        foreach (var obj in LoadDataBase(path).Obj)
+        {
+            temp.Add(obj.ID, obj);
+        }
+        return temp;
+    }
+}
+
+public class LearningCards
+{
+    [XmlAttribute("Card")]
+    public string Card;
+
+    [XmlElement("ID")]
+    public int ID;
+
+    [XmlElement("Type")]
+    public int Type;
+
+    [XmlElement("Name")]
+    public string Name;
+
+    [XmlElement("BookNums")]
+    public int BookNums;
+
+    [XmlElement("TotalCash")]
+    public string TotalCash;
+
+    [XmlElement("PersonRequire")]
+    public bool PersonRequire;
+
+    [XmlElement("UseTime")]
+    public bool UseTime;
+
+    [XmlElement("WeeklyTime")]
+    public int WeeklyTime;
+
+    [XmlElement("MonthlyTime")]
+    public int MonthlyTime;
+
+    [XmlElement("ConnectionPoint")]
+    public int ConnectionPoint;
+
+    [XmlElement("Punish_ConnectionPoint")]
+    public int Punish_ConnectionPoint;
+
+    [XmlElement("MonthNeeds")]
+    public int MonthNeeds;
+
+    [XmlElement("Description")]
+    public string Description;
+
+    [XmlElement("OtherRequire")]
+    public bool OtherRequire;
+
+}
+#endregion
+
 #region 玩家資訊
 
 [System.Serializable]

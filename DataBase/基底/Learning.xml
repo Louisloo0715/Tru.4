@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<LearningData>
-<Learnings>
-<Learning>
+<LearningCardData>
+<LearningCards>
+<LearningCard>
 <ID></ID>
 <Type></Type>
 <Name></Name>
 <BookNums></BookNums>
+<TotalCash></TotalCash>
 <PersonRequire></PersonRequire>
 <UseTime></UseTime>
 <WeeklyTime></WeeklyTime>
@@ -13,13 +14,15 @@
 <ConnectionPoint></ConnectionPoint>
 <Punish_ConnectionPoint></Punish_ConnectionPoint>
 <MonthNeeds></MonthNeeds>
+<Description></Description>
 <OtherRequire></OtherRequire>
-</Learning>
-<Learning>
+</LearningCard>
+<LearningCard>
 <ID></ID>
 <Type></Type>
 <Name></Name>
 <BookNums></BookNums>
+<TotalCash></TotalCash>
 <PersonRequire></PersonRequire>
 <UseTime></UseTime>
 <WeeklyTime></WeeklyTime>
@@ -27,7 +30,8 @@
 <ConnectionPoint></ConnectionPoint>
 <Punish_ConnectionPoint></Punish_ConnectionPoint>
 <MonthNeeds></MonthNeeds>
+<Description></Description>
 <OtherRequire></OtherRequire>
-</Learning>
-</Learnings>
-</LearningData>
+</LearningCard>
+</LearningCards>
+</LearningCardData>
