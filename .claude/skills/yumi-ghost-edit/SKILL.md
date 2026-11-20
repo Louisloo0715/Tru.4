@@ -27,7 +27,13 @@ pip install opencv-python-headless scipy pypinyin faster-whisper fonttools brotl
 | B-roll / 音效 | **不放 repo**，放使用者 Google Drive | 圖庫授權不可再散布；Pexels 需署名 |
 
 **B-roll 來源優先順序**：使用者用 Gemini（Veo）生成的故事專屬鏡頭 > Vecteezy（使用者帳號）> Pexels（vidIQ `vidiq_find_broll`）。
-需要使用者動手時，產生「給本機 Claude 的指令」讓他貼到本機 Claude in Chrome 執行（範本見 episode 資料夾的兩個 .md）。
+需要使用者動手時，產生「給本機 Claude 的指令」讓他貼到本機 Claude in Chrome 執行。**一次列完整清單**（使用者要求一次做完），附優先順序，標明額度用完就停、不要付費。最新範本：`episodes/黃皮子討封/給本機Claude的完整素材生成指令.md`。
+
+**同一個人物（重要）**：故事主角在所有鏡頭必須是同一張臉，否則會出戲。做法：
+1. 從已有素材挑一個最符合故事的人物，截一張臉清楚的畫面當參考圖（第一集是 `episodes/黃皮子討封/REF_村民男子.png`：灰白亂髮、鬍渣、舊中式棉襖的中年村民），上傳到使用者的素材資料夾。
+2. 指令要求兩步：先在 Gemini 上傳參考圖做「同一個人在某場景」的圖片（Nano Banana 能保持臉和衣服），確認像了再用該圖當起始畫面做影片（Veo）。
+3. 影片額度用完時可只交圖片（.png）；引擎會把靜態圖用鏡頭推拉做成動態畫面。
+4. 時代/場景要一致：不要柏油路、黃線、路燈、現代公園、棕櫚樹、登山鞋等現代物件。
 本 skill 不可替使用者登入網站或繞過網站的防機器人驗證。
 
 ## 2. 流程
@@ -41,7 +47,7 @@ pip install opencv-python-headless scipy pypinyin faster-whisper fonttools brotl
    - 聽不清楚的句子不要亂猜；改用「停頓 + 燭火 + 心跳」接過去（第一集廟祝段落的做法）。
 4. **寫 EDL**（`build_full_edl.py` 範本）：每個 block = 一段旁白 + 模式（host/broll/black）+ `light`（0 暖 → 1 全黑）+ `dread`（配樂/環境音強度）+ 字卡 + 音效。`max_pause` 越恐怖留越長（0.35 → 1.3s）。
 5. **字幕**：用剪好的旁白重新辨識一次（時間軸才會對齊成片），再**逐句人工校對成繁體**（`subs_v2.py` 範本，`|` 是斷行點，`None` = 故意不上字幕）。常見錯字見 EDL 的 `fixes`（英國→因果、秘密→玉米、黃蜀狼→黃鼠狼、討風→討封…）。
-6. **逐句分鏡**（`shots_v3.py` 範本）：`[成片秒數, None, 素材名 | "host"]`。規則：
+6. **逐句分鏡**（`shots_v3.py` 範本）：`[成片秒數, 想要的檔名 | None, 備用素材名 | "host"]`。「想要的檔名」會到 EDL 的 `vecteezy_dir` 找同名開頭的 .mp4（沒有才用 .png），找不到就用備用素材，所以可以先排好、使用者上傳後直接重算。規則：
    - 每句畫面要對到台詞內容；**對不上就回玉米主持畫面，不要硬塞**（使用者明確要求）。
    - 單一畫面最長 3 秒（引擎自動切）。
    - 引擎的 no-repeat planner 保證同一段素材只用一次；用完先鏡像+推近，再不夠就回 host。完全相同的檔案要先合併成同一個名字（`cmp` 檢查）。

@@ -372,8 +372,9 @@ def build_audio(edl, tl, voice, tmp):
             L = i1 - i0
             tail = xf if (k + 1 < len(bls) and "music_at" in bls[k + 1]) else 0
             seg = mw[(cur + np.arange(L + tail)) % len(mw)].copy()
-            if "music_at" in bl and k > 0:
-                seg[:xf] *= np.linspace(0, 1, xf)
+            xin = min(xf, len(seg))  # blocks can be shorter than the crossfade after cut_edl
+            if "music_at" in bl and k > 0 and xin > 1:
+                seg[:xin] *= np.linspace(0, 1, xin)
             if tail:
                 seg[-tail:] *= np.linspace(1, 0, tail)
             m_ = min(len(seg), n - i0)
@@ -429,6 +430,13 @@ def build_audio(edl, tl, voice, tmp):
 # ============================================================ video
 class BrollReader:
     def __init__(self, f, start, dur):
+        if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):  # still image -> the shot's own push/pan animates it
+            self.p = subprocess.Popen(["ffmpeg", "-v", "error", "-loop", "1", "-framerate", str(FPS), "-i", f,
+                                       "-t", f"{dur + 0.5:.2f}", "-vf",
+                                       f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}",
+                                       "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+            self.last = np.zeros((H, W, 3), np.uint8)
+            return
         self.p = subprocess.Popen(["ffmpeg", "-v", "error", "-stream_loop", "-1", "-ss", f"{start:.2f}", "-i", f,
                                    "-t", f"{dur + 0.5:.2f}", "-vf",
                                    f"fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}",
@@ -520,7 +528,7 @@ def main():
         reds = set(edl.get("red_clips", []))
         def resolve(want, fb):
             if want and vdir:
-                hits = sorted(_glob.glob(os.path.join(vdir, want + "*")))
+                hits = sorted(_glob.glob(os.path.join(vdir, want + "*")), key=lambda h: (not h.lower().endswith(".mp4"), h))
                 if hits:
                     return ("broll", dict(file=hits[0], start=edl.get("vstart", {}).get(want, 0.5), red=False))
             if fb in ("host", "black"):
@@ -542,7 +550,7 @@ def main():
             if f not in _dur_cache:
                 r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f],
                                    capture_output=True, text=True).stdout.strip()
-                _dur_cache[f] = float(r or 10)
+                _dur_cache[f] = 6.0 if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")) else float(r or 10)
             return _dur_cache[f]
         PLAN = {}
         used = {}  # file -> [(a, b, variant)]
