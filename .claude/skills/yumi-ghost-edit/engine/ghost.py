@@ -612,8 +612,8 @@ def main():
             L = bl.get("light", 0.0)
             # mascot sprite for this frame
             mk = mouth[fi]
-            if mk == "closed" and L >= 0.55 and "frown" in SPR:
-                mk = "frown"  # mascot looks uneasy, not smiling, in the dark parts
+            if L >= 0.55 and "frown" in SPR:  # dark parts: no grinning - talk with a scared "o", rest on a frown
+                mk = {"closed": "frown", "half": "o", "open": "o", "wide": "o"}.get(mk, mk)
             c = SPR[mk].copy()
             if blinks[fi] and L < 0.85:
                 c = c * (1 - EM) + SPR["blink"] * EM
