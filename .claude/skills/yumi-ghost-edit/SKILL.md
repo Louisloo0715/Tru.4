@@ -62,7 +62,15 @@ pip install opencv-python-headless scipy pypinyin faster-whisper fonttools brotl
    ```
    預覽版：`ffmpeg -i final.mp4 -c:v libx264 -b:v 3000k -c:a copy preview.mp4`。
    - 看完覺得長：`python3 -I engine/cut_edl.py edl.json edl_new.json subs_new.json 87.2-93.5 111.2-131.6 …`（成片時間區段），字幕與分鏡自動對齊新時間軸。第一集從 7:25 剪到 6:06，原則：人物反應/動機只講一次、道理只講一次、口誤重複刪掉。
-8. **交付前檢查**：抽 6–10 張圖；量 LUFS（−14 ±0.5，TP ≤ −1.5）；字卡/字幕是否被 duplicated 原文時間誤對（引擎已改成 block 內對時）。
+8. **配樂音量檢查（使用者反映過「BGM 聽不到」）**：
+   ```bash
+   STEMS_DIR=stems python3 -I engine/ghost.py edl.json stems/mix.wav --audio-only   # 輸出 voice/music/bed_all 分軌
+   ```
+   逐分鐘量「配樂比人聲低幾 dB」（講話時，0.1s RMS 中位數）。目標：**整片 12–15 dB**，每分鐘差距不超過 3 dB；人聲一定最大，但配樂要一直聽得到、不能有斷掉的空白。
+   - 引擎已對配樂做慢速自動音量（4 秒窗、70% 壓縮）＋ 2 秒跳段交叉淡化。EDL 的 `music_db` 一般 −4（高潮）～ −6，笑點/結尾也不要低於 −8（第一集原本 −30 幾乎無聲）。
+   - `music_at` 跳段點要避開配樂本身的靜音處（`horror_bgm` 57–61s、90s 附近），用 `--audio-only` 量每秒 music 是否 < −45 dB。
+   - 剪接點檢查：用 `transcript.json` 的字級時間，確認每個 piece 的頭尾沒有切在字中間（第一集 `cut_edl` 後留下半個「這男」，要再剪掉）。
+9. **交付前檢查**：抽 6–10 張圖；量 LUFS（−14 ±0.5，TP ≤ −1.5）；字卡/字幕是否被 duplicated 原文時間誤對（引擎已改成 block 內對時）。
 
 ## 3. 風格規格
 - **畫面**：16:9 1920×1080 30fps。直播間：房間背景微模糊、玉米 1.2× 坐在桌後、桌子前景層；左上「玉米講鬼 TALK／民間怪談系列」標籤。
@@ -72,7 +80,7 @@ pip install opencv-python-headless scipy pypinyin faster-whisper fonttools brotl
 - **標題**：白字＋血紅副標＋做舊金色紙條，砸下時震動＋重擊。
 - **字幕**：底部置中、白字黑邊、每句 ≤14 字，**永遠顯示**（字卡出現時也要顯示）。
 - **轉場**：硬切為主；換場 fade；燈閃 flicker；狂風 flash。
-- **聲音**：人聲高通+壓縮 → 配樂（鋪陳段用前段、恐怖段跳到爬升段，講話時自動壓低）→ 環境音床（蟲鳴/風/暴風/室內）→ 心跳（恐怖段）→ 一次性音效（低語、貓頭鷹、腳步、草叢、樹枝斷、重擊、吸氣聲、廟鐘、木魚）。最後兩段式 loudnorm −14 LUFS。真實音效檔透過 EDL 的 `sfx_files` / `bed_files` / `heartbeat_file` 指定，缺的會用 `engine/foley.py` 合成版。
+- **聲音**：人聲高通+壓縮 → 配樂（鋪陳段用前段、恐怖段跳到爬升段，講話時自動壓低約 5 dB，整片穩定在人聲下 12–15 dB）→ 環境音床（蟲鳴/風/暴風/室內）→ 心跳（恐怖段）→ 一次性音效（低語、貓頭鷹、腳步、草叢、樹枝斷、重擊、吸氣聲、廟鐘、木魚）。最後兩段式 loudnorm −14 LUFS。真實音效檔透過 EDL 的 `sfx_files` / `bed_files` / `heartbeat_file` 指定，缺的會用 `engine/foley.py` 合成版。
 - **節奏參考**：16 分鐘原音檔 → 約 6 分鐘成片（使用者看完 7.5 分鐘版覺得太長）；冷開場 0:00、玉米開場 0:12、故事 0:58、高潮 ~2:20。
 - **不要用**：抽象的「一排排動物眼睛」素材（使用者覺得怪）；桌上擋在玉米胸前的馬克杯（已從 desk 素材移除）。
 

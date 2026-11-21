@@ -363,8 +363,12 @@ def build_audio(edl, tl, voice, tmp):
     if edl.get("music"):
         mw = render.read_wav(edl["music"])[:, 0].astype(np.float64)
         mw = mw / (np.sqrt(np.mean(mw ** 2)) + 1e-9)
+        # even out the track's own quiet/loud sections (slow AGC, ~70% compression) so the bed never vanishes
+        loc = np.sqrt(movavg(mw ** 2, int(4.0 * SR))) + 1e-4
+        mw = mw * np.clip(loc ** -0.7, 0.25, 6.0)
+        mw = mw / (np.sqrt(np.mean(mw ** 2)) + 1e-9)
         # walk blocks: continue the track, jump (with crossfade) where a block sets music_at
-        cur = 0; xf = int(1.0 * SR); bls = tl.blocks
+        cur = 0; xf = int(2.0 * SR); bls = tl.blocks
         for k, bl in enumerate(bls):
             i0, i1 = int(bl["t0"] * SR), min(n, int(bl["t1"] * SR))
             if "music_at" in bl:
@@ -380,8 +384,9 @@ def build_audio(edl, tl, voice, tmp):
             m_ = min(len(seg), n - i0)
             bed[i0:i0 + m_] += seg[:m_]
             cur += L
-        mlev = smooth(np.nan_to_num(env_from("music_db"), nan=-20.0))  # dB relative to speech
+        mlev = smooth(np.nan_to_num(env_from("music_db"), nan=-10.0))  # dB relative to speech (before ~5 dB ducking)
         bed = bed * speech * audio.db(mlev) * duck
+        bed_music = bed.copy()
     dl = np.clip(dread - 0.55, 0, 1) * 2
     dr = drone(n); bed += dr / (np.sqrt(np.mean(dr ** 2)) + 1e-9) * speech * audio.db(-26) * dl * duck
     # ambience beds
@@ -400,6 +405,11 @@ def build_audio(edl, tl, voice, tmp):
             i0, i1 = int(bl["t0"] * SR), int(bl["t1"] * SR)
             h = looped(edl["heartbeat_file"], i1 - i0) if edl.get("heartbeat_file") else heartbeat(i1 - i0, bl.get("heartbeat_bpm", 64))
             hb[i0:i1] += h / (np.sqrt(np.mean(h ** 2)) + 1e-9) * speech * audio.db(-14)
+    if os.environ.get("STEMS_DIR"):  # debug: write the separate layers for level checks
+        sd = os.environ["STEMS_DIR"]; os.makedirs(sd, exist_ok=True)
+        render.write_wav(os.path.join(sd, "voice.wav"), (v * 0.5)[:, None])
+        render.write_wav(os.path.join(sd, "music.wav"), (bed_music * 0.5)[:, None] if "bed_music" in dir() else (bed * 0.5)[:, None])
+        render.write_wav(os.path.join(sd, "bed_all.wav"), ((bed + hb) * 0.5)[:, None])
     mix = v + bed + hb
     for bi_, bl in enumerate(tl.blocks):
         for s in bl.get("sfx", []):
