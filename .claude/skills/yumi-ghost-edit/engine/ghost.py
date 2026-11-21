@@ -429,7 +429,7 @@ def build_audio(edl, tl, voice, tmp):
 
 # ============================================================ video
 class BrollReader:
-    def __init__(self, f, start, dur):
+    def __init__(self, f, start, dur, speed=1.0, loop=True):
         if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):  # still image -> the shot's own push/pan animates it
             self.p = subprocess.Popen(["ffmpeg", "-v", "error", "-loop", "1", "-framerate", str(FPS), "-i", f,
                                        "-t", f"{dur + 0.5:.2f}", "-vf",
@@ -437,9 +437,17 @@ class BrollReader:
                                        "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
             self.last = np.zeros((H, W, 3), np.uint8)
             return
-        self.p = subprocess.Popen(["ffmpeg", "-v", "error", "-stream_loop", "-1", "-ss", f"{start:.2f}", "-i", f,
+        if abs(speed - 1) > 1e-3:
+            # slow motion: motion-compensated interpolation to a real 30 fps (no duplicated frames / judder);
+            # interpolate at <=1280 px wide for speed, then scale up
+            sp = (f"setpts=PTS/{speed:.4f},scale='min(1280,iw)':-2,"
+                  f"minterpolate=fps={FPS}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,")
+        else:
+            sp = f"fps={FPS},"
+        self.p = subprocess.Popen(["ffmpeg", "-v", "error"] + (["-stream_loop", "-1"] if loop else []) +
+                                  ["-ss", f"{max(0.0, start):.3f}", "-i", f,
                                    "-t", f"{dur + 0.5:.2f}", "-vf",
-                                   f"fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}",
+                                   f"{sp}scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}",
                                    "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
         self.last = np.zeros((H, W, 3), np.uint8)
 
@@ -552,8 +560,9 @@ def main():
                                    capture_output=True, text=True).stdout.strip()
                 _dur_cache[f] = 6.0 if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")) else float(r or 10)
             return _dur_cache[f]
-        PLAN = {}
-        used = {}  # file -> [(a, b, variant)]
+        PLAN = {}   # shot index -> (clip start sec, playback speed)
+        used = {}   # file -> [(a, b)] source seconds already shown
+        MIN_SPEED = 0.45
         for i, (st0, m_, clip_, sk) in enumerate(SHOTS):
             if m_ != "broll":
                 continue
@@ -561,26 +570,35 @@ def main():
             if st0 < bl_["t0"] - 0.25:
                 continue
             st1 = min(SHOTS[i + 1][0] if i + 1 < len(SHOTS) else tl.dur, bl_["t1"])
-            tot = max(st1 - st0, 1e-3); nsub = max(1, int(np.ceil(tot / 3.0))); sl = tot / nsub
-            f = clip_["file"]; L_ = clip_len(f); base = clip_.get("start", 0)
-            for k in range(nsub):
-                need = sl + 0.15
-                choice = None
-                for variant in (0, 1):
-                    iv = [(a, b) for a, b, v in used.get(f, []) if v == variant]
-                    cands = sorted(set([base] + [b for a, b in iv] + [0.0]))
-                    for c0 in cands:
-                        if c0 + need <= L_ and all(c0 + need <= a or c0 >= b for a, b in iv):
-                            choice = (c0, variant); break
-                    if choice:
-                        break
-                if choice is None:
-                    PLAN[(sk, k)] = None  # exhausted -> host
-                    continue
-                used.setdefault(f, []).append((choice[0], choice[0] + need, choice[1]))
-                PLAN[(sk, k)] = choice
-        n_var = sum(1 for v in PLAN.values() if v and v[1]); n_host = sum(1 for v in PLAN.values() if v is None)
-        print(f"no-repeat plan: {len(PLAN)} sub-shots, {n_var} mirrored variants, {n_host} fell back to host", file=sys.stderr)
+            need = max(st1 - st0, 1e-3) + 0.1
+            f = clip_["file"]
+            if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):
+                PLAN[sk] = (0.0, 1.0); continue
+            L_ = clip_len(f) - 0.05; base = min(clip_.get("start", 0), max(0.0, L_ - need))
+            iv = sorted(used.get(f, []))
+            def free_from(c0):  # length of unused source time starting at c0
+                if any(a_ <= c0 < b_ for a_, b_ in iv):
+                    return 0.0
+                nxt = min([a_ for a_, b_ in iv if a_ > c0] + [L_])
+                return max(0.0, nxt - c0)
+            cands = sorted(set([base, 0.0] + [b_ for a_, b_ in iv]))
+            best = max(cands, key=lambda c: (free_from(c) >= need, -c if free_from(c) >= need else free_from(c)))
+            avail = free_from(best)
+            if avail >= need:
+                start, speed = best, 1.0                      # enough fresh footage: real time
+            elif avail >= need * MIN_SPEED:
+                start, speed = best, avail / need             # stretch the fresh footage (slow motion)
+            else:                                             # clip used up: replay slowly, never loop/mirror
+                print(f"  replay: {os.path.basename(f)} at {st0:.1f}s ({need:.1f}s needed)", file=sys.stderr)
+                span = min(L_, need)
+                speed = max(min(1.0, L_ / need), 0.2)
+                start = max(0.0, min(base, L_ - need * speed))
+            used.setdefault(f, []).append((start, start + need * speed))
+            PLAN[sk] = (start, speed)
+            if os.environ.get("PLAN_DEBUG"):
+                print(f"  plan {st0:6.1f}-{st1:6.1f} {os.path.basename(f):28s} start {start:5.2f} speed {speed:.2f}", file=sys.stderr)
+        n_slow = sum(1 for v in PLAN.values() if v[1] < 0.999)
+        print(f"continuous plan: {len(PLAN)} shots, {n_slow} slowed down", file=sys.stderr)
 
         def shot_at(t, bl):
             cur = None
@@ -620,7 +638,7 @@ def main():
             L = bl.get("light", 0.0)
             # mascot sprite for this frame
             mk = mouth[fi]
-            if L >= 0.55 and "frown" in SPR:  # dark parts: no grinning - talk with a scared "o", rest on a frown
+            if L >= 0.4 and "frown" in SPR:  # dark parts: no grinning - talk with a scared "o", rest on a frown
                 mk = {"closed": "frown", "half": "o", "open": "o", "wide": "o"}.get(mk, mk)
             c = SPR[mk].copy()
             if blinks[fi] and L < 0.85:
@@ -630,13 +648,7 @@ def main():
             plan = None
             if shot:
                 mode = shot[0][1]
-                if mode == "broll":
-                    (st0_, _, _, sk_), st1_ = shot
-                    tot_ = max(st1_ - st0_, 1e-3); ns_ = max(1, int(np.ceil(tot_ / 3.0))); sl_ = tot_ / ns_
-                    k_ = min(ns_ - 1, int((t - st0_) / sl_))
-                    plan = PLAN.get((sk_, k_), "missing")
-                    if plan is None:
-                        mode = "host"
+
             if mode == "host":
                 fr = ROOM.copy()
                 s = 1.2 * (1 + 0.008 * np.sin(2 * np.pi * t / 3.2))
@@ -658,22 +670,15 @@ def main():
                     fr *= (1 - L * 0.6) + VIG * L * 0.6
             elif mode == "broll" and shot:
                 (st0, _, clip, sk), st1 = shot
-                sl_total = max(st1 - st0, 1e-3)
-                nsub = max(1, int(np.ceil(sl_total / 3.0))); slen = sl_total / nsub
-                ls = t - st0; k = min(nsub - 1, int(ls / slen))
-                key = ("shot", sk, k)
-                p0, variant = plan if plan not in (None, "missing") else (clip.get("start", 0) + k * slen * 1.4, 0)
+                ls = t - st0
+                key = ("shot", sk)
+                p0, speed = PLAN.get(sk, (clip.get("start", 0), 1.0))
                 if key not in readers:
-                    readers[key] = BrollReader(clip["file"], p0 + (ls - k * slen), slen + 0.2)
+                    readers[key] = BrollReader(clip["file"], p0 + ls * speed, max(st1 - t, 0.1), speed, loop=False)
                 fr = readers[key].read().astype(np.float32)
-                if variant:  # mirrored + punched-in so a reused stretch reads as a different shot
-                    fr = fr[:, ::-1]
-                    zz = 1.35; cxv, cyv = W * 0.45, H * 0.42
-                    Mv = np.float32([[zz, 0, cxv * (1 - zz)], [0, zz, cyv * (1 - zz)]])
-                    fr = cv2.warpAffine(np.ascontiguousarray(fr), Mv, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-                sp = (ls - k * slen) / slen
-                dirn = [(1.0, 1.08, 0.0), (1.1, 1.02, 0.0), (1.06, 1.06, 1.0), (1.06, 1.06, -1.0)][(sk + k) % 4]
-                z = dirn[0] + (dirn[1] - dirn[0]) * sp; pan = dirn[2] * (sp - 0.5) * 60
+                sp = ls / max(st1 - st0, 1e-3)
+                dirn = [(1.0, 1.07, 0.0), (1.08, 1.01, 0.0), (1.05, 1.05, 1.0), (1.05, 1.05, -1.0)][sk % 4]
+                z = dirn[0] + (dirn[1] - dirn[0]) * sp; pan = dirn[2] * (sp - 0.5) * 50
                 M = np.float32([[z, 0, W / 2 * (1 - z) + pan], [0, z, H / 2 * (1 - z)]])
                 fr = cv2.warpAffine(fr, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
                 lum = fr.mean(2, keepdims=True); fr = fr * 0.35 + lum * 0.65
