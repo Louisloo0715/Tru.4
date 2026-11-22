@@ -67,14 +67,14 @@ def car_hum(n, seed=12):
     r = _r(seed); t = np.arange(n) / SR
     eng = sum(np.sin(2 * np.pi * f * t + r.random() * 6) * a for f, a in ((31, 1.0), (62, 0.5), (93, 0.25)))
     eng *= 0.85 + 0.15 * np.sin(2 * np.pi * 0.07 * t)
-    road = audio.lp(r.standard_normal(n), 260) * 1.6 + audio.bp(r.standard_normal(n), 500, 1500) * 0.12
+    road = audio.lp(r.standard_normal(n), 260) * 1.0 + audio.bp(r.standard_normal(n), 300, 1800) * 0.9  # tyre/road hiss: audible on phones
     return (eng * 0.35 + road) * (0.9 + 0.1 * np.sin(2 * np.pi * 0.031 * t + 1))
 
 
 def city_night(n, seed=13):
     """distant city at 1 AM: far traffic wash + faint hum"""
     r = _r(seed); t = np.arange(n) / SR
-    wash = audio.bp(r.standard_normal(n), 120, 1800) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.05 * t) ** 2)
+    wash = audio.bp(r.standard_normal(n), 250, 2500) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.05 * t) ** 2)
     hum = np.sin(2 * np.pi * 100 * t) * 0.03
     return wash * 0.5 + hum
 

@@ -322,7 +322,10 @@ def drone(n, seed=4):
         lfo = 0.6 + 0.4 * np.sin(2 * np.pi * (0.05 + r.random() * 0.07) * t + r.random() * 6)
         x += a * lfo * np.sin(2 * np.pi * f * t + r.random() * 6)
     air = audio.bp(r.standard_normal(n), 300, 900) * 0.15 * (0.5 + 0.5 * np.sin(2 * np.pi * 0.07 * t))
-    return (x + air) / 3
+    # mid layer (audible on phones): two beating near-unison pairs, slowly swelling
+    mid = sum(a * np.sin(2 * np.pi * f * t + r.random() * 6) for f, a in ((349.2, 0.35), (370.0, 0.3), (698.5, 0.18), (740.0, 0.15)))
+    mid *= 0.4 + 0.6 * (0.5 + 0.5 * np.sin(2 * np.pi * 0.045 * t)) ** 2
+    return (x + air + mid) / 3
 
 
 def wind(n, seed=5):
