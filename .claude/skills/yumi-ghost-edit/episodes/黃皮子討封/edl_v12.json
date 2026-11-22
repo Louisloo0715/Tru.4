@@ -1,0 +1,2584 @@
+{
+ "audio": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/a48.wav",
+ "transcript": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/transcript.json",
+ "music": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/music/bgm48.wav",
+ "assets": {
+  "room": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/../images/10.webp",
+  "desk": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/char/desk_nomug.png",
+  "sprites": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/char"
+ },
+ "fixes": {
+  "討風": "討封",
+  "吵風": "討封",
+  "撤封": "討封",
+  "撤瘋": "討封",
+  "黃蜀狼": "黃鼠狼",
+  "英國": "因果",
+  "秘密": "玉米",
+  "三角下面": "山腳下面",
+  "主稱": "俗稱",
+  "表認識": "比較認識",
+  "刺雞": "吃雞",
+  "變農": "變龍",
+  "變猛猛": "變蟒蟒",
+  "魚越農門口": "鯉魚躍龍門",
+  "延出法水": "言出法隨",
+  "百靈之爪": "萬物之靈",
+  "瞬悟空": "孫悟空",
+  "修念": "修煉",
+  "藍駕去路": "攔住去路",
+  "胡蒙": "狐獴",
+  "玩意大氣": "玩心大起",
+  "年輕輕生": "年紀輕輕",
+  "一隻一句的縮": "一字一句的說",
+  "男男至於": "喃喃自語",
+  "廟珠": "廟祝",
+  "安不是": "俺不是",
+  "聽出你的老人": "聽村裡的老人",
+  "製作聰明": "自作聰明",
+  "烈狗女": "裂口女",
+  "怪異亂神": "怪力亂神",
+  "訂個月": "訂個閱",
+  "為了這個男人": "問了這個男人",
+  "黃皮子": "黃皮子",
+  "瞬": "孫",
+  "悟": "悟",
+  "風個大的": "封個大的",
+  "鬼鬼": "鬼友們",
+  "就是講這些": "講這些",
+  "瞬間": "瞬間",
+  "一根男人": "一個男人",
+  "在藍駕去路": "攔住去路",
+  "修念多年": "修煉多年",
+  "攔著他路人": "攔住路人",
+  "這下一秒": "下一秒",
+  "大怪風": "怪風",
+  "不要找安齊天": "不要找俺",
+  "安齊天": "俺",
+  "幫他瘋了": "幫他封了",
+  "你到底撤瘋了": "你到底封了",
+  "撤瘋了": "封了",
+  "就似乎你怎樣": "就是看你怎樣",
+  "縮": "說",
+  "應該被黃鼠狼": "應該是被黃鼠狼",
+  "瘋瘋癲癲": "瘋瘋癲癲"
+ },
+ "blocks": [
+  {
+   "src": [
+    [
+     471.4,
+     474.585
+    ],
+    [
+     474.73499999999996,
+     476.29999999999995
+    ]
+   ],
+   "mode": "broll",
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 1,
+     "red": true
+    }
+   ],
+   "light": 0.9,
+   "dread": 0.9,
+   "pip": false,
+   "trans": "fade",
+   "music_at": 118,
+   "music_db": -4,
+   "amb_wind": -26,
+   "cards": [
+    {
+     "src_t": 471.5,
+     "lines": [
+      [
+       "你看我…",
+       "w"
+      ]
+     ],
+     "hold": 1.2
+    },
+    {
+     "src_t": 472.7,
+     "lines": [
+      [
+       "像人…",
+       "w"
+      ]
+     ],
+     "hold": 1.5
+    },
+    {
+     "src_t": 474.4,
+     "lines": [
+      [
+       "還是像神？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -8,
+     "t": 0
+    },
+    {
+     "kind": "whisper",
+     "db": -8,
+     "t": 0.2,
+     "dur": 3.0
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      0.1,
+      4.6
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "gap": 3.2,
+   "mode": "broll",
+   "broll": {
+    "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fogforest.mp4",
+    "start": 1,
+    "red": false
+   },
+   "light": 1.0,
+   "dread": 1,
+   "pip": false,
+   "music_db": -4,
+   "amb_wind": -26,
+   "title": {
+    "line1": "黃皮子討封",
+    "line2": "封成孫悟空？！",
+    "strip": "有人真的這樣回答…"
+   },
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": 3,
+     "t": 0
+    },
+    {
+     "kind": "stinger",
+     "db": -6,
+     "t": 0.05
+    }
+   ],
+   "fade_out": true
+  },
+  {
+   "src": [
+    [
+     0.9,
+     5.7749999999999995
+    ],
+    [
+     5.965000000000001,
+     8.619999999999997
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.35,
+   "light": 0.0,
+   "dread": 0.15,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "trans": "flicker",
+   "music_at": 0,
+   "music_db": -6,
+   "amb_room": -32,
+   "sfx": [
+    {
+     "kind": "buzz",
+     "db": -10,
+     "t": 0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     46.3,
+     50.0
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.35,
+   "light": 0.05,
+   "dread": 0.25,
+   "zoom": [
+    1.2,
+    1.26
+   ],
+   "music_db": -4,
+   "amb_room": -32,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -12,
+     "t": 0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     297.4,
+     300.43999999999994
+    ],
+    [
+     300.53999999999996,
+     308.73999999999995
+    ],
+    [
+     309.4,
+     309.6
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.4,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fogforest.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/grass.mp4",
+     "start": 2,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonforest.mp4",
+     "start": 0,
+     "red": false
+    }
+   ],
+   "light": 0.35,
+   "dread": 0.4,
+   "music_db": -3,
+   "amb_wind": -24,
+   "amb_crickets": -30,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -10,
+     "t": 0
+    },
+    {
+     "kind": "owl",
+     "db": -10,
+     "t": 2.5,
+     "dur": 4.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     310.0,
+     316.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.8,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 2,
+     "red": true
+    }
+   ],
+   "light": 0.5,
+   "dread": 0.55,
+   "music_db": -3,
+   "amb_wind": -24,
+   "cards": [
+    {
+     "src_t": 310.1,
+     "lines": [
+      [
+       "你覺得我像人嗎…",
+       "w"
+      ]
+     ],
+     "hold": 3.1
+    },
+    {
+     "src_t": 313.3,
+     "lines": [
+      [
+       "還是像神呢？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "rustle",
+     "db": -8,
+     "t": 0
+    },
+    {
+     "kind": "hit",
+     "db": -8,
+     "src_t": 313.3
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     348.9,
+     351.49999999999994
+    ],
+    [
+     352.15999999999997,
+     355.8
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.4,
+   "light": 0.3,
+   "dread": 0.35,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "music_db": -4,
+   "amb_room": -32
+  },
+  {
+   "src": [
+    [
+     361.3,
+     364.12500000000006
+    ],
+    [
+     364.155,
+     365.365
+    ],
+    [
+     365.755,
+     373.1
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.45,
+   "light": 0.45,
+   "dread": 0.55,
+   "zoom": [
+    1.15,
+    1.32
+   ],
+   "music_db": -3,
+   "amb_room": -30,
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -12,
+     "src_t": 365.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     418.3,
+     432.1
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.55,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/manfog.mp4",
+     "start": 1,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/forestwalk.mp4",
+     "start": 3,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonforest.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/feet.mp4",
+     "start": 4,
+     "red": false
+    }
+   ],
+   "light": 0.6,
+   "dread": 0.6,
+   "trans": "fade",
+   "music_at": 75,
+   "music_db": -5,
+   "amb_crickets": -26,
+   "amb_wind": -27,
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -10,
+     "t": 0
+    },
+    {
+     "kind": "footsteps",
+     "db": -7,
+     "t": 1.0,
+     "dur": 5.0
+    },
+    {
+     "kind": "owl",
+     "db": -12,
+     "t": 8,
+     "dur": 4.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     432.7,
+     435.24
+    ],
+    [
+     435.32,
+     437.6
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/feet.mp4",
+     "start": 10,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/forestwalk.mp4",
+     "start": 9,
+     "red": false
+    }
+   ],
+   "light": 0.7,
+   "dread": 0.65,
+   "music_db": -5,
+   "amb_crickets": -26,
+   "amb_wind": -27,
+   "sfx": [
+    {
+     "kind": "footsteps",
+     "db": -5,
+     "t": 0,
+     "dur": 5.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     437.6,
+     438.86
+    ],
+    [
+     439.04,
+     442.36
+    ],
+    [
+     442.40000000000003,
+     447.60999999999984
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.6,
+   "light": 0.6,
+   "dread": 0.7,
+   "zoom": [
+    1.1,
+    1.25
+   ],
+   "music_db": -4,
+   "amb_crickets": -34,
+   "sfx": [
+    {
+     "kind": "rustle",
+     "db": -10,
+     "t": 1.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     462.40999999999985,
+     465.1
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonforest.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/grass.mp4",
+     "start": 8,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 9,
+     "red": false
+    }
+   ],
+   "light": 0.75,
+   "dread": 0.75,
+   "music_db": -4,
+   "amb_wind": -28,
+   "sfx": [
+    {
+     "kind": "rustle",
+     "db": -8,
+     "t": 2.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     465.7,
+     469.7
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.9,
+   "light": 0.8,
+   "dread": 0.85,
+   "zoom": [
+    1.35,
+    1.45
+   ],
+   "trans": "flicker",
+   "heartbeat": true,
+   "heartbeat_bpm": 70,
+   "music_db": -4,
+   "sfx": [
+    {
+     "kind": "buzz",
+     "db": -8,
+     "t": 0
+    },
+    {
+     "kind": "reverse",
+     "db": -5,
+     "src_t": 468.0
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      3.91,
+      4.0
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     471.4,
+     476.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 0,
+     "red": true
+    }
+   ],
+   "light": 0.9,
+   "dread": 1,
+   "heartbeat": true,
+   "heartbeat_bpm": 78,
+   "music_db": -4,
+   "amb_wind": -30,
+   "cards": [
+    {
+     "src_t": 471.5,
+     "lines": [
+      [
+       "你看我…",
+       "w"
+      ]
+     ],
+     "hold": 1.2
+    },
+    {
+     "src_t": 472.7,
+     "lines": [
+      [
+       "像人…",
+       "w"
+      ]
+     ],
+     "hold": 1.5
+    },
+    {
+     "src_t": 474.4,
+     "lines": [
+      [
+       "還是像神？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -6,
+     "t": 0.3,
+     "dur": 3.0
+    },
+    {
+     "kind": "stinger",
+     "db": -3,
+     "src_t": 474.4
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      0.0,
+      4.81
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     479.6,
+     479.85
+    ],
+    [
+     479.93,
+     485.49
+    ],
+    [
+     486.03000000000003,
+     486.22999999999985
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.5,
+   "light": 0.65,
+   "dread": 0.6,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "music_db": -5,
+   "amb_crickets": -34
+  },
+  {
+   "src": [
+    [
+     509.92999999999984,
+     510.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.5,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/manfog.mp4",
+     "start": 8,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/feet.mp4",
+     "start": 15,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/forestwalk.mp4",
+     "start": 14,
+     "red": false
+    }
+   ],
+   "light": 0.65,
+   "dread": 0.6,
+   "music_db": -5,
+   "amb_crickets": -28,
+   "amb_wind": -28
+  },
+  {
+   "src": [
+    [
+     513.4,
+     519.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.7,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 3,
+     "red": true
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/grass.mp4",
+     "start": 12,
+     "red": false
+    }
+   ],
+   "light": 0.75,
+   "dread": 0.7,
+   "music_db": -4,
+   "amb_wind": -28,
+   "cards": [
+    {
+     "src_t": 516.9,
+     "lines": [
+      [
+       "你…不像人",
+       "w"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -10,
+     "src_t": 518.3
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     520.5,
+     524.26
+    ],
+    [
+     524.66,
+     526.24
+    ],
+    [
+     526.34,
+     528.6
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.8,
+   "light": 0.7,
+   "dread": 0.7,
+   "zoom": [
+    1.2,
+    1.32
+   ],
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 526.0,
+     "lines": [
+      [
+       "你…也不像神",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -8,
+     "src_t": 527.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     529.5,
+     533.0299999999997
+    ],
+    [
+     536.4299999999998,
+     542.0
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 5,
+     "red": true
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonclouds.mp4",
+     "start": 12,
+     "red": false
+    }
+   ],
+   "light": 0.85,
+   "dread": 0.85,
+   "music_db": -4,
+   "amb_wind": -26,
+   "heartbeat": true,
+   "heartbeat_bpm": 66,
+   "cards": [
+    {
+     "src_t": 537.7,
+     "lines": [
+      [
+       "我像人…",
+       "w"
+      ]
+     ],
+     "hold": 2.0
+    },
+    {
+     "src_t": 539.7,
+     "lines": [
+      [
+       "還是像神呢？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -10,
+     "src_t": 533.0,
+     "dur": 3.0
+    },
+    {
+     "kind": "stinger",
+     "db": -6,
+     "src_t": 539.7
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      3.53,
+      9.03
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     547.4,
+     548.0
+    ],
+    [
+     548.04,
+     551.5
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 1.2,
+   "light": 0.65,
+   "dread": 0.7,
+   "zoom": [
+    1.05,
+    1.12
+   ],
+   "trans": "fade",
+   "music_at": 100,
+   "music_db": -9
+  },
+  {
+   "src": [
+    [
+     552.0,
+     555.76
+    ],
+    [
+     555.82,
+     557.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/manfog.mp4",
+     "start": 2,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/feet.mp4",
+     "start": 20,
+     "red": false
+    }
+   ],
+   "light": 0.7,
+   "dread": 0.7,
+   "music_db": -4,
+   "amb_crickets": -30,
+   "amb_wind": -28
+  },
+  {
+   "src": [
+    [
+     557.4,
+     557.75
+    ],
+    [
+     557.79,
+     562.0
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.7,
+   "light": 0.6,
+   "dread": 0.75,
+   "zoom": [
+    1.3,
+    1.38
+   ],
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 559.5,
+     "lines": [
+      [
+       "孫悟空",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -4,
+     "src_t": 559.5
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     565.0,
+     571.25
+    ],
+    [
+     572.6899999999999,
+     575.0
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/wind.mp4",
+     "start": 4,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/lightning.mp4",
+     "start": 6,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/wind.mp4",
+     "start": 18,
+     "red": false
+    }
+   ],
+   "light": 0.85,
+   "dread": 0.95,
+   "trans": "flash",
+   "music_db": -4,
+   "amb_storm": -9,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": 0,
+     "src_t": 569.1
+    },
+    {
+     "kind": "hit",
+     "db": -6,
+     "src_t": 569.2
+    },
+    {
+     "kind": "gust",
+     "db": -2,
+     "t": 0.4
+    },
+    {
+     "kind": "crack",
+     "db": -4,
+     "t": 4.5
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     576.5,
+     578.55
+    ],
+    [
+     578.85,
+     581.6099999999998
+    ],
+    [
+     584.2099999999998,
+     589.63
+    ],
+    [
+     590.11,
+     590.3899999999999
+    ],
+    [
+     592.2899999999997,
+     597.2
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 1.3,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 0,
+     "red": true
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 5,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonclouds.mp4",
+     "start": 2,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/grass.mp4",
+     "start": 15,
+     "red": false
+    }
+   ],
+   "light": 0.9,
+   "dread": 1,
+   "heartbeat": true,
+   "heartbeat_bpm": 60,
+   "music_at": 118,
+   "music_db": -4,
+   "amb_wind": -26,
+   "sfx": [
+    {
+     "kind": "rustle",
+     "db": -8,
+     "t": 3
+    },
+    {
+     "kind": "whisper",
+     "db": -10,
+     "t": 11,
+     "dur": 3.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     600.2,
+     602.2400000000001
+    ],
+    [
+     602.5400000000001,
+     605.3999999999999
+    ]
+   ],
+   "mode": "black",
+   "max_pause": 1.2,
+   "light": 1.0,
+   "dread": 1,
+   "pip": true,
+   "heartbeat": true,
+   "heartbeat_bpm": 78,
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 600.3,
+     "lines": [
+      [
+       "你知道…",
+       "w"
+      ]
+     ],
+     "hold": 2.0
+    },
+    {
+     "src_t": 603.1,
+     "lines": [
+      [
+       "你在說什麼嗎？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "reverse",
+     "db": -4,
+     "src_t": 601.5
+    },
+    {
+     "kind": "stinger",
+     "db": -2,
+     "src_t": 603.1
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      0.19,
+      4.89
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     614.3999999999999,
+     620.6899999999997
+    ],
+    [
+     623.4899999999998,
+     624.8
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.8,
+   "light": 0.75,
+   "dread": 0.8,
+   "zoom": [
+    1.1,
+    1.2
+   ],
+   "trans": "flicker",
+   "music_db": -4,
+   "amb_room": -30
+  },
+  {
+   "src": [
+    [
+     630.4,
+     632.88
+    ],
+    [
+     632.9399999999999,
+     638.3
+    ],
+    [
+     638.4599999999999,
+     642.0
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 1.0,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 4,
+     "red": true
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 12,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/grass.mp4",
+     "start": 4,
+     "red": false
+    }
+   ],
+   "light": 0.9,
+   "dread": 0.95,
+   "music_db": -4,
+   "amb_wind": -26,
+   "sfx": [
+    {
+     "kind": "rustle",
+     "db": -6,
+     "t": 1.5
+    },
+    {
+     "kind": "reverse",
+     "db": -5,
+     "src_t": 642.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     643.8,
+     649.1
+    ],
+    [
+     650.5,
+     653.49
+    ],
+    [
+     653.77,
+     656.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonclouds.mp4",
+     "start": 6,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 2,
+     "red": false
+    }
+   ],
+   "light": 0.95,
+   "dread": 1,
+   "trans": "flicker",
+   "music_db": -4,
+   "amb_wind": -24,
+   "cards": [
+    {
+     "src_t": 643.9,
+     "lines": [
+      [
+       "有些名字",
+       "w"
+      ],
+      [
+       "不能亂講",
+       "r"
+      ]
+     ],
+     "hold": 4.0
+    },
+    {
+     "src_t": 650.6,
+     "lines": [
+      [
+       "有些因果",
+       "w"
+      ],
+      [
+       "也不能亂背",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -2,
+     "src_t": 647.3
+    },
+    {
+     "kind": "hit",
+     "db": -4,
+     "src_t": 654.1
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      0.41,
+      10.71
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     660.6,
+     664.2
+    ],
+    [
+     665.34,
+     667.54
+    ],
+    [
+     667.5600000000001,
+     671.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.8,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/feet.mp4",
+     "start": 8,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/grass.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/forestwalk.mp4",
+     "start": 16,
+     "red": false
+    }
+   ],
+   "light": 0.85,
+   "dread": 0.95,
+   "heartbeat": true,
+   "heartbeat_bpm": 96,
+   "music_db": -4,
+   "amb_wind": -26
+  },
+  {
+   "src": [
+    [
+     672.4,
+     679.2299999999999
+    ],
+    [
+     680.7900000000001,
+     683.3299999999999
+    ],
+    [
+     683.5500000000001,
+     687.29
+    ],
+    [
+     687.53,
+     690.3299999999999
+    ],
+    [
+     690.49,
+     694.8
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 1.1,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/ferret.mp4",
+     "start": 1,
+     "red": true
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonclouds.mp4",
+     "start": 15,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 7,
+     "red": false
+    }
+   ],
+   "light": 1.0,
+   "dread": 1,
+   "heartbeat": true,
+   "heartbeat_bpm": 84,
+   "music_at": 125,
+   "music_db": -4,
+   "amb_wind": -28,
+   "cards": [
+    {
+     "src_t": 680.9,
+     "lines": [
+      [
+       "你給了我",
+       "w"
+      ]
+     ],
+     "hold": 3.0
+    },
+    {
+     "src_t": 684.1,
+     "lines": [
+      [
+       "承受不起的因果",
+       "r"
+      ]
+     ],
+     "hold": 3.4
+    },
+    {
+     "src_t": 687.7,
+     "lines": [
+      [
+       "這份因果",
+       "w"
+      ]
+     ],
+     "hold": 2.8
+    },
+    {
+     "src_t": 690.6,
+     "lines": [
+      [
+       "就由你…替我還吧",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -8,
+     "t": 1.0,
+     "dur": 3.0
+    },
+    {
+     "kind": "hit",
+     "db": -4,
+     "src_t": 684.1
+    },
+    {
+     "kind": "stinger",
+     "db": -2,
+     "src_t": 693.2
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      6.95,
+      20.05
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     696.3,
+     707.6
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/wind.mp4",
+     "start": 10,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/lightning.mp4",
+     "start": 14,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 14,
+     "red": false
+    }
+   ],
+   "light": 0.9,
+   "dread": 1,
+   "trans": "flash",
+   "music_db": -4,
+   "amb_storm": -8,
+   "sfx": [
+    {
+     "kind": "gust",
+     "db": 0,
+     "t": 0.2
+    },
+    {
+     "kind": "crack",
+     "db": -4,
+     "t": 2.0
+    },
+    {
+     "kind": "hit",
+     "db": -4,
+     "src_t": 706.2
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     710.1,
+     715.47
+    ],
+    [
+     717.03,
+     720.2
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/mistvillage.mp4",
+     "start": 2,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/mistvillage.mp4",
+     "start": 14,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/feet.mp4",
+     "start": 25,
+     "red": false
+    }
+   ],
+   "light": 0.45,
+   "dread": 0.55,
+   "trans": "fade",
+   "music_at": 20,
+   "music_db": -5,
+   "amb_crickets": -36
+  },
+  {
+   "src": [
+    [
+     721.9,
+     727.69
+    ],
+    [
+     728.31,
+     729.8
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/scared.mp4",
+     "start": 2,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/scared2.mp4",
+     "start": 5,
+     "red": false
+    }
+   ],
+   "light": 0.6,
+   "dread": 0.65,
+   "music_db": -4,
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -10,
+     "t": 1.0,
+     "dur": 3.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     730.9,
+     734.47
+    ],
+    [
+     734.4899999999999,
+     735.49
+    ],
+    [
+     736.6099999999999,
+     740.85
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/incense.mp4",
+     "start": 3,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/incense2.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/candle.mp4",
+     "start": 4,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/lanterns.mp4",
+     "start": 3,
+     "red": false
+    }
+   ],
+   "light": 0.6,
+   "dread": 0.65,
+   "music_db": -4,
+   "sfx": [
+    {
+     "t": 0.2,
+     "kind": "bell",
+     "db": -8
+    },
+    {
+     "t": 2.4,
+     "kind": "block",
+     "db": -10
+    }
+   ]
+  },
+  {
+   "gap": 2.0,
+   "mode": "broll",
+   "broll": {
+    "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/candle.mp4",
+    "start": 6
+   },
+   "light": 0.92,
+   "dread": 1,
+   "pip": true,
+   "heartbeat": true,
+   "music_db": -10,
+   "sfx": [
+    {
+     "t": 0.2,
+     "kind": "riser",
+     "db": -4
+    },
+    {
+     "t": 1.75,
+     "kind": "hit",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     759.55,
+     761.15
+    ]
+   ],
+   "max_pause": 0.6,
+   "mode": "broll",
+   "broll": {
+    "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/gem_89056adb.mp4",
+    "start": 6
+   },
+   "light": 0.88,
+   "dread": 0.95,
+   "heartbeat": true,
+   "music_db": -4,
+   "trans": "cut",
+   "sfx": [
+    {
+     "t": 0,
+     "kind": "whisper",
+     "db": -10,
+     "dur": 3.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     764.5,
+     768.94
+    ],
+    [
+     769.78,
+     773.0
+    ]
+   ],
+   "mode": "black",
+   "max_pause": 1.0,
+   "light": 1.0,
+   "dread": 1,
+   "heartbeat": true,
+   "heartbeat_bpm": 90,
+   "music_at": 128,
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 764.6,
+     "lines": [
+      [
+       "俺不是齊天大聖…",
+       "r"
+      ]
+     ],
+     "hold": 3.8
+    },
+    {
+     "src_t": 768.4,
+     "lines": [
+      [
+       "俺不是他…",
+       "w"
+      ]
+     ],
+     "hold": 2.2
+    },
+    {
+     "src_t": 771.4,
+     "lines": [
+      [
+       "不要…不要…",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -6,
+     "t": 0.2,
+     "dur": 3.0
+    },
+    {
+     "kind": "stinger",
+     "db": -3,
+     "src_t": 764.6
+    }
+   ],
+   "voice_fx": [
+    {
+     "t": [
+      0.05,
+      6.75
+     ],
+     "fx": "ghost"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     776.8,
+     778.67
+    ],
+    [
+     779.2699999999999,
+     781.51
+    ],
+    [
+     783.0899999999999,
+     787.11
+    ],
+    [
+     787.6299999999999,
+     793.97
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.9,
+   "light": 0.7,
+   "dread": 0.7,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "trans": "fade",
+   "music_db": -3,
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -10,
+     "src_t": 791.4
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     814.4899999999993,
+     815.0
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.6,
+   "light": 0.5,
+   "dread": 0.5,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "music_at": 0,
+   "music_db": -3
+  },
+  {
+   "src": [
+    [
+     816.0,
+     821.21
+    ],
+    [
+     821.67,
+     824.33
+    ],
+    [
+     825.41,
+     827.2900000000001
+    ],
+    [
+     827.49,
+     829.4300000000001
+    ],
+    [
+     829.4499999999999,
+     831.2900000000001
+    ],
+    [
+     832.15,
+     832.409999999999
+    ],
+    [
+     838.5099999999989,
+     838.73
+    ],
+    [
+     839.53,
+     843.2
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.7,
+   "brolls": [
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/candle.mp4",
+     "start": 0,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/incense.mp4",
+     "start": 10,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/moonclouds.mp4",
+     "start": 18,
+     "red": false
+    },
+    {
+     "file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll/fog.mp4",
+     "start": 15,
+     "red": false
+    }
+   ],
+   "light": 0.6,
+   "dread": 0.6,
+   "music_db": -3,
+   "cards": [
+    {
+     "src_t": 839.4,
+     "lines": [
+      [
+       "你到底封了",
+       "w"
+      ],
+      [
+       "一個什麼東西？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     848.9,
+     853.05
+    ],
+    [
+     853.47,
+     853.99
+    ],
+    [
+     854.27,
+     856.29
+    ],
+    [
+     857.27,
+     858.79
+    ],
+    [
+     858.87,
+     860.3299999999999
+    ],
+    [
+     860.51,
+     862.55
+    ],
+    [
+     864.75,
+     868.43
+    ],
+    [
+     869.01,
+     870.05
+    ],
+    [
+     870.15,
+     874.25
+    ],
+    [
+     874.49,
+     877.75
+    ],
+    [
+     878.29,
+     883.0899999999999
+    ],
+    [
+     884.3299999999999,
+     884.449999999999
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.5,
+   "light": 0.0,
+   "dread": 0.05,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "trans": "flicker",
+   "music_db": -4,
+   "amb_room": -32,
+   "sfx": [
+    {
+     "kind": "buzz",
+     "db": -12,
+     "t": 0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     922.1499999999991,
+     922.29
+    ],
+    [
+     922.39,
+     925.81
+    ],
+    [
+     926.73,
+     928.73
+    ],
+    [
+     929.47,
+     932.79
+    ],
+    [
+     933.9499999999999,
+     935.3199999999999
+    ],
+    [
+     935.3599999999999,
+     936.43
+    ],
+    [
+     937.1899999999999,
+     938.2
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.5,
+   "light": 0.25,
+   "dread": 0.3,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "music_at": 62,
+   "music_db": -4
+  },
+  {
+   "src": [
+    [
+     940.2,
+     940.9800000000001
+    ],
+    [
+     941.36,
+     943.1000000000001
+    ],
+    [
+     943.26,
+     944.5000000000001
+    ],
+    [
+     944.64,
+     946.3800000000001
+    ],
+    [
+     946.52,
+     947.8600000000001
+    ],
+    [
+     947.9,
+     949.1400000000001
+    ],
+    [
+     949.38,
+     950.6
+    ],
+    [
+     963.9,
+     964.1
+    ],
+    [
+     964.14,
+     966.46
+    ],
+    [
+     966.9399999999999,
+     968.16
+    ],
+    [
+     968.8599999999999,
+     969.4
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.4,
+   "light": 0.0,
+   "dread": 0.1,
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "music_db": -4,
+   "amb_room": -32,
+   "fade_out": true
+  }
+ ],
+ "shots": [
+  [
+   0.0,
+   null,
+   "gn_70bbe85a"
+  ],
+  [
+   4.75,
+   null,
+   "gn_7ba67bdf"
+  ],
+  [
+   19.15,
+   "E01_village_night",
+   "fogforest"
+  ],
+  [
+   22.25,
+   null,
+   "g2_3222642e"
+  ],
+  [
+   25.15,
+   null,
+   "gn_a2b50a80"
+  ],
+  [
+   27.55,
+   null,
+   "gn_f9a76d12"
+  ],
+  [
+   28.95,
+   null,
+   "gn_35423fc9"
+  ],
+  [
+   30.65,
+   null,
+   "gem_ca11f2c9"
+  ],
+  [
+   54.65,
+   null,
+   "moonlight_forest"
+  ],
+  [
+   56.45,
+   "M01_walk_back",
+   "g2_a74c1b7a"
+  ],
+  [
+   58.15,
+   null,
+   "g2_a74c1b7a"
+  ],
+  [
+   60.55,
+   null,
+   "moonclouds"
+  ],
+  [
+   63.55,
+   "E02_dirt_road_night",
+   "creepy_road_drive"
+  ],
+  [
+   66.05,
+   null,
+   "moonforest"
+  ],
+  [
+   68.45,
+   "M02_walk_side",
+   "g2_a74c1b7a"
+  ],
+  [
+   70.55,
+   null,
+   "feet"
+  ],
+  [
+   71.75,
+   null,
+   "gn_7ba67bdf"
+  ],
+  [
+   81.45,
+   null,
+   "gn_a2b50a80"
+  ],
+  [
+   83.05,
+   null,
+   "gn_f9a76d12"
+  ],
+  [
+   89.75,
+   null,
+   "g2_f81ecf0a"
+  ],
+  [
+   100.75,
+   null,
+   "host"
+  ],
+  [
+   101.25,
+   "M03_crouch_tease",
+   "gn_27a16a60"
+  ],
+  [
+   104.75,
+   null,
+   "gem_ca11f2c9"
+  ],
+  [
+   114.85,
+   null,
+   "gn_48ae167c"
+  ],
+  [
+   118.35,
+   null,
+   "gem_f720fc5a"
+  ],
+  [
+   127.95,
+   "M04_grin",
+   "gem_a9caff03"
+  ],
+  [
+   131.55,
+   "M03_crouch_tease",
+   "gn_27a16a60"
+  ],
+  [
+   137.85,
+   null,
+   "host"
+  ],
+  [
+   142.05,
+   "E03_storm_trees",
+   "wind"
+  ],
+  [
+   143.15,
+   "E04_lightning_mountains",
+   "lightning"
+  ],
+  [
+   144.25,
+   "E03_storm_trees",
+   "wind"
+  ],
+  [
+   146.45,
+   null,
+   "gn_48ae167c"
+  ],
+  [
+   151.25,
+   null,
+   "gn_48ae167c"
+  ],
+  [
+   153.65,
+   null,
+   "fog"
+  ],
+  [
+   156.95,
+   null,
+   "gn_70bbe85a"
+  ],
+  [
+   160.05,
+   null,
+   "g2_f81ecf0a"
+  ],
+  [
+   166.76,
+   "M05_laugh",
+   null
+  ],
+  [
+   171.25,
+   "M03_crouch_tease",
+   "gn_27a16a60"
+  ],
+  [
+   173.05,
+   null,
+   "host"
+  ],
+  [
+   174.35,
+   null,
+   "gem_ca11f2c9"
+  ],
+  [
+   179.75,
+   null,
+   "gem_42a92be3"
+  ],
+  [
+   182.75,
+   null,
+   "g2_3222642e"
+  ],
+  [
+   185.75,
+   null,
+   "moonclouds"
+  ],
+  [
+   190.95,
+   null,
+   "fog"
+  ],
+  [
+   196.65,
+   "M06_frozen_fear",
+   "gem_bc103dd3"
+  ],
+  [
+   200.45,
+   "M07_legs_stuck",
+   "young_man_street"
+  ],
+  [
+   202.35,
+   "M07_legs_stuck",
+   "feet"
+  ],
+  [
+   204.55,
+   "M06_frozen_fear",
+   "gem_bc103dd3"
+  ],
+  [
+   206.35,
+   null,
+   "gn_70bbe85a"
+  ],
+  [
+   208.85,
+   null,
+   "gem_f720fc5a"
+  ],
+  [
+   213.25,
+   "G15_shadow_monkey",
+   "g2_f81ecf0a"
+  ],
+  [
+   226.55,
+   "E03_storm_trees",
+   "g2_4d4495ca"
+  ],
+  [
+   228.85,
+   "E04_lightning_mountains",
+   "lightning"
+  ],
+  [
+   231.75,
+   "E02_dirt_road_night",
+   "g2_4d4495ca"
+  ],
+  [
+   234.75,
+   null,
+   "g2_4d4495ca"
+  ],
+  [
+   237.85,
+   null,
+   "man_misty_dawn"
+  ],
+  [
+   239.85,
+   null,
+   "g2_46067e42"
+  ],
+  [
+   240.85,
+   "M08_dazed_dawn",
+   "gem_89056adb"
+  ],
+  [
+   243.55,
+   "M08_dazed_dawn",
+   "gem_89056adb"
+  ],
+  [
+   246.35,
+   "M11_carried_home",
+   "g2_46067e42"
+  ],
+  [
+   248.75,
+   "M09_muttering",
+   "man_dark_room"
+  ],
+  [
+   252.35,
+   "M09_muttering",
+   "scared"
+  ],
+  [
+   253.65,
+   "E05_temple_exterior",
+   "g2_b6b6fdba"
+  ],
+  [
+   255.85,
+   null,
+   "incense_smoke"
+  ],
+  [
+   258.25,
+   null,
+   "g2_b6b6fdba"
+  ],
+  [
+   260.95,
+   "M10_temple_eyes",
+   "g2_fa89753c"
+  ],
+  [
+   262.45,
+   null,
+   "candle"
+  ],
+  [
+   264.45,
+   "M09_muttering",
+   "gem_89056adb"
+  ],
+  [
+   277.8,
+   null,
+   "g2_be16fa21"
+  ],
+  [
+   281.6,
+   null,
+   "host"
+  ],
+  [
+   288.7,
+   null,
+   "host"
+  ],
+  [
+   296.2,
+   null,
+   "fog"
+  ],
+  [
+   300.3,
+   null,
+   "candle"
+  ],
+  [
+   304.2,
+   null,
+   "fog"
+  ]
+ ],
+ "subs_file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/subs_v12.json",
+ "vecteezy_dir": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/user_new",
+ "broll_dir": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll",
+ "red_clips": [
+  "ferret"
+ ],
+ "cstart": {
+  "ferret": 0.5,
+  "fog": 3,
+  "moonclouds": 5,
+  "fogforest": 1,
+  "manfog": 2,
+  "moonforest": 0.5,
+  "forestwalk": 3,
+  "feet": 5,
+  "wind": 4,
+  "lightning": 5,
+  "mistvillage": 3,
+  "scared": 2,
+  "scared2": 4,
+  "incense": 3,
+  "incense2": 0.5,
+  "candle": 3,
+  "grass": 2,
+  "gem_f720fc5a": 1,
+  "gem_aadd781b": 3,
+  "gem_ca11f2c9": 1,
+  "gem_cddad139": 1,
+  "gem_42a92be3": 1,
+  "gem_a9caff03": 0.5,
+  "gem_bc103dd3": 1,
+  "gem_89056adb": 1,
+  "moonlight_forest": 1,
+  "young_man_street": 2,
+  "spooky_man_walking": 2,
+  "creepy_road_drive": 1,
+  "many_animal_eyes": 1,
+  "man_misty_dawn": 0.5,
+  "man_dark_room": 2,
+  "shrine_altar": 1,
+  "incense_smoke": 2,
+  "gn_70bbe85a": 4,
+  "gn_7ba67bdf": 2,
+  "gn_a2b50a80": 0.5,
+  "gn_f9a76d12": 2,
+  "gn_35423fc9": 1,
+  "gn_48ae167c": 1,
+  "gn_27a16a60": 0.5,
+  "g2_3222642e": 1,
+  "g2_a74c1b7a": 1,
+  "g2_f81ecf0a": 1,
+  "g2_4d4495ca": 1,
+  "g2_46067e42": 1,
+  "g2_b6b6fdba": 1,
+  "g2_fa89753c": 2,
+  "g2_be16fa21": 1
+ },
+ "sfx_files": {
+  "hit": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_impact.wav",
+  "riser": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_riser.wav",
+  "reverse": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_riser.wav",
+  "crack": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_branch_break.wav",
+  "bell": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_temple_bell.wav",
+  "block": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_temple_block.wav",
+  "whisper": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_whisper.wav",
+  "owl": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_owl.wav",
+  "rustle": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_rustle.wav",
+  "footsteps": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_footsteps.wav"
+ },
+ "bed_files": {
+  "crickets": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_crickets.wav",
+  "wind": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_wind.wav",
+  "storm": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_wind.wav"
+ },
+ "heartbeat_file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_heartbeat.wav",
+ "vstart": {
+  "M03_crouch_tease": 1,
+  "M06_frozen_fear": 1,
+  "M08_dazed_dawn": 1,
+  "M09_muttering": 1.5,
+  "M10_temple_eyes": 3.5,
+  "G15_shadow_monkey": 0.5,
+  "E02_dirt_road_night": 1,
+  "E03_storm_trees": 0.5,
+  "E04_lightning_mountains": 0.2
+ }
+}

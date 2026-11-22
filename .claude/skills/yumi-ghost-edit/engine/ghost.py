@@ -19,10 +19,12 @@ EDL:
      "title": {"line1": "...", "line2": "...", "strip": "..."},
      "trans": "cut" | "flicker" | "flash" | "fade",
      "sfx": [{"t": 0.0 | "src_t": 569.1, "kind": "hit", "db": 0}],
-     "dread": 0..1                                 # drone / wind level
+     "dread": 0..1,                                # drone / wind level
+     "voice_fx": [{"src": [a, b] | "t": [a, b], "fx": "ghost" | "old" | "whisper"}]   # character voice (timing kept)
     }, ...],
   "fixes": {"wrong": "right", ...}
 }
+subs_file entries: [t0, t1, "text"]; wrap words in {braces} for emphasis (red, bigger, pop-in + shake).
 """
 import json, os, subprocess, sys, tempfile
 import numpy as np, cv2
@@ -160,18 +162,60 @@ def subtitle_lines(edl, tl, maxc=14):
     return out
 
 
+EMPH_RED = (232, 34, 38)
+
+
 def sub_layer(text):
-    f = gfx.font(gfx.TC_SANS, 58)
-    mask = gfx.text_mask(text, f, tracking=3)
-    img = gfx.solid(mask, (244, 242, 236))
-    a = mask.filter(__import__("PIL.ImageFilter", fromlist=["x"]).MaxFilter(7))
-    edge = gfx.solid(a, (10, 8, 10), 235)
-    pad = 6
-    out = Image.new("RGBA", (img.width + 2 * pad, img.height + 2 * pad), (0, 0, 0, 0))
-    out.alpha_composite(edge, (pad - 3, pad - 3) if False else (pad, pad))
-    out.alpha_composite(img, (pad, pad))
+    """Bottom subtitle. Words wrapped in {braces} are emphasis: blood red, 1.2x, with red glow (and pop-in, see draw)."""
+    from PIL import ImageDraw, ImageFilter
+    segs, emph = [], False
+    for part in text.replace("}", "{").split("{"):
+        if part:
+            segs.append((part, emph))
+        emph = not emph
+    f0, f1 = gfx.font(gfx.TC_SANS, 58), gfx.font(gfx.TC_SANS, 70)
+    tr = 3
+    tw = sum(sum((f1 if e else f0).getlength(c) + tr for c in t) for t, e in segs) + 80
+    asc = f1.getmetrics()[0]
+    cw, ch = int(tw), asc + f1.getmetrics()[1] + 80
+    mn, me = Image.new("L", (cw, ch), 0), Image.new("L", (cw, ch), 0)
+    dn, de = ImageDraw.Draw(mn), ImageDraw.Draw(me)
+    x, base = 40, 40 + asc
+    for t, e in segs:
+        f, d = (f1, de) if e else (f0, dn)
+        for c in t:
+            d.text((x, base), c, font=f, fill=255, anchor="ls")
+            x += f.getlength(c) + tr
+    both = Image.fromarray(np.maximum(np.array(mn), np.array(me)))
+    bb = both.getbbox() or (0, 0, 1, 1)
+    bb = (bb[0] - 4, bb[1] - 4, bb[2] + 4, bb[3] + 4)
+    mn, me, both = mn.crop(bb), me.crop(bb), both.crop(bb)
+    pad = 10
+    out = Image.new("RGBA", (both.width + 2 * pad, both.height + 2 * pad), (0, 0, 0, 0))
+    out.alpha_composite(gfx.solid(both.filter(ImageFilter.MaxFilter(7)), (10, 8, 10), 235), (pad, pad))
+    if any(e for _, e in segs):
+        g = gfx.solid(me.filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.GaussianBlur(6)), EMPH_RED, 170)
+        out.alpha_composite(g, (pad, pad))
+    out.alpha_composite(gfx.solid(mn, (244, 242, 236)), (pad, pad))
+    out.alpha_composite(gfx.solid(me, EMPH_RED), (pad, pad))
     out = gfx.shadowed(out, 6, (0, 4), 200)
-    return gfx.to_layer(out, W / 2, H - 92)
+    L = gfx.to_layer(out, W / 2, H - 92)
+    L.emph = any(e for _, e in segs)
+    return L
+
+
+def draw_sub(fr, L, k):
+    """k = seconds since the subtitle appeared. Emphasis lines pop in (1.35x -> 1x) and shake briefly."""
+    img = L.rgba.astype(np.float32)
+    if not getattr(L, "emph", False) or k >= 0.35:
+        over(fr, img, L.x, L.y); return
+    sc = 1 + 0.35 * max(0.0, 1 - k / 0.22) ** 2
+    jx = int(round(np.sin(k * 90) * 6 * (1 - k / 0.35)))
+    h, w = img.shape[:2]
+    if sc > 1.001:
+        img = cv2.resize(img, (int(w * sc), int(h * sc)), interpolation=cv2.INTER_LINEAR)
+    cx, cy = L.x + w / 2, L.y + h / 2
+    over(fr, img, int(cx - img.shape[1] / 2) + jx, int(cy - img.shape[0] / 2))
 
 
 # ============================================================ graphics
@@ -325,6 +369,32 @@ def movavg(x, k):
     return (c[hi] - c[lo]) / np.maximum(hi - lo, 1)
 
 
+VOICE_FX = {
+    # pitch factor (<1 = lower), ffmpeg tail filters. Timing is preserved (asetrate + atempo), so lip-sync/subs stay put.
+    "ghost": (0.84, "aecho=0.8:0.75:70|140|260:0.35|0.25|0.15,lowpass=f=5200,highpass=f=90,volume=1.25"),
+    "old": (0.92, "aecho=0.8:0.5:40:0.15,lowpass=f=4500,volume=1.1"),
+    "whisper": (1.0, "highpass=f=900,aecho=0.8:0.8:90|180:0.4|0.3,volume=1.6"),
+}
+
+
+def apply_voice_fx(v, spans, tmp):
+    """spans: [(out_t0, out_t1, preset)]. Processes each span with VOICE_FX and crossfades it back in (40 ms)."""
+    for i, (t0, t1, name) in enumerate(spans):
+        pf, tail = VOICE_FX[name]
+        a, b = max(0, int((t0 - 0.05) * SR)), min(len(v), int((t1 + 0.35) * SR))  # +reverb tail
+        fin, fout = os.path.join(tmp, f"vfx{i}.wav"), os.path.join(tmp, f"vfx{i}o.wav")
+        render.write_wav(fin, v[a:b, None])
+        chain = (f"asetrate={int(SR * pf)},aresample={SR},atempo={1 / pf:.5f}," if pf != 1.0 else "") + tail
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", fin, "-af", chain, fout], check=True)
+        y = render.read_wav(fout)[:, 0]
+        y = np.pad(y, (0, max(0, b - a - len(y))))[:b - a]
+        y *= (np.sqrt(np.mean(v[a:b] ** 2)) + 1e-9) / (np.sqrt(np.mean(y ** 2)) + 1e-9)  # keep loudness
+        w = np.ones(b - a); xf = int(0.04 * SR)
+        w[:xf] = np.linspace(0, 1, xf); w[-xf:] = np.linspace(1, 0, xf)
+        v[a:b] = v[a:b] * (1 - w) + y * w
+    return v
+
+
 def build_audio(edl, tl, voice, tmp):
     SFX_FILES.update(edl.get("sfx_files", {}))
     n = int(tl.dur * SR) + SR
@@ -342,6 +412,15 @@ def build_audio(edl, tl, voice, tmp):
     v = render.read_wav(vout)[:, 0][:n]
     if len(v) < n:
         v = np.pad(v, (0, n - len(v)))
+    spans = []
+    for bi_, bl in enumerate(tl.blocks):
+        for f_ in bl.get("voice_fx", []):
+            if "t" in f_:
+                spans.append((bl["t0"] + f_["t"][0], bl["t0"] + f_["t"][1], f_["fx"]))
+            else:
+                spans.append((tl.src2out(f_["src"][0], bi_), tl.src2out(f_["src"][1], bi_), f_["fx"]))
+    if spans:
+        v = apply_voice_fx(v, spans, tmp)
     e = audio.rms_env(v); act = 20 * np.log10(e + 1e-12) > -38
     speech = np.median(e[act]) if act.any() else 0.05
     # dread envelope per sample from blocks
@@ -769,7 +848,7 @@ def main():
             if not title_on:
                 for a, b, Ls in subs:
                     if a <= t < b:
-                        over(fr, Ls.rgba.astype(np.float32), Ls.x, Ls.y)
+                        draw_sub(fr, Ls, t - a)
             out = np.clip(fr, 0, 255).astype(np.uint8)
             if still_frames is not None:
                 pth = os.path.splitext(out_path)[0] + f"_still_{t:07.2f}.jpg"
