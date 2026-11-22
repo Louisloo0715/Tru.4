@@ -739,6 +739,8 @@ def main():
             if shot:
                 mode = shot[0][1]
 
+            if mode == "broll" and not shot and not (bl.get("brolls") or bl.get("broll")):
+                mode = "host"  # broll block whose footage is not available yet: show the host instead of crashing
             if mode == "host":
                 fr = ROOM.copy()
                 s = 1.2 * (1 + 0.008 * np.sin(2 * np.pi * t / 3.2))
