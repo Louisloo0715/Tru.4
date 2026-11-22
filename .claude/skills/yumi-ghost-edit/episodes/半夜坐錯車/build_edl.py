@@ -60,7 +60,7 @@ blocks = [
     blk([[183.0, 187.9]], max_pause=0.8, light=0.6, dread=0.65, zoom=[1.2, 1.32], music_db=-5, amb_car=-24,
         sfx=[sfx("riser", src_t=185.0, db=-10)]),
     blk([[188.8, 189.1], [191.4, 194.1], [195.6, 198.1]], "broll", max_pause=0.7, light=0.65, dread=0.65, music_db=-5, amb_car=-20),
-    blk([[206.2, 211.2], [228.2, 228.7], [230.2, 233.8]], max_pause=0.5, light=0.55, dread=0.55, zoom=[1.0, 1.08],
+    blk([[206.2, 211.2], [228.2, 228.7], [230.2, 234.7]], max_pause=0.5, light=0.55, dread=0.55, zoom=[1.0, 1.08],
         music_db=-6, amb_car=-24),
     blk([[244.5, 252.0]], "broll", max_pause=0.8, light=0.75, dread=0.75, music_db=-5, amb_car=-20, heartbeat=True, heartbeat_bpm=64),
     # ---------------- the reveal
@@ -111,6 +111,15 @@ blocks = [
     blk([[556.9, 558.9], [561.0, 567.0], [584.1, 587.4]], max_pause=0.4, light=0.0, dread=0.1, zoom=[1.0, 1.03], trans="flicker",
         music_at=0, music_db=-8, amb_room=-32, fade_out=True),
 ]
+# smooth host camera: a host block that directly follows another host block (no flicker/flash) continues its zoom
+prev = None
+for b in blocks:
+    if b.get("mode", "host") == "host" and "zoom" in b and "src" in b:
+        if prev is not None and b.get("trans", "cut") == "cut":
+            z0, z1 = b["zoom"]; b["zoom"] = [prev, prev + (z1 - z0)]
+        prev = b["zoom"][1]
+    else:
+        prev = None
 ep1 = json.load(open(SK + "/episodes/黃皮子討封/edl_v12.json"))
 edl = dict(audio=E + "/a48.wav", transcript=E + "/transcript.json", music=E + "/music/bgm_urban.wav",
            assets=dict(room=SK + "/assets/studio/room.webp", desk=SK + "/assets/studio/desk.webp", sprites=SK + "/assets/mascot"),
