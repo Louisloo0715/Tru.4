@@ -17,6 +17,7 @@ EDL:
      "pip": true,                                  # mascot window during broll/black
      "cards": [{"src_t": 471.5 | "t": 0.2 (block-local), "lines": [["你看我", "w"], ["像神？", "r"]], "hold": "block"}],
      "title": {"line1": "...", "line2": "...", "strip": "..."},
+     "chapter": {"text": "凌晨一點的那輛車", "kicker": "玉米親身經歷"},   # plain black/white story card (use on a gap block)
      "trans": "cut" | "flicker" | "flash" | "fade",
      "sfx": [{"t": 0.0 | "src_t": 569.1, "kind": "hit", "db": 0}],
      "dread": 0..1,                                # drone / wind level
@@ -270,6 +271,22 @@ def title_image(line1, line2, strip):
         st = gfx.solid(gfx.text_mask(strip, gfx.font(gfx.TC_SERIF, 56), 8), (34, 22, 12))
         s.alpha_composite(st, ((820 - st.width) // 2, (96 - st.height) // 2))
         out.alpha_composite(s, ((w - 820) // 2, t1.height + t2.height - 130))
+    return np.array(out).astype(np.float32)
+
+
+def chapter_image(text, kicker=None):
+    """Plain story-chapter card: clean white serif on black, optional small grey kicker above."""
+    main = gfx.solid(gfx.text_mask(text, gfx.font(gfx.TC_SERIF, 96), 10), (240, 238, 232))
+    parts = [main]
+    if kicker:
+        parts.insert(0, gfx.solid(gfx.text_mask(kicker, gfx.font(gfx.TC_SERIF, 40), 14), (150, 148, 144)))
+    w = max(p_.width for p_ in parts) + 40; gap = 34
+    hgt = sum(p_.height for p_ in parts) + gap * (len(parts) - 1) + 70
+    out = Image.new("RGBA", (w, hgt), (0, 0, 0, 0)); y = 20
+    for p_ in parts:
+        out.alpha_composite(p_, ((w - p_.width) // 2, y)); y += p_.height + gap
+    if kicker:  # thin rule under the main line
+        d = ImageDraw.Draw(out); d.line([(w // 2 - 60, hgt - 20), (w // 2 + 60, hgt - 20)], fill=(150, 148, 144, 200), width=2)
     return np.array(out).astype(np.float32)
 
 
@@ -610,7 +627,7 @@ def main():
 
         # ---- per-block graphics
         cards = []  # (t0, t1, img)
-        titles = []
+        titles = []; chapters = []
         for bi, bl in enumerate(tl.blocks):
             for ci, c in enumerate(bl.get("cards", [])):
                 t0 = bl["t0"] + c["t"] if "t" in c else tl.src2out(c["src_t"], bi)
@@ -618,6 +635,8 @@ def main():
                 cards.append((t0, t1, card_image(c["lines"], seed=bi * 10 + ci)))
             if "title" in bl:
                 T = bl["title"]; titles.append((bl["t0"], bl["t1"], title_image(T["line1"], T["line2"], T.get("strip"))))
+            if "chapter" in bl:
+                C = bl["chapter"]; chapters.append((bl["t0"], bl["t1"], chapter_image(C["text"], C.get("kicker"))))
         sub_src = json.load(open(edl["subs_file"])) if edl.get("subs_file") else subtitle_lines(edl, tl)
         subs = [(a, b, sub_layer(t)) for a, b, t in sub_src]
         # ---- per-line shot list: [t_out, want, fallback]; want = Vecteezy file stem, fallback = clip name | host | black | None
@@ -734,7 +753,7 @@ def main():
             if blinks[fi] and L < 0.85:
                 c = c * (1 - EM) + SPR["blink"] * EM
             mode = bl.get("mode", "host")
-            shot = None if bl.get("title") else shot_at(t, bl)
+            shot = None if (bl.get("title") or bl.get("chapter")) else shot_at(t, bl)
             plan = None
             if shot:
                 mode = shot[0][1]
@@ -808,7 +827,7 @@ def main():
             # grain everywhere it is dark-ish
             fr += GRAIN[fi % 6] * (5 + 9 * L)
             # pip mascot during broll/black
-            if mode != "host" and bl.get("pip", True) and not bl.get("title"):
+            if mode != "host" and bl.get("pip", True) and not bl.get("title") and not bl.get("chapter"):
                 face = c[110:450, 92:432]
                 face = cv2.resize(face, (PIP_D, PIP_D), interpolation=cv2.INTER_AREA)
                 x0, y0 = PIP_C[0] - PIP_D // 2, PIP_C[1] - PIP_D // 2
@@ -826,6 +845,10 @@ def main():
                     sc = 1.22 - 0.22 * min(1, dt / 0.12)
                     im = scale(img, sc * 0.82)
                     over(fr, im, W // 2 - im.shape[1] // 2 + sh[0], H // 2 - 40 - im.shape[0] // 2 + sh[1], min(1, dt / 0.05))
+            for t0, t1, img in chapters:
+                if t0 <= t < t1:
+                    a_ = max(0.0, min(1.0, (t - t0) / 0.45, (t1 - t) / 0.45))
+                    over(fr, img, W // 2 - img.shape[1] // 2, H // 2 - img.shape[0] // 2, a_)
             for t0, t1, img in cards:
                 if t0 <= t < t1:
                     dt = t - t0
@@ -847,7 +870,7 @@ def main():
                 fr *= max(0, (bl["t1"] - t) / 0.6)
             if mode == "host" and not bl.get("title"):
                 over(fr, TAG, 40, 30, 0.95)
-            title_on = any(t0 <= t < t1 for t0, t1, _ in titles)
+            title_on = any(t0 <= t < t1 for t0, t1, _ in titles + chapters)
             if not title_on:
                 for a, b, Ls in subs:
                     if a <= t < b:
