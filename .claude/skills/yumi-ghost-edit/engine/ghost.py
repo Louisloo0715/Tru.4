@@ -20,7 +20,7 @@ EDL:
      "trans": "cut" | "flicker" | "flash" | "fade",
      "sfx": [{"t": 0.0 | "src_t": 569.1, "kind": "hit", "db": 0}],
      "dread": 0..1,                                # drone / wind level
-     "voice_fx": [{"src": [a, b] | "t": [a, b], "fx": "ghost" | "old" | "whisper"}]   # character voice (timing kept)
+     "voice_fx": [{"src": [a, b] | "t": [a, b], "fx": "ghost" | "old" | "whisper" | "phone"}]   # character voice (timing kept)
     }, ...],
   "fixes": {"wrong": "right", ...}
 }
@@ -374,6 +374,7 @@ VOICE_FX = {
     "ghost": (0.84, "aecho=0.8:0.75:70|140|260:0.35|0.25|0.15,lowpass=f=5200,highpass=f=90,volume=1.25"),
     "old": (0.92, "aecho=0.8:0.5:40:0.15,lowpass=f=4500,volume=1.1"),
     "whisper": (1.0, "highpass=f=900,aecho=0.8:0.8:90|180:0.4|0.3,volume=1.6"),
+    "phone": (1.0, "highpass=f=380,lowpass=f=3200,acompressor=threshold=-22dB:ratio=4:makeup=2,volume=1.2"),
 }
 
 

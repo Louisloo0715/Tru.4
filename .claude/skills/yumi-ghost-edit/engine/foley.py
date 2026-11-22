@@ -62,7 +62,24 @@ def room_tone(n, seed=4):
     return audio.lp(_r(seed).standard_normal(n), 400) * 0.08
 
 
-BEDS = {"crickets": crickets, "wind": forest_wind, "storm": storm, "room": room_tone}
+def car_hum(n, seed=12):
+    """inside a moving car at night: low engine drone + tyre/road rumble, slowly breathing"""
+    r = _r(seed); t = np.arange(n) / SR
+    eng = sum(np.sin(2 * np.pi * f * t + r.random() * 6) * a for f, a in ((31, 1.0), (62, 0.5), (93, 0.25)))
+    eng *= 0.85 + 0.15 * np.sin(2 * np.pi * 0.07 * t)
+    road = audio.lp(r.standard_normal(n), 260) * 1.6 + audio.bp(r.standard_normal(n), 500, 1500) * 0.12
+    return (eng * 0.35 + road) * (0.9 + 0.1 * np.sin(2 * np.pi * 0.031 * t + 1))
+
+
+def city_night(n, seed=13):
+    """distant city at 1 AM: far traffic wash + faint hum"""
+    r = _r(seed); t = np.arange(n) / SR
+    wash = audio.bp(r.standard_normal(n), 120, 1800) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.05 * t) ** 2)
+    hum = np.sin(2 * np.pi * 100 * t) * 0.03
+    return wash * 0.5 + hum
+
+
+BEDS = {"crickets": crickets, "wind": forest_wind, "storm": storm, "room": room_tone, "car": car_hum, "city": city_night}
 
 
 # ---------------- one-shots
@@ -125,5 +142,30 @@ def silence_drop():
     return x
 
 
-ONESHOTS = {"footsteps": footsteps, "owl": owl, "rustle": rustle, "whisper": whisper,
+def car_door(seed=14):
+    """car door closing: latch click + body thump"""
+    r = _r(seed); n = int(0.7 * SR); t = np.arange(n) / SR
+    thump = audio.lp(r.standard_normal(n), 180) * np.exp(-t * 14) * 3
+    body = np.sin(2 * np.pi * 70 * t) * np.exp(-t * 18)
+    click = audio.hp(r.standard_normal(n), 2500) * np.exp(-t * 90) * 0.6
+    x = reverb(thump + body + click, 0.3, 0.15)[:n]
+    return x / (np.abs(x).max() + 1e-9) * 0.9
+
+
+def vibrate(times=3, seed=15):
+    """phone vibrating (buzz bursts on a hard surface)"""
+    on, off = 0.42, 0.38; L = int(times * (on + off) * SR); t = np.arange(L) / SR
+    gate = ((t % (on + off)) < on).astype(float); gate = _box(gate, 300)
+    buzz = np.sign(np.sin(2 * np.pi * 168 * t)) * 0.5 + np.sin(2 * np.pi * 336 * t) * 0.3
+    return audio.lp(buzz, 1800) * gate * 0.5
+
+
+def ringback(rings=2):
+    """outgoing-call ringback tone (425 Hz, 1 s on / 2 s off), phone-speaker band-limited"""
+    L = int(rings * 3.0 * SR); t = np.arange(L) / SR
+    gate = _box(((t % 3.0) < 1.0).astype(float), 400)
+    return audio.bp(np.sin(2 * np.pi * 425 * t), 300, 3400) * gate * 0.35
+
+
+ONESHOTS = {"car_door": car_door, "vibrate": vibrate, "ringback": ringback, "footsteps": footsteps, "owl": owl, "rustle": rustle, "whisper": whisper,
             "crack": crack, "gust": gust, "reverse": silence_drop}
