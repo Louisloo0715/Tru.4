@@ -694,7 +694,9 @@ def main():
                 nxt = min([a_ for a_, b_ in iv if a_ > c0] + [L_])
                 return max(0.0, nxt - c0)
             cands = sorted(set([base, 0.0] + [b_ for a_, b_ in iv]))
-            best = max(cands, key=lambda c: (free_from(c) >= need, -c if free_from(c) >= need else free_from(c)))
+            # prefer the requested start (vstart/cstart) when it has enough fresh footage, else the earliest fresh stretch
+            best = max(cands, key=lambda c: (free_from(c) >= need, c == base and free_from(c) >= need,
+                                             -c if free_from(c) >= need else free_from(c)))
             avail = free_from(best)
             if avail >= need:
                 start, speed = best, 1.0                      # enough fresh footage: real time

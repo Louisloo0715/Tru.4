@@ -58,6 +58,8 @@ pip install opencv-python-headless scipy pypinyin faster-whisper fonttools brotl
    - 每句畫面**從頭連續播完**：不切段跳來跳去、不鏡像翻轉、不循環（使用者明確不要「來回放」）。同一支素材用在相鄰幾句時接著往下播。
    - 素材不夠長就**放慢**（最慢 0.45×），放慢時用 minterpolate 動態補幀到 30fps，避免一頓一頓（實測純放慢 40% 是重複幀，補幀後 0%）。真的用完才重播，並用 `PLAN_DEBUG=1` 印出計畫檢查是否有 replay。
    - 完全相同的檔案要先合併成同一個名字（`cmp` 檢查）。
+   - 使用者上傳的 Gemini 檔名常是 `gemini_generated_video_xxxx.mp4`：下載後抽 1/5/9 秒做對照表，自己認出是哪個 N 鏡頭，在 `vecteezy_dir` 用 symlink 命名（同一支可以 symlink 成兩個名字，例如來電畫面＋未接來電清單，用 `vstart` 指定不同起點）。
+   - 分鏡時間錨在「那句字幕的開始」；若落在 block 開頭前 0.6 秒內，要對齊到 block 開頭，否則會變成 0.1 秒的閃鏡（第二集 v5 修過）。
    - 注意：`--stills` 抽圖時同一鏡頭只有第一張時間準確，檢查放慢/長鏡頭要用 `--range a,b` 真的算一小段。
 7. **算圖**：
    ```bash
