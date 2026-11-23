@@ -1,0 +1,1570 @@
+{
+ "audio": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ep2/a48.wav",
+ "transcript": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ep2/transcript.json",
+ "music": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ep2/music/bgm_eerie.wav",
+ "assets": {
+  "room": "/home/user/Tru.4/.claude/skills/yumi-ghost-edit/assets/studio/room.webp",
+  "desk": "/home/user/Tru.4/.claude/skills/yumi-ghost-edit/assets/studio/desk.webp",
+  "sprites": "/home/user/Tru.4/.claude/skills/yumi-ghost-edit/assets/mascot"
+ },
+ "fixes": {
+  "GRAD": "Grab",
+  "GRA D": "Grab",
+  "上坐車": "上錯車",
+  "時機": "司機",
+  "位置來電": "未接來電",
+  "是水啊": "是誰啊",
+  "埋人": "馬來人",
+  "大屋農": "大烏龍",
+  "大武龍": "大烏龍",
+  "烤牙": "靠腰",
+  "玉米中": "玉米就",
+  "媽媽烈烈": "罵罵咧咧",
+  "習慣是": "奇怪的是",
+  "論了一下": "愣了一下",
+  "目的去了": "墓地去了",
+  "實際": "司機",
+  "買我的聲音": "用馬來文",
+  "兩車": "輛車",
+  "跳這一個": "聽到這個"
+ },
+ "blocks": [
+  {
+   "src": [
+    [
+     462.1,
+     464.52500000000003
+    ],
+    [
+     464.755,
+     465.225
+    ],
+    [
+     466.675,
+     469.42
+    ]
+   ],
+   "mode": "black",
+   "light": 0.95,
+   "dread": 0.9,
+   "pip": true,
+   "trans": "fade",
+   "music_at": 118,
+   "music_db": -5,
+   "amb_car": -30,
+   "cards": [
+    {
+     "src_t": 462.2,
+     "lines": [
+      [
+       "是誰…",
+       "w"
+      ]
+     ],
+     "hold": 1.0
+    },
+    {
+     "src_t": 463.1,
+     "lines": [
+      [
+       "在三更半夜",
+       "w"
+      ]
+     ],
+     "hold": 3.4
+    },
+    {
+     "src_t": 466.6,
+     "lines": [
+      [
+       "要司機送他去墓地？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -4,
+     "t": 0
+    },
+    {
+     "kind": "whisper",
+     "db": -8,
+     "t": 0.3
+    },
+    {
+     "kind": "stinger",
+     "db": -2,
+     "src_t": 468.3
+    }
+   ]
+  },
+  {
+   "gap": 3.2,
+   "mode": "black",
+   "light": 1.0,
+   "dread": 1,
+   "pip": false,
+   "music_db": -4,
+   "title": {
+    "line1": "半夜坐錯車",
+    "line2": "司機把我載去墓地？！",
+    "strip": "玉米親身經歷"
+   },
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": 3,
+     "t": 0
+    },
+    {
+     "kind": "stinger",
+     "db": -6,
+     "t": 0.05
+    }
+   ],
+   "fade_out": true
+  },
+  {
+   "src": [
+    [
+     3.1,
+     4.6
+    ],
+    [
+     11.6,
+     16.8
+    ],
+    [
+     18.9,
+     21.675000000000004
+    ],
+    [
+     21.764999999999997,
+     25.4
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.35,
+   "light": 0.0,
+   "dread": 0.1,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "trans": "flicker",
+   "music_at": 0,
+   "music_db": -6,
+   "amb_room": -32,
+   "sfx": [
+    {
+     "kind": "buzz",
+     "db": -8,
+     "t": 0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     36.78,
+     43.6
+    ],
+    [
+     45.6,
+     45.800000000000004
+    ],
+    [
+     45.839999999999996,
+     49.80000000000001
+    ],
+    [
+     50.44,
+     55.64
+    ],
+    [
+     55.7,
+     61.2
+    ],
+    [
+     61.2,
+     61.64
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.4,
+   "light": 0.15,
+   "dread": 0.3,
+   "zoom": [
+    1.04,
+    1.1400000000000001
+   ],
+   "music_db": -5,
+   "amb_room": -32,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -6,
+     "t": 0
+    }
+   ]
+  },
+  {
+   "gap": 2.6,
+   "mode": "black",
+   "light": 1.0,
+   "dread": 0.3,
+   "pip": false,
+   "music_db": -8,
+   "chapter": {
+    "kicker": "那天晚上",
+    "text": "凌晨一點的那輛車"
+   },
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -8,
+     "t": 0
+    },
+    {
+     "kind": "hit",
+     "db": -10,
+     "t": 0.05
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     62.8,
+     70.9
+    ],
+    [
+     71.7,
+     74.88499999999999
+    ],
+    [
+     74.97500000000001,
+     76.9
+    ],
+    [
+     77.7,
+     84.16499999999999
+    ],
+    [
+     84.215,
+     85.53
+    ],
+    [
+     92.17,
+     96.0
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.45,
+   "light": 0.3,
+   "dread": 0.35,
+   "trans": "fade",
+   "music_db": -6,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -8,
+     "t": 0
+    }
+   ],
+   "amb_city": -22
+  },
+  {
+   "src": [
+    [
+     98.45,
+     105.0
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.6,
+   "light": 0.35,
+   "dread": 0.45,
+   "zoom": [
+    1.2,
+    1.3
+   ],
+   "music_db": -5,
+   "amb_room": -32,
+   "sfx": [
+    {
+     "kind": "reverse",
+     "db": -6,
+     "src_t": 103.7
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     120.1,
+     122.66999999999999
+    ],
+    [
+     122.91,
+     125.62
+    ],
+    [
+     129.4,
+     132.09
+    ],
+    [
+     132.13,
+     132.7
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.5,
+   "light": 0.35,
+   "dread": 0.4,
+   "music_db": -6,
+   "amb_city": -22
+  },
+  {
+   "src": [
+    [
+     134.9,
+     136.94000000000003
+    ],
+    [
+     136.98,
+     141.4
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "light": 0.4,
+   "dread": 0.45,
+   "music_db": -6,
+   "cards": [
+    {
+     "src_t": 140.0,
+     "lines": [
+      [
+       "車牌：",
+       "w"
+      ],
+      [
+       "5124",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "reverse",
+     "db": -8,
+     "src_t": 139.5
+    },
+    {
+     "kind": "hit",
+     "db": -6,
+     "src_t": 140.0
+    }
+   ],
+   "amb_city": -22
+  },
+  {
+   "src": [
+    [
+     144.4,
+     148.6
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.5,
+   "light": 0.4,
+   "dread": 0.45,
+   "music_db": -6,
+   "sfx": [
+    {
+     "kind": "car_door",
+     "db": -1,
+     "src_t": 148.4
+    }
+   ],
+   "amb_city": -24
+  },
+  {
+   "src": [
+    [
+     150.6,
+     151.58999999999997
+    ],
+    [
+     151.87,
+     153.42999999999998
+    ],
+    [
+     153.89,
+     158.45
+    ],
+    [
+     158.8,
+     161.66
+    ],
+    [
+     166.57,
+     168.13
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.7,
+   "light": 0.5,
+   "dread": 0.55,
+   "trans": "cut",
+   "music_at": 70,
+   "music_db": -5,
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -10,
+     "src_t": 157.0
+    },
+    {
+     "kind": "hit",
+     "db": -10,
+     "src_t": 158.0
+    }
+   ],
+   "amb_car": -16
+  },
+  {
+   "src": [
+    [
+     172.3,
+     177.28000000000003
+    ],
+    [
+     177.8,
+     179.12000000000003
+    ],
+    [
+     179.54,
+     182.36
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "light": 0.5,
+   "dread": 0.5,
+   "music_db": -6,
+   "amb_car": -16
+  },
+  {
+   "src": [
+    [
+     183.0,
+     183.9
+    ],
+    [
+     184.7,
+     187.9
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.8,
+   "light": 0.6,
+   "dread": 0.65,
+   "zoom": [
+    1.2,
+    1.32
+   ],
+   "music_db": -5,
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -5,
+     "src_t": 185.0
+    }
+   ],
+   "amb_car": -20
+  },
+  {
+   "src": [
+    [
+     188.8,
+     189.18
+    ],
+    [
+     191.4,
+     194.1
+    ],
+    [
+     195.6,
+     198.1
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.7,
+   "light": 0.65,
+   "dread": 0.65,
+   "music_db": -5,
+   "sfx": [
+    {
+     "kind": "reverse",
+     "db": -8,
+     "src_t": 195.6
+    }
+   ],
+   "amb_car": -16,
+   "heartbeat": true,
+   "heartbeat_bpm": 62
+  },
+  {
+   "src": [
+    [
+     206.2,
+     208.17
+    ],
+    [
+     208.35,
+     209.41
+    ],
+    [
+     209.48999999999998,
+     211.2
+    ],
+    [
+     228.2,
+     229.35
+    ],
+    [
+     230.18,
+     234.7
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.5,
+   "light": 0.55,
+   "dread": 0.55,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "music_db": -6,
+   "amb_car": -18
+  },
+  {
+   "src": [
+    [
+     244.5,
+     247.52
+    ],
+    [
+     247.6,
+     252.03
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.8,
+   "light": 0.75,
+   "dread": 0.75,
+   "music_db": -5,
+   "heartbeat": true,
+   "heartbeat_bpm": 64,
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -6,
+     "t": 4.0
+    }
+   ],
+   "amb_car": -16
+  },
+  {
+   "src": [
+    [
+     253.7,
+     256.9
+    ],
+    [
+     257.3,
+     259.6
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 1.0,
+   "light": 0.85,
+   "dread": 0.95,
+   "trans": "flash",
+   "music_at": 118,
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 258.2,
+     "lines": [
+      [
+       "這不是墓園嗎？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": 0,
+     "src_t": 258.8
+    },
+    {
+     "kind": "stinger",
+     "db": -3,
+     "src_t": 258.9
+    },
+    {
+     "kind": "whisper",
+     "db": -6,
+     "t": 1.5
+    }
+   ],
+   "amb_crickets": -20,
+   "amb_wind": -26
+  },
+  {
+   "src": [
+    [
+     267.5,
+     269.57
+    ],
+    [
+     275.9,
+     287.95
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "light": 0.8,
+   "dread": 0.85,
+   "music_db": -5,
+   "sfx": [
+    {
+     "kind": "owl",
+     "db": -10,
+     "t": 3.0
+    },
+    {
+     "kind": "whisper",
+     "db": -10,
+     "t": 8.0
+    }
+   ],
+   "amb_crickets": -20,
+   "amb_wind": -24
+  },
+  {
+   "src": [
+    [
+     292.4,
+     294.22
+    ],
+    [
+     296.6,
+     301.8
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.7,
+   "light": 0.8,
+   "dread": 0.85,
+   "zoom": [
+    1.2,
+    1.35
+   ],
+   "trans": "flicker",
+   "music_db": -5,
+   "heartbeat": true,
+   "heartbeat_bpm": 72,
+   "amb_car": -20
+  },
+  {
+   "src": [
+    [
+     307.3,
+     309.94
+    ],
+    [
+     315.85,
+     317.8
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 1.1,
+   "light": 0.95,
+   "dread": 1,
+   "music_db": -4,
+   "heartbeat": true,
+   "heartbeat_bpm": 80,
+   "cards": [
+    {
+     "src_t": 315.9,
+     "lines": [
+      [
+       "你的 APP 設的目的地…",
+       "w"
+      ]
+     ],
+     "hold": 2.4
+    },
+    {
+     "src_t": 317.3,
+     "lines": [
+      [
+       "就是這裡",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "reverse",
+     "db": -2,
+     "src_t": 315.8
+    },
+    {
+     "kind": "stinger",
+     "db": 0,
+     "src_t": 317.3
+    }
+   ],
+   "amb_car": -20
+  },
+  {
+   "src": [
+    [
+     319.9,
+     324.3
+    ],
+    [
+     324.6,
+     331.09
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "light": 0.7,
+   "dread": 0.7,
+   "trans": "cut",
+   "music_at": 70,
+   "music_db": -5,
+   "sfx": [
+    {
+     "kind": "vibrate",
+     "db": -2,
+     "src_t": 326.5
+    },
+    {
+     "kind": "stinger",
+     "db": -4,
+     "src_t": 329.1
+    }
+   ],
+   "cards": [
+    {
+     "src_t": 329.1,
+     "lines": [
+      [
+       "7 通未接來電",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "amb_car": -20
+  },
+  {
+   "src": [
+    [
+     332.2,
+     337.27
+    ],
+    [
+     338.0,
+     339.40000000000003
+    ],
+    [
+     339.84,
+     344.51
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.6,
+   "light": 0.7,
+   "dread": 0.7,
+   "music_db": -6,
+   "sfx": [
+    {
+     "kind": "ringback",
+     "db": -6,
+     "src_t": 333.4
+    }
+   ],
+   "amb_car": -20
+  },
+  {
+   "src": [
+    [
+     355.6,
+     360.73
+    ],
+    [
+     360.79,
+     363.17
+    ],
+    [
+     363.19,
+     364.8
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.5,
+   "light": 0.7,
+   "dread": 0.7,
+   "music_db": -6,
+   "voice_fx": [
+    {
+     "src": [
+      355.5,
+      364.9
+     ],
+     "fx": "phone"
+    }
+   ],
+   "amb_car": -22
+  },
+  {
+   "src": [
+    [
+     367.18,
+     370.48
+    ],
+    [
+     371.18,
+     377.08
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.6,
+   "light": 0.6,
+   "dread": 0.6,
+   "zoom": [
+    1.1,
+    1.2
+   ],
+   "music_db": -6,
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -8,
+     "src_t": 375.5
+    }
+   ],
+   "amb_car": -24
+  },
+  {
+   "src": [
+    [
+     380.0,
+     383.57
+    ],
+    [
+     390.68,
+     392.1
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.6,
+   "light": 0.05,
+   "dread": 0.05,
+   "zoom": [
+    1.3,
+    1.35
+   ],
+   "trans": "flicker",
+   "music_at": 0,
+   "music_db": -7,
+   "amb_room": -32,
+   "cards": [
+    {
+     "src_t": 390.7,
+     "lines": [
+      [
+       "上錯車了！",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -8,
+     "src_t": 391.3
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     393.5,
+     395.5
+    ],
+    [
+     397.96,
+     399.88
+    ],
+    [
+     400.7,
+     407.53
+    ],
+    [
+     408.0,
+     410.68
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.5,
+   "light": 0.1,
+   "dread": 0.05,
+   "music_db": -7,
+   "amb_room": -34,
+   "cards": [
+    {
+     "src_t": 404.0,
+     "lines": [
+      [
+       "要搭：",
+       "w"
+      ],
+      [
+       "5142",
+       "w"
+      ]
+     ],
+     "hold": 2.0
+    },
+    {
+     "src_t": 406.2,
+     "lines": [
+      [
+       "上了：",
+       "w"
+      ],
+      [
+       "5124",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     413.55,
+     418.2
+    ],
+    [
+     421.6,
+     423.68500000000006
+    ],
+    [
+     423.775,
+     425.3
+    ],
+    [
+     430.0,
+     437.5
+    ],
+    [
+     439.4,
+     442.14
+    ],
+    [
+     443.4,
+     445.21
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.45,
+   "light": 0.05,
+   "dread": 0.05,
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "music_db": -8,
+   "amb_room": -32
+  },
+  {
+   "src": [
+    [
+     446.0,
+     449.27
+    ],
+    [
+     449.41,
+     452.6
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.9,
+   "light": 0.6,
+   "dread": 0.6,
+   "trans": "fade",
+   "music_at": 118,
+   "music_db": -6,
+   "amb_room": -30,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -8,
+     "t": 0
+    },
+    {
+     "kind": "reverse",
+     "db": -8,
+     "t": 4.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     454.5,
+     455.43
+    ],
+    [
+     456.87,
+     458.35999999999996
+    ],
+    [
+     458.46000000000004,
+     460.1
+    ],
+    [
+     461.2,
+     465.65
+    ],
+    [
+     466.25,
+     469.42
+    ]
+   ],
+   "mode": "black",
+   "max_pause": 1.3,
+   "light": 1.0,
+   "dread": 1,
+   "pip": true,
+   "heartbeat": true,
+   "heartbeat_bpm": 86,
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 456.9,
+     "lines": [
+      [
+       "如果我上錯車了…",
+       "w"
+      ]
+     ],
+     "hold": 3.2
+    },
+    {
+     "src_t": 462.2,
+     "lines": [
+      [
+       "那麼是誰",
+       "w"
+      ]
+     ],
+     "hold": 1.2
+    },
+    {
+     "src_t": 463.1,
+     "lines": [
+      [
+       "在三更半夜",
+       "w"
+      ]
+     ],
+     "hold": 3.4
+    },
+    {
+     "src_t": 466.6,
+     "lines": [
+      [
+       "要司機送他去墓地？",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "whisper",
+     "db": -6,
+     "t": 0.5
+    },
+    {
+     "kind": "reverse",
+     "db": -2,
+     "src_t": 461.0
+    },
+    {
+     "kind": "stinger",
+     "db": 0,
+     "src_t": 468.3
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     480.7,
+     482.9
+    ],
+    [
+     485.08,
+     486.61
+    ],
+    [
+     486.93,
+     487.81
+    ],
+    [
+     488.3,
+     491.51
+    ],
+    [
+     492.2,
+     494.2
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.8,
+   "light": 0.75,
+   "dread": 0.75,
+   "zoom": [
+    1.1,
+    1.2
+   ],
+   "music_db": -5,
+   "amb_room": -30
+  },
+  {
+   "src": [
+    [
+     495.4,
+     498.14
+    ],
+    [
+     500.7,
+     503.99
+    ],
+    [
+     508.3,
+     512.46
+    ],
+    [
+     513.2,
+     514.44
+    ],
+    [
+     515.2,
+     517.4
+    ],
+    [
+     518.6,
+     521.54
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 0.7,
+   "light": 0.75,
+   "dread": 0.75,
+   "music_db": -5,
+   "amb_room": -30,
+   "cards": [
+    {
+     "src_t": 518.6,
+     "lines": [
+      [
+       "付了兩次錢",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -5,
+     "src_t": 519.5
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     529.3,
+     532.07
+    ],
+    [
+     533.79,
+     535.06
+    ],
+    [
+     535.4,
+     540.19
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.8,
+   "light": 0.85,
+   "dread": 0.85,
+   "zoom": [
+    1.2,
+    1.32
+   ],
+   "music_db": -5,
+   "sfx": [
+    {
+     "kind": "riser",
+     "db": -6,
+     "src_t": 537.5
+    }
+   ],
+   "heartbeat": true,
+   "heartbeat_bpm": 72
+  },
+  {
+   "src": [
+    [
+     542.1,
+     543.23
+    ],
+    [
+     545.7,
+     548.5
+    ]
+   ],
+   "mode": "black",
+   "max_pause": 1.2,
+   "light": 1.0,
+   "dread": 1,
+   "pip": true,
+   "heartbeat": true,
+   "heartbeat_bpm": 90,
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 545.7,
+     "lines": [
+      [
+       "玉米上車啊…",
+       "w"
+      ]
+     ],
+     "hold": 0.9
+    },
+    {
+     "src_t": 546.6,
+     "lines": [
+      [
+       "他也上車了呢",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "reverse",
+     "db": -2,
+     "src_t": 545.5
+    },
+    {
+     "kind": "whisper",
+     "db": -6,
+     "t": 0.2
+    },
+    {
+     "kind": "car_door",
+     "db": 0,
+     "src_t": 548.3
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     550.1,
+     551.77
+    ],
+    [
+     552.6,
+     555.3
+    ]
+   ],
+   "mode": "broll",
+   "max_pause": 1.0,
+   "light": 0.95,
+   "dread": 1,
+   "music_db": -4,
+   "cards": [
+    {
+     "src_t": 552.9,
+     "lines": [
+      [
+       "在他們的世界",
+       "w"
+      ]
+     ],
+     "hold": 1.1
+    },
+    {
+     "src_t": 554.0,
+     "lines": [
+      [
+       "也可以叫 Grab",
+       "r"
+      ]
+     ],
+     "hold": "block"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "hit",
+     "db": -4,
+     "src_t": 554.0
+    },
+    {
+     "kind": "stinger",
+     "db": 0,
+     "src_t": 554.0
+    }
+   ]
+  },
+  {
+   "src": [
+    [
+     556.9,
+     557.5400000000001
+    ],
+    [
+     557.6199999999999,
+     558.9099999999996
+    ],
+    [
+     584.1,
+     587.6
+    ]
+   ],
+   "mode": "host",
+   "max_pause": 0.4,
+   "light": 0.0,
+   "dread": 0.1,
+   "zoom": [
+    1.0,
+    1.03
+   ],
+   "trans": "flicker",
+   "music_at": 0,
+   "music_db": -8,
+   "amb_room": -32,
+   "fade_out": true,
+   "sfx": [
+    {
+     "kind": "whoosh",
+     "db": -8,
+     "t": 0
+    }
+   ]
+  }
+ ],
+ "vecteezy_dir": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ep2/user_new",
+ "broll_dir": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/broll",
+ "sfx_files": {
+  "hit": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_impact.wav",
+  "riser": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_riser.wav",
+  "reverse": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_riser.wav"
+ },
+ "heartbeat_file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ghost/vecteezy_raw/sfx_heartbeat.wav",
+ "subs_file": "/tmp/claude-0/-home-user-Tru-4/2d998eab-2db9-557d-9134-cc55da10a66b/scratchpad/ep2/subs_v6.json",
+ "shots": [
+  [
+   46.68,
+   "N01_office_late",
+   "host"
+  ],
+  [
+   59.77,
+   "N02_wait_roadside",
+   "host"
+  ],
+  [
+   67.59,
+   "N07_highway_night",
+   "host"
+  ],
+  [
+   78.05,
+   "N02_wait_roadside",
+   "host"
+  ],
+  [
+   84.35,
+   "N03_car_arrives",
+   "car_headlamps_dark"
+  ],
+  [
+   86.65,
+   "N04_plate_5124",
+   "host"
+  ],
+  [
+   93.05,
+   "N03_car_arrives",
+   "host"
+  ],
+  [
+   97.25,
+   "N05_driver_back",
+   "host"
+  ],
+  [
+   104.15,
+   "N11_rearview_eyes",
+   "host"
+  ],
+  [
+   107.11,
+   "N05_driver_back",
+   "host"
+  ],
+  [
+   108.78,
+   "N07_highway_night",
+   "host"
+  ],
+  [
+   122.0,
+   "N08_dark_road",
+   "host"
+  ],
+  [
+   137.99,
+   "N08_dark_road",
+   "host"
+  ],
+  [
+   141.91,
+   "N09_car_stops",
+   "host"
+  ],
+  [
+   145.44,
+   "N09_car_stops",
+   "host"
+  ],
+  [
+   148.63,
+   "N10_malay_cemetery",
+   "host"
+  ],
+  [
+   172.08,
+   "N11_rearview_eyes",
+   "host"
+  ],
+  [
+   174.53,
+   "N05_driver_back",
+   "host"
+  ],
+  [
+   176.71,
+   "N11_rearview_eyes",
+   "host"
+  ],
+  [
+   181.17,
+   "N12_phone_missed",
+   "host"
+  ],
+  [
+   187.56,
+   "N13_phone_call",
+   "host"
+  ],
+  [
+   222.01,
+   "N14_app_plate",
+   "host"
+  ],
+  [
+   231.21,
+   "N04_plate_5124",
+   "host"
+  ],
+  [
+   255.75,
+   "N15_bed_ceiling",
+   "host"
+  ],
+  [
+   283.71,
+   "N15_bed_ceiling",
+   "host"
+  ],
+  [
+   289.57,
+   "N10_malay_cemetery",
+   "host"
+  ],
+  [
+   293.67,
+   "N14_app_plate",
+   "host"
+  ],
+  [
+   313.04,
+   "N16_door_opens",
+   "host"
+  ],
+  [
+   314.55,
+   "N17_empty_seat",
+   "host"
+  ]
+ ],
+ "vstart": {
+  "N12_phone_missed": 6.0,
+  "N13_phone_call": 2.5,
+  "N03_car_arrives": 1.0,
+  "N09_car_stops": 2.0,
+  "N16_door_opens": 1.0
+ }
+}
