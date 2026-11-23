@@ -79,7 +79,27 @@ def city_night(n, seed=13):
     return wash * 0.5 + hum
 
 
-BEDS = {"crickets": crickets, "wind": forest_wind, "storm": storm, "room": room_tone, "car": car_hum, "city": city_night}
+def comic_bed(n, seed=16):
+    """bouncy comedy loop (pizzicato bass + plucked major-key melody, 128 bpm) for the "relief" beat"""
+    r = _r(seed); out = np.zeros(n); beat = 60 / 128
+    bass = [130.81, 196.0, 174.61, 196.0]                      # C G F G
+    mel = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880.0, 698.46, 523.25, 659.25, 783.99, 1046.5, 987.77, 783.99, 587.33, 0]
+    def pluck(f, dur, amp):
+        L = int(dur * SR); tt = np.arange(L) / SR
+        return (np.sin(2 * np.pi * f * tt) + 0.4 * np.sin(4 * np.pi * f * tt) + 0.2 * np.sin(6 * np.pi * f * tt)) * np.exp(-tt * 9) * amp
+    i, k = 0, 0
+    while i < n:
+        b = bass[(k // 2) % 4]; x = pluck(b, beat * 0.9, 0.55); out[i:i + len(x)] += x[:n - i]
+        f = mel[k % len(mel)]
+        if f:
+            x = pluck(f, beat * 0.5, 0.32); j = i + int(beat * 0.5 * SR); out[j:j + len(x)] += x[:max(0, n - j)]
+        if k % 2 == 1:  # off-beat tick
+            L = int(0.02 * SR); out[i:i + L] += audio.hp(r.standard_normal(min(L, n - i)), 5000) * 0.15
+        i += int(beat * SR); k += 1
+    return audio.hp(out, 100)
+
+
+BEDS = {"comic": comic_bed, "crickets": crickets, "wind": forest_wind, "storm": storm, "room": room_tone, "car": car_hum, "city": city_night}
 
 
 # ---------------- one-shots
@@ -167,5 +187,21 @@ def ringback(rings=2):
     return audio.bp(np.sin(2 * np.pi * 425 * t), 300, 3400) * gate * 0.35
 
 
-ONESHOTS = {"car_door": car_door, "vibrate": vibrate, "ringback": ringback, "footsteps": footsteps, "owl": owl, "rustle": rustle, "whisper": whisper,
+def scratch(seed=17):
+    """record scratch: the horror music gets yanked off"""
+    r = _r(seed); n = int(0.45 * SR); t = np.arange(n) / SR
+    f = 300 + 2200 * np.abs(np.sin(2 * np.pi * 3.2 * t))      # back-and-forth pitch
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    x = np.sin(ph) * audio.bp(r.standard_normal(n), 800, 6000) * 0.6 + np.sign(np.sin(ph)) * 0.25
+    return audio.bp(x, 200, 7000) * np.minimum(1, (n - np.arange(n)) / (0.05 * SR)) * 0.9
+
+
+def boing(seed=18):
+    """cartoon boing for the punchline"""
+    n = int(0.6 * SR); t = np.arange(n) / SR
+    f = 180 + 120 * np.sin(2 * np.pi * 9 * t) * np.exp(-t * 4)
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 4) * 0.8
+
+
+ONESHOTS = {"scratch": scratch, "boing": boing, "car_door": car_door, "vibrate": vibrate, "ringback": ringback, "footsteps": footsteps, "owl": owl, "rustle": rustle, "whisper": whisper,
             "crack": crack, "gust": gust, "reverse": silence_drop}

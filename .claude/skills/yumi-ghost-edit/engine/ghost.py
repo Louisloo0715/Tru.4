@@ -488,7 +488,7 @@ def build_audio(edl, tl, voice, tmp):
         bed = bed * speech * audio.db(mlev) * duck
         bed_music = bed.copy()
     dl = np.clip(dread - 0.55, 0, 1) * 2
-    dr = drone(n); bed += dr / (np.sqrt(np.mean(dr ** 2)) + 1e-9) * speech * audio.db(-26) * dl * duck
+    dr = drone(n); bed += dr / (np.sqrt(np.mean(dr ** 2)) + 1e-9) * speech * audio.db(edl.get("drone_db", -26)) * dl * duck
     # ambience beds
     for name, fn in foley.BEDS.items():
         lev = env_from("amb_" + name)
